@@ -1,0 +1,32 @@
+PODS:
+  - EAIntroView (2.13.0):
+    - EARestrictedScrollView (~> 1.1.0)
+  - EARestrictedScrollView (1.1.0)
+  - Google-Mobile-Ads-SDK (11.12.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleUserMessagingPlatform (2.7.0)
+  - SwiftyStoreKit (0.16.1)
+
+DEPENDENCIES:
+  - EAIntroView
+  - Google-Mobile-Ads-SDK
+  - SwiftyStoreKit
+
+SPEC REPOS:
+  trunk:
+    - EAIntroView
+    - EARestrictedScrollView
+    - Google-Mobile-Ads-SDK
+    - GoogleUserMessagingPlatform
+    - SwiftyStoreKit
+
+SPEC CHECKSUMS:
+  EAIntroView: 9adedfc6b5c3fd3ebe19766da01dae573e6ce053
+  EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
+  Google-Mobile-Ads-SDK: 3a76704456669fbed2057efc8bdb99050ad0e3fb
+  GoogleUserMessagingPlatform: a8b56893477f67212fbc8411c139e61d463349f5
+  SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
+
+PODFILE CHECKSUM: a0f011b0803aa4efba05c749dfca72caefd9ff3e
+
+COCOAPODS: 1.16.2

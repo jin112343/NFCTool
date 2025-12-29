@@ -42,11 +42,19 @@ enum LocalizationManager {
         case writeURLConfirmation
     }
     
-    static func message(_ key: MessageKey, language: String = Locale.current.languageCode ?? "en") -> String {
-        return messageTranslations[language]?[key.rawValue] ?? messageTranslations["en"]?[key.rawValue] ?? key.rawValue
+    static func message(_ key: MessageKey, language: String? = nil) -> String {
+        let lang: String
+        if let language = language {
+            lang = language
+        } else if #available(iOS 16, *) {
+            lang = Locale.current.language.languageCode?.identifier ?? "en"
+        } else {
+            lang = Locale.current.languageCode ?? "en"
+        }
+        return messageTranslations[lang]?[key.rawValue] ?? messageTranslations["en"]?[key.rawValue] ?? key.rawValue
     }
     
-    static func urlWriteSuccessMessage(_ url: String, language: String = Locale.current.languageCode ?? "en") -> String {
+    static func urlWriteSuccessMessage(_ url: String, language: String? = nil) -> String {
         let baseMessage = message(.urlWriteSuccess, language: language)
         return "\(baseMessage): \(url)"
     }
@@ -1201,7 +1209,6 @@ final class ViewController3: UIViewController {
         let defaults = UserDefaults.standard
         if defaults.bool(forKey: Constants.UserDefaults.firstLaunchKey) {
             defaults.set(false, forKey: Constants.UserDefaults.firstLaunchKey)
-            defaults.synchronize()
             performSegue(withIdentifier: "nfc", sender: nil)
         }
     }

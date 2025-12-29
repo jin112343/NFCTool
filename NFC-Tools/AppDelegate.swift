@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyStoreKit
 import GoogleMobileAds
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // Firebase初期化
+        FirebaseApp.configure()
+
         //広告
         GADMobileAds.sharedInstance().start(completionHandler: nil)
         
@@ -32,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 case .failed, .purchasing, .deferred:
                     break // do nothing
                 @unknown default:
-                    fatalError()
+                    break // 未知の状態は無視
                 }
             }
         }

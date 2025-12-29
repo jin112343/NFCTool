@@ -6,6 +6,7 @@ target 'NFC-Tools' do
   pod 'SwiftyStoreKit'
   pod 'Google-Mobile-Ads-SDK'
   pod 'EAIntroView'
+  pod 'FirebaseFirestore'
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|

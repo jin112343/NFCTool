@@ -14,28 +14,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let window = UIWindow(windowScene: scene as! UIWindowScene)
+        guard let windowScene = scene as? UIWindowScene else { return }
+
+        let window = UIWindow(windowScene: windowScene)
         self.window = window
-        window.makeKeyAndVisible()
-        
-        
-        let storybord = UIStoryboard(name: "Main", bundle: nil)
-        if let Tutorial = UserDefaults.standard.value(forKey: "Tutorial") as? Int {
-            if Tutorial == 1 {
-                let mainVC = storybord.instantiateViewController(withIdentifier: "ViewController")
-                let nav = UINavigationController(rootViewController: mainVC)
-                window.rootViewController = nav
-            } else {
-                let mainVC = storybord.instantiateViewController(withIdentifier: "TutorialViewController")
-                window.rootViewController = mainVC
-            }
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let tutorial = UserDefaults.standard.object(forKey: "Tutorial") as? Int, tutorial == 1 {
+            let mainVC = storyboard.instantiateViewController(withIdentifier: "ViewController")
+            let nav = UINavigationController(rootViewController: mainVC)
+            window.rootViewController = nav
         } else {
-            let mainVC = storybord.instantiateViewController(withIdentifier: "TutorialViewController")
+            let mainVC = storyboard.instantiateViewController(withIdentifier: "TutorialViewController")
             window.rootViewController = mainVC
         }
-        
-        
-        guard let _ = (scene as? UIWindowScene) else { return }
+
+        window.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

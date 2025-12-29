@@ -17,90 +17,97 @@ protocol CatchProtcol {
 }
 
 class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
-    
+
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
-    
-    
+
+    private let productID = "8721897482"
+
     var delegate:CatchProtcol?
-    
+
     var count:Int = 0
-    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchProductPrice()
+    }
+
+    /// ストアから価格情報を取得してボタンに表示
+    private func fetchProductPrice() {
+        SwiftyStoreKit.retrieveProductsInfo([productID]) { [weak self] result in
+            guard let self = self else { return }
+
+            if let product = result.retrievedProducts.first {
+                // 価格をローカライズされた形式で取得
+                let priceString = product.localizedPrice ?? "---"
+                DispatchQueue.main.async {
+                    self.removeButton.setTitle("広告を非表示にする \(priceString)", for: .normal)
+                }
+            } else if let error = result.error {
+                debugPrint("価格取得エラー: \(error.localizedDescription)")
+            }
+        }
+    }
+
     @IBAction func removeAdAction(_ sender: Any) {
-        
-        purchase(PRODUCT_ID: "8721897482")
+
+        purchase(PRODUCT_ID: productID)
     }
     
     
     
-    func purchase(PRODUCT_ID:String){
-        
-        SwiftyStoreKit.purchaseProduct(PRODUCT_ID) { (result) in
-            
-            switch result{
-                
-            case .success(_):
-                
-                //ここに書く
-                //購入が成功したとき
-                
-                if UserDefaults.standard.object(forKey: "buy") != nil{
-                    _ = UserDefaults.standard.object(forKey: "buy") as! Int
-                    
-                }else{
-                    
-                    self.count = 1
+    func purchase(PRODUCT_ID: String) {
+        SwiftyStoreKit.purchaseProduct(PRODUCT_ID) { [weak self] result in
+            guard let self = self else { return }
 
+            switch result {
+            case .success:
+                // 購入が成功したとき
+                if UserDefaults.standard.object(forKey: "buy") == nil {
+                    self.count = 1
                     UserDefaults.standard.set(1, forKey: "buy")
                 }
-                
-                
-                self.verifyPurchase(PRODUCT_ID:PRODUCT_ID)
-                
+
+                self.verifyPurchase(PRODUCT_ID: PRODUCT_ID)
                 self.delegate?.catchData(count: self.count)
                 self.navigationController?.popViewController(animated: true)
-                
-                break
+
             case .error(let error):
-                print(error)
-                
+                // エラーログ出力
+                debugPrint("Purchase error: \(error.localizedDescription)")
+
+            @unknown default:
                 break
             }
-            
-            
         }
-        
-        
     }
     
-    func verifyPurchase(PRODUCT_ID:String){
-        //共有シークレット リストア
-        let appeValidator = AppleReceiptValidator(service: .production, sharedSecret: "2db4fa884a054cc8a6ca5131145c9b55")
-        SwiftyStoreKit.verifyReceipt(using: appeValidator) { (result) in
-            
-            switch result{
+    func verifyPurchase(PRODUCT_ID: String) {
+        // 共有シークレット リストア
+        let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "2db4fa884a054cc8a6ca5131145c9b55")
+        SwiftyStoreKit.verifyReceipt(using: appleValidator) { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
             case .success(let receipt):
                 let purchaseResult = SwiftyStoreKit.verifyPurchase(productId: PRODUCT_ID, inReceipt: receipt)
-                switch purchaseResult{
-                case.purchased:
-                    //リストア成功
+                switch purchaseResult {
+                case .purchased:
+                    // リストア成功
                     self.count = 1
                     UserDefaults.standard.set(1, forKey: "buy")
-                    break
                 case .notPurchased:
-                    //リストアされていない場合
-                    
-                    UserDefaults.standard.set(nil, forKey: "buy")
+                    // リストアされていない場合
+                    UserDefaults.standard.removeObject(forKey: "buy")
+                @unknown default:
                     break
-                    
                 }
-            case .error(_):
+            case .error:
+                break
+            @unknown default:
                 break
             }
-            
         }
-        
-        
     }
     
     
@@ -132,37 +139,17 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
     @IBOutlet weak var bannerView: GADBannerView!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        //もしbuyというキー値に1という数字が入っていたら
-        //購入済み = 広告を排除
-        
-        if UserDefaults.standard.object(forKey: "buy") != nil{
-              let count  = UserDefaults.standard.object(forKey: "buy") as! Int
-            if count == 1{
-                
-                bannerView.removeFromSuperview()
-                
-                
-                
-                
-            }else{
-                
-            }
-            
-            
-        }else{
-                
-                // GADBannerViewのプロパティを設定
-                bannerView.adUnitID = "ca-app-pub-1187210314934709/5463627829"
-                bannerView.rootViewController = self
-                
-                // 広告読み込み
-                bannerView.load(GADRequest())
-                
-                let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
-                multipleAdsOptions.numberOfAds = 5
-                
-            
+
+        // 購入済みかチェックして広告を表示/非表示
+        if let count = UserDefaults.standard.object(forKey: "buy") as? Int, count == 1 {
+            bannerView.removeFromSuperview()
+        } else {
+            // GADBannerViewのプロパティを設定
+            bannerView.adUnitID = "ca-app-pub-1187210314934709/5463627829"
+            bannerView.rootViewController = self
+
+            // 広告読み込み
+            bannerView.load(GADRequest())
         }
     }
     

@@ -1,5 +1,5 @@
 //
-//  Vi ewController2.swift
+//  ViewController2.swift
 //  NFCTool
 //
 //  Created by Jin Mizou on 2021/01/19.
@@ -10,9 +10,11 @@ import UIKit
 import MessageUI
 import GoogleMobileAds
 import SwiftUI
+import OSLog
 
+class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GADBannerViewDelegate, CatchProtcol {
 
-class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GADBannerViewDelegate, CatchProtcol  {
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.nfctools", category: "Settings")
     
     
     
@@ -34,16 +36,9 @@ class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GA
     
     
     @IBAction func terms2(_ sender: Any) {
-        if MFMailComposeViewController.canSendMail() {
-            let mail = MFMailComposeViewController()
-            mail.mailComposeDelegate = self
-            mail.setToRecipients(["mizoijin.0201@gmail.com"]) // 宛先アドレス
-            mail.setSubject("お問い合わせ") // 件名
-            mail.setMessageBody("ここに本文が入ります。", isHTML: false) // 本文
-            present(mail, animated: true, completion: nil)
-        } else {
-            print("送信できません")
-        }
+        let contactVC = ContactFormViewController()
+        let nav = UINavigationController(rootViewController: contactVC)
+        present(nav, animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,41 +47,19 @@ class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GA
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadView()
-        viewDidLoad()
         super.viewWillAppear(animated)
-        
-        //もしbuyというキー値に1という数字が入っていたら
-        //購入済み = 広告を排除
-        
-        
-        if UserDefaults.standard.object(forKey: "buy") != nil{
-              let count  = UserDefaults.standard.object(forKey: "buy") as! Int
-            if count == 1{
-                
-            
-                
-            }else{
-                
-            }
-            
-            
-        }else{
-                
-                // GADBannerViewのプロパティを設定
-                bannerView.adUnitID = "ca-app-pub-1187210314934709/5463627829"
-                bannerView.rootViewController = self
-                
-                // 広告読み込み
-                bannerView.load(GADRequest())
-                
-                let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
-                multipleAdsOptions.numberOfAds = 5
-                
-            }
-            
-        
-        
+
+        // 購入済みかチェックして広告を表示/非表示
+        if let count = UserDefaults.standard.object(forKey: "buy") as? Int, count == 1 {
+            bannerView.removeFromSuperview()
+        } else {
+            // GADBannerViewのプロパティを設定
+            bannerView.adUnitID = "ca-app-pub-1187210314934709/5463627829"
+            bannerView.rootViewController = self
+
+            // 広告読み込み
+            bannerView.load(GADRequest())
+        }
     }
     
     func catchData(count: Int) {
@@ -123,13 +96,15 @@ class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GA
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         switch result {
         case .cancelled:
-            print("キャンセル")
+            logger.info("メール作成キャンセル")
         case .saved:
-            print("下書き保存")
+            logger.info("メール下書き保存")
         case .sent:
-            print("送信成功")
-        default:
-            print("送信失敗")
+            logger.info("メール送信成功")
+        case .failed:
+            logger.error("メール送信失敗: \(error?.localizedDescription ?? "unknown")")
+        @unknown default:
+            logger.warning("メール結果: 不明な状態")
         }
         dismiss(animated: true, completion: nil)
     }
@@ -143,7 +118,7 @@ class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GA
     }
     
     @IBAction func terms4(_ sender: Any) {
-        let url = URL(string: "https://www.amazon.co.jp/s?k=nfc&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&ref=nb_sb_noss_1")!
+        let url = URL(string: "https://amzn.to/45nMq0T")!
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         }

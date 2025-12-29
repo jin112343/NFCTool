@@ -1,6 +1,8 @@
 import UIKit
 import CoreNFC
 import GoogleMobileAds
+import OSLog
+import StoreKit
 
 enum State {
     case standBy
@@ -10,17 +12,21 @@ enum State {
 }
 
 class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
-    
+
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.nfctools", category: "NFCRead")
+
     // MARK: - IBOutlets
     @IBOutlet weak var readBtn: UIButton!
     @IBOutlet weak var eraseBtn: UIButton!
     @IBOutlet weak var bannerView: GADBannerView!
-    
+
     // MARK: - Properties
     var session: NFCNDEFReaderSession?
+    var tagSession: NFCTagReaderSession?
     var message: NFCNDEFMessage?
     var state: State = .standBy
     var text: String = ""
+    var currentReadResult: NFCReadResult?
     
     
     
@@ -34,7 +40,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "このNFCタグには書き込みできません",
             "nfc_payload_fail": "ペイロードの作成に失敗しました",
             "nfc_over_capacity": "容量オーバーで書き込めません！\n容量は%@bytesです",
-            "nfc_deleted": "削除しました"
+            "nfc_deleted": "削除しました",
+            "nfc_read_success": "読み取り完了"
               ],
         "ar": [ // アラビア語
             "nfc_not_supported": "لا يمكن استخدام NFC هذا",
@@ -333,6 +340,7 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkFirstLaunch()
+        requestAppReview()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -346,8 +354,27 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
         let firstLunchKey = "firstLunch"
         if ud.bool(forKey: firstLunchKey) {
             ud.set(false, forKey: firstLunchKey)
-            ud.synchronize()
             self.performSegue(withIdentifier: "nfc", sender: nil)
+        }
+    }
+
+    private func requestAppReview() {
+        let ud = UserDefaults.standard
+        let launchCountKey = "appLaunchCount"
+        let hasRequestedReviewKey = "hasRequestedReview"
+
+        var launchCount = ud.integer(forKey: launchCountKey)
+        launchCount += 1
+        ud.set(launchCount, forKey: launchCountKey)
+
+        // 5回以上起動 かつ まだレビューリクエストしていない場合
+        if launchCount >= 5 && !ud.bool(forKey: hasRequestedReviewKey) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                    SKStoreReviewController.requestReview(in: windowScene)
+                    ud.set(true, forKey: hasRequestedReviewKey)
+                }
+            }
         }
     }
     
@@ -364,8 +391,12 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
     
     // 言語別メッセージを取得するメソッド
     func getLocalizedMessage(key: String) -> String {
-        let currentLanguage = Locale.current.languageCode ?? "en"
-        print("Current Language Code: \(currentLanguage)")
+        let currentLanguage: String
+        if #available(iOS 16, *) {
+            currentLanguage = Locale.current.language.languageCode?.identifier ?? "en"
+        } else {
+            currentLanguage = Locale.current.languageCode ?? "en"
+        }
         // デフォルトは英語、キーが見つからない場合は代替メッセージを提供
         return localizedMessages[currentLanguage]?[key]
             ?? localizedMessages["en"]?[key]
@@ -375,24 +406,55 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
     // MARK: - NFC Methods
     func startSession(state: State) {
         self.state = state
+        self.currentReadResult = nil
+
         guard NFCNDEFReaderSession.readingAvailable else {
-            // 正しいメッセージを取得して表示
-            Swift.print(getLocalizedMessage(key: "nfc_not_supported"))
+            logger.error("NFC not supported: \(self.getLocalizedMessage(key: "nfc_not_supported"))")
             return
         }
-        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
-        session?.alertMessage = getLocalizedMessage(key: "nfc_bring_closer")
-        session?.begin()
+
+        if state == .read {
+            // 読み取りモードではNFCTagReaderSessionを使用（FeliCa含む全タグ対応）
+            tagSession = NFCTagReaderSession(pollingOption: [.iso14443, .iso15693, .iso18092], delegate: self, queue: nil)
+            tagSession?.alertMessage = getLocalizedMessage(key: "nfc_bring_closer")
+            tagSession?.begin()
+        } else {
+            // 削除モードでは従来のNDEFセッションを使用
+            session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: false)
+            session?.alertMessage = getLocalizedMessage(key: "nfc_bring_closer")
+            session?.begin()
+        }
     }
-    
+
     func stopSession(alert: String = "", error: String = "") {
         session?.alertMessage = alert
+        tagSession?.alertMessage = alert
         if error.isEmpty {
             session?.invalidate()
+            tagSession?.invalidate()
         } else {
             session?.invalidate(errorMessage: error)
+            tagSession?.invalidate(errorMessage: error)
         }
         self.state = .standBy
+    }
+
+    func stopSessionAndShowResult(alert: String = "") {
+        tagSession?.alertMessage = alert
+        tagSession?.invalidate()
+        self.state = .standBy
+
+        // 結果画面へ遷移
+        DispatchQueue.main.async {
+            self.showReadResultViewController()
+        }
+    }
+
+    private func showReadResultViewController() {
+        guard let result = currentReadResult else { return }
+        let resultVC = NFCReadResultViewController()
+        resultVC.readResult = result
+        self.navigationController?.pushViewController(resultVC, animated: true)
     }
     func tagRemovalDetect(_ tag: NFCNDEFTag) {
         session?.connect(to: tag) { (error: Error?) in
@@ -452,7 +514,7 @@ extension ViewController: NFCNDEFReaderSessionDelegate {
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-        Swift.print(error.localizedDescription)
+        logger.error("NFCセッションエラー: \(error.localizedDescription)")
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
@@ -550,15 +612,15 @@ extension ViewController: NFCNDEFReaderSessionDelegate {
             self.stopSession(error: NSLocalizedString("nfc_payload_fail", comment: ""))
             return
         }
-        
+
         self.message = NFCNDEFMessage(records: [payload, urlPayload])
         guard let message = self.message else { return }
-        
+
         if message.length > capacity {
             self.stopSession(error: String(format: NSLocalizedString("nfc_over_capacity", comment: ""), "\(capacity)"))
             return
         }
-        
+
         tag.writeNDEF(message) { (error) in
             if let error = error {
                 self.stopSession(error: error.localizedDescription)
@@ -567,5 +629,252 @@ extension ViewController: NFCNDEFReaderSessionDelegate {
             }
         }
     }
-    
+
+}
+
+// MARK: - NFCTagReaderSessionDelegate
+extension ViewController: NFCTagReaderSessionDelegate {
+
+    func tagReaderSessionDidBecomeActive(_ session: NFCTagReaderSession) {
+        logger.info("NFCTagReaderSession became active")
+    }
+
+    func tagReaderSession(_ session: NFCTagReaderSession, didInvalidateWithError error: Error) {
+        logger.error("NFCTagReaderSession error: \(error.localizedDescription)")
+    }
+
+    func tagReaderSession(_ session: NFCTagReaderSession, didDetect tags: [NFCTag]) {
+        guard let tag = tags.first else {
+            session.invalidate(errorMessage: getLocalizedMessage(key: "nfc_tag_not_supported"))
+            return
+        }
+
+        session.connect(to: tag) { error in
+            if let error = error {
+                self.logger.error("Failed to connect to tag: \(error.localizedDescription)")
+                session.invalidate(errorMessage: error.localizedDescription)
+                return
+            }
+
+            // タグの種類に応じて処理を分岐
+            switch tag {
+            case .iso7816(let iso7816Tag):
+                self.handleISO7816Tag(iso7816Tag, session: session)
+            case .feliCa(let feliCaTag):
+                self.handleFeliCaTag(feliCaTag, session: session)
+            case .iso15693(let iso15693Tag):
+                self.handleISO15693Tag(iso15693Tag, session: session)
+            case .miFare(let miFareTag):
+                self.handleMiFareTag(miFareTag, session: session)
+            @unknown default:
+                self.handleUnknownTag(session: session)
+            }
+        }
+    }
+
+    // MARK: - Tag Handlers
+
+    private func handleISO7816Tag(_ tag: NFCISO7816Tag, session: NFCTagReaderSession) {
+        var result = NFCReadResult()
+        result.tagType = "ISO7816"
+        result.tagIdentifier = tag.identifier.map { String(format: "%02X", $0) }.joined(separator: ":")
+
+        // NDEFを読み取る（NFCISO7816TagはNFCNDEFTagに準拠）
+        readNDEFFromTag(tag, result: &result, session: session)
+    }
+
+    private func handleFeliCaTag(_ tag: NFCFeliCaTag, session: NFCTagReaderSession) {
+        var result = NFCReadResult()
+        result.tagType = "FeliCa"
+        result.tagIdentifier = tag.currentIDm.map { String(format: "%02X", $0) }.joined(separator: ":")
+        result.felicaSystemCode = tag.currentSystemCode.map { String(format: "%02X", $0) }.joined()
+
+        // 交通系ICカードの残高読み取りを試みる
+        readFeliCaBalance(tag, result: &result) { updatedResult in
+            self.currentReadResult = updatedResult
+            self.stopSessionAndShowResult(alert: self.getLocalizedMessage(key: "nfc_read_success"))
+        }
+    }
+
+    private func handleISO15693Tag(_ tag: NFCISO15693Tag, session: NFCTagReaderSession) {
+        var result = NFCReadResult()
+        result.tagType = "ISO15693"
+        result.tagIdentifier = tag.identifier.map { String(format: "%02X", $0) }.joined(separator: ":")
+
+        // システム情報を読み取る（async/await API）
+        Task {
+            do {
+                let systemInfo = try await tag.systemInfo(requestFlags: [.highDataRate])
+                result.capacity = systemInfo.blockSize * systemInfo.totalBlocks
+            } catch {
+                self.logger.error("ISO15693 systemInfo failed: \(error.localizedDescription)")
+            }
+
+            self.currentReadResult = result
+            self.stopSessionAndShowResult(alert: self.getLocalizedMessage(key: "nfc_read_success"))
+        }
+    }
+
+    private func handleMiFareTag(_ tag: NFCMiFareTag, session: NFCTagReaderSession) {
+        var result = NFCReadResult()
+
+        // MiFareのファミリーを判定
+        switch tag.mifareFamily {
+        case .ultralight:
+            result.tagType = "MiFare Ultralight"
+        case .plus:
+            result.tagType = "MiFare Plus"
+        case .desfire:
+            result.tagType = "MiFare DESFire"
+        case .unknown:
+            result.tagType = "MiFare (Unknown)"
+        @unknown default:
+            result.tagType = "MiFare"
+        }
+
+        result.tagIdentifier = tag.identifier.map { String(format: "%02X", $0) }.joined(separator: ":")
+
+        // NDEFタグとして読み取りを試みる
+        readNDEFFromTag(tag, result: &result, session: session)
+    }
+
+    private func handleUnknownTag(session: NFCTagReaderSession) {
+        var result = NFCReadResult()
+        result.tagType = "Unknown"
+        self.currentReadResult = result
+        self.stopSessionAndShowResult(alert: getLocalizedMessage(key: "nfc_read_success"))
+    }
+
+    // MARK: - NDEF Reading
+
+    private func readNDEFFromTag(_ tag: NFCNDEFTag, result: inout NFCReadResult, session: NFCTagReaderSession) {
+        var mutableResult = result
+
+        tag.queryNDEFStatus { status, capacity, error in
+            if let error = error {
+                self.logger.error("NDEF query failed: \(error.localizedDescription)")
+                self.currentReadResult = mutableResult
+                self.stopSessionAndShowResult(alert: self.getLocalizedMessage(key: "nfc_read_success"))
+                return
+            }
+
+            mutableResult.capacity = capacity
+
+            switch status {
+            case .notSupported:
+                mutableResult.ndefStatus = "notSupported"
+                mutableResult.isWritable = false
+            case .readOnly:
+                mutableResult.ndefStatus = "readOnly"
+                mutableResult.isWritable = false
+            case .readWrite:
+                mutableResult.ndefStatus = "readWrite"
+                mutableResult.isWritable = true
+            @unknown default:
+                mutableResult.ndefStatus = "unknown"
+                mutableResult.isWritable = false
+            }
+
+            tag.readNDEF { message, error in
+                if let message = message {
+                    mutableResult.usedSize = message.length
+                    mutableResult.freeSpace = capacity - message.length
+                    mutableResult.records = self.parseNDEFRecords(message.records)
+                    mutableResult.rawPayloadData = message.records.map { $0.payload }
+                }
+
+                self.currentReadResult = mutableResult
+                self.stopSessionAndShowResult(alert: self.getLocalizedMessage(key: "nfc_read_success"))
+            }
+        }
+    }
+
+    private func parseNDEFRecords(_ records: [NFCNDEFPayload]) -> [NFCRecordInfo] {
+        var recordInfos: [NFCRecordInfo] = []
+
+        for (index, record) in records.enumerated() {
+            var info = NFCRecordInfo(
+                recordIndex: index,
+                tnf: getTNFString(record.typeNameFormat),
+                type: String(data: record.type, encoding: .utf8) ?? "",
+                identifier: String(data: record.identifier, encoding: .utf8) ?? "",
+                payloadType: "unknown",
+                textContent: nil,
+                urlContent: nil,
+                locale: nil,
+                payloadSize: record.payload.count,
+                rawPayload: record.payload
+            )
+
+            // タイプに応じてペイロードを解析
+            if let type = String(data: record.type, encoding: .utf8) {
+                if type == "T" {
+                    // テキストレコード
+                    let textResult = record.wellKnownTypeTextPayload()
+                    info.textContent = textResult.0
+                    info.locale = textResult.1?.identifier
+                    info.payloadType = "Text"
+                } else if type == "U" {
+                    // URLレコード
+                    info.urlContent = record.wellKnownTypeURIPayload()
+                    info.payloadType = "URL"
+                } else {
+                    info.payloadType = type
+                }
+            }
+
+            recordInfos.append(info)
+        }
+
+        return recordInfos
+    }
+
+    private func getTNFString(_ tnf: NFCTypeNameFormat) -> String {
+        switch tnf {
+        case .empty: return "empty"
+        case .nfcWellKnown: return "nfcWellKnown"
+        case .media: return "media"
+        case .absoluteURI: return "absoluteURI"
+        case .nfcExternal: return "nfcExternal"
+        case .unknown: return "unknown"
+        case .unchanged: return "unchanged"
+        @unknown default: return "unknown"
+        }
+    }
+
+    // MARK: - FeliCa Balance Reading
+
+    private func readFeliCaBalance(_ tag: NFCFeliCaTag, result: inout NFCReadResult, completion: @escaping (NFCReadResult) -> Void) {
+        var mutableResult = result
+
+        // 交通系ICカードのサービスコード（残高情報）
+        // サービスコード: 0x008B (リトルエンディアン: 0x8B00)
+        let serviceCode = Data([0x8B, 0x00])
+
+        tag.requestService(nodeCodeList: [serviceCode]) { nodes, error in
+            if let error = error {
+                self.logger.error("FeliCa requestService failed: \(error.localizedDescription)")
+                completion(mutableResult)
+                return
+            }
+
+            // ブロック0から残高を読み取る
+            let blockList = [Data([0x80, 0x00])]
+            tag.readWithoutEncryption(serviceCodeList: [serviceCode], blockList: blockList) { status1, status2, blockData, error in
+                if let error = error {
+                    self.logger.error("FeliCa read failed: \(error.localizedDescription)")
+                    completion(mutableResult)
+                    return
+                }
+
+                if status1 == 0x00 && status2 == 0x00, let data = blockData.first, data.count >= 11 {
+                    // 残高はブロックデータの11-12バイト目（リトルエンディアン）
+                    let balance = Int(data[10]) | (Int(data[11]) << 8)
+                    mutableResult.felicaBalance = balance
+                }
+
+                completion(mutableResult)
+            }
+        }
+    }
 }

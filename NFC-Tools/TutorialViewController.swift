@@ -1,14 +1,22 @@
 import UIKit
 import EAIntroView
+import OSLog
 
 class TutorialViewController: UIViewController, EAIntroDelegate {
 
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.nfctools", category: "Tutorial")
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         checkFirstLaunch()
-        let currentLanguage = Locale.current.languageCode ?? "en"
-        let width = UIScreen.main.bounds.size.width
+        let currentLanguage: String
+        if #available(iOS 16, *) {
+            currentLanguage = Locale.current.language.languageCode?.identifier ?? "en"
+        } else {
+            currentLanguage = Locale.current.languageCode ?? "en"
+        }
+        let width = view.bounds.size.width
         
         // チュートリアルページを作成
         let pages = createIntroPages(forLanguage: currentLanguage, width: width)
@@ -22,7 +30,7 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
         let userDefaults = UserDefaults.standard
         if !userDefaults.bool(forKey: "launchedBefore") {
             userDefaults.set(true, forKey: "launchedBefore")
-            print("初回起動: 初期設定を実行します。")
+            logger.info("初回起動: 初期設定を実行します。")
         }
     }
     
@@ -317,7 +325,7 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
         return zip(templateImages, messages).enumerated().compactMap { (index, element) in
             let (imageName, message) = element
             guard let templateImage = UIImage(named: imageName) else {
-                print("エラー: \(imageName)が見つかりません。")
+                logger.error("エラー: \(imageName)が見つかりません。")
                 return nil
             }
 
@@ -368,13 +376,13 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
             height: textHeight
         )
 
-        UIGraphicsBeginImageContextWithOptions(image.size, false, 0.0)
-        image.draw(in: CGRect(origin: .zero, size: image.size))
-        text.draw(in: textRect, withAttributes: textAttributes)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+        let renderer = UIGraphicsImageRenderer(size: image.size)
+        let newImage = renderer.image { _ in
+            image.draw(in: CGRect(origin: .zero, size: image.size))
+            text.draw(in: textRect, withAttributes: textAttributes)
+        }
 
-        return newImage ?? image
+        return newImage
     }
     
     /// チュートリアルビューを表示
@@ -472,7 +480,7 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
     
     /// チュートリアル完了時の処理
     func introDidFinish(_ introView: EAIntroView!, wasSkipped: Bool) {
-        print("チュートリアル完了。スキップ: \(wasSkipped)")
+        logger.info("チュートリアル完了。スキップ: \(wasSkipped)")
         
         if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? ViewController {
             let nav = UINavigationController(rootViewController: mainVC)

@@ -10,6 +10,8 @@
 	<dict/>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1187210314934709~3512074298</string>
+	<key>NFCReaderUsageDescription</key>
+	<string>This app uses NFC to read and write data to NFC tags</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

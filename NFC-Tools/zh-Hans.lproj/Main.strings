@@ -1,0 +1,53 @@
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "7qV-0H-MQh"; */
+"7qV-0H-MQh.normalTitle" = "写";
+
+/* Class = "UIButton"; normalTitle = "Other"; ObjectID = "7zn-1x-0oo"; */
+"7zn-1x-0oo.normalTitle" = "其他";
+
+/* Class = "UIButton"; normalTitle = "Hide Ads"; ObjectID = "C0S-eJ-Oeh"; */
+"C0S-eJ-Oeh.normalTitle" = "隐藏广告";
+
+/* Class = "UILabel"; text = "NFC"; ObjectID = "C0s-U5-5Pi"; */
+"C0s-U5-5Pi.text" = "NFC";
+
+/* Class = "UITextField"; placeholder = "Enter URL and characters"; ObjectID = "Ggl-s4-ZLV"; */
+"Ggl-s4-ZLV.placeholder" = "输入网址和字符";
+
+/* Class = "UIButton"; normalTitle = "Hide Ads"; ObjectID = "Jf0-SO-Sx6"; */
+"Jf0-SO-Sx6.normalTitle" = "隐藏广告";
+
+/* Class = "UINavigationItem"; title = "その他"; ObjectID = "NIn-HX-fK1"; */
+"NIn-HX-fK1.title" = "其他";
+
+/* Class = "UIButton"; normalTitle = "Terms of Service"; ObjectID = "Uyp-a4-ftM"; */
+"Uyp-a4-ftM.normalTitle" = "服务条款";
+
+/* Class = "UIButton"; normalTitle = "Read"; ObjectID = "Vcm-H4-GRe"; */
+"Vcm-H4-GRe.normalTitle" = "阅读";
+
+/* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "aJR-Y0-8wc"; */
+"aJR-Y0-8wc.normalTitle" = "联系我们";
+
+/* Class = "UIButton"; normalTitle = "Rate App"; ObjectID = "aet-lI-VpX"; */
+"aet-lI-VpX.normalTitle" = "评价应用";
+
+/* Class = "UILabel"; text = " "; ObjectID = "bJE-VO-sYX"; */
+"bJE-VO-sYX.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
+"bzW-BX-eeF.normalTitle" = "删除";
+
+/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
+"g8f-yc-KEN.text" = "¥7"; /* 大约以人民币为单位 */
+
+/* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
+"gPu-GC-2Tq.normalTitle" = "在亚马逊上购买NFC标签";
+
+/* Class = "UIButton"; normalTitle = "Restore Purchase"; ObjectID = "ivE-o3-0qW"; */
+"ivE-o3-0qW.normalTitle" = "恢复购买";
+
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "k92-IX-8JL"; */
+"k92-IX-8JL.normalTitle" = "写";
+
+/* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
+"xZa-Gx-EIp.normalTitle" = "如何使用应用（示例）";

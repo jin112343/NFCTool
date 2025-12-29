@@ -1,0 +1,53 @@
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "7qV-0H-MQh"; */
+"7qV-0H-MQh.normalTitle" = "Napisz";
+
+/* Class = "UIButton"; normalTitle = "Other"; ObjectID = "7zn-1x-0oo"; */
+"7zn-1x-0oo.normalTitle" = "Inne";
+
+/* Class = "UIButton"; normalTitle = "Hide Ads"; ObjectID = "C0S-eJ-Oeh"; */
+"C0S-eJ-Oeh.normalTitle" = "Ukryj reklamy";
+
+/* Class = "UILabel"; text = "NFC"; ObjectID = "C0s-U5-5Pi"; */
+"C0s-U5-5Pi.text" = "NFC";
+
+/* Class = "UITextField"; placeholder = "Enter URL and characters"; ObjectID = "Ggl-s4-ZLV"; */
+"Ggl-s4-ZLV.placeholder" = "Wprowadź URL i znaki";
+
+/* Class = "UIButton"; normalTitle = "Hide Ads"; ObjectID = "Jf0-SO-Sx6"; */
+"Jf0-SO-Sx6.normalTitle" = "Ukryj reklamy";
+
+/* Class = "UINavigationItem"; title = "その他"; ObjectID = "NIn-HX-fK1"; */
+"NIn-HX-fK1.title" = "Inne";
+
+/* Class = "UIButton"; normalTitle = "Terms of Service"; ObjectID = "Uyp-a4-ftM"; */
+"Uyp-a4-ftM.normalTitle" = "Warunki korzystania";
+
+/* Class = "UIButton"; normalTitle = "Read"; ObjectID = "Vcm-H4-GRe"; */
+"Vcm-H4-GRe.normalTitle" = "Czytaj";
+
+/* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "aJR-Y0-8wc"; */
+"aJR-Y0-8wc.normalTitle" = "Skontaktuj się z nami";
+
+/* Class = "UIButton"; normalTitle = "Rate App"; ObjectID = "aet-lI-VpX"; */
+"aet-lI-VpX.normalTitle" = "Oceń aplikację";
+
+/* Class = "UILabel"; text = " "; ObjectID = "bJE-VO-sYX"; */
+"bJE-VO-sYX.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
+"bzW-BX-eeF.normalTitle" = "Usuń";
+
+/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
+"g8f-yc-KEN.text" = "0,99 zł"; /* Approximate price in Polish Zloty */
+
+/* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
+"gPu-GC-2Tq.normalTitle" = "Kup tagi NFC na Amazon";
+
+/* Class = "UIButton"; normalTitle = "Restore Purchase"; ObjectID = "ivE-o3-0qW"; */
+"ivE-o3-0qW.normalTitle" = "Przywróć zakup";
+
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "k92-IX-8JL"; */
+"k92-IX-8JL.normalTitle" = "Napisz";
+
+/* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
+"xZa-Gx-EIp.normalTitle" = "Jak używać aplikacji (przykład)";

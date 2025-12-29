@@ -1,0 +1,72 @@
+
+/* Class = "UILabel"; text = "(Inquiry)"; ObjectID = "5kK-EJ-qNS"; */
+"5kK-EJ-qNS.text" = "(Inquiry)";
+
+/* Class = "UILabel"; text = "(Terms of Service)"; ObjectID = "6Z4-o4-EEk"; */
+"6Z4-o4-EEk.text" = "(Terms of Service)";
+
+/* Class = "UIButton"; normalTitle = "書き込み"; ObjectID = "7qV-0H-MQh"; */
+"7qV-0H-MQh.normalTitle" = "書き込み";
+
+/* Class = "UIButton"; normalTitle = "その他"; ObjectID = "7zn-1x-0oo"; */
+"7zn-1x-0oo.normalTitle" = "その他";
+
+/* Class = "UIButton"; normalTitle = "広告非表示"; ObjectID = "C0S-eJ-Oeh"; */
+"C0S-eJ-Oeh.normalTitle" = "広告非表示";
+
+/* Class = "UILabel"; text = "NFC"; ObjectID = "C0s-U5-5Pi"; */
+"C0s-U5-5Pi.text" = "NFC";
+
+/* Class = "UIButton"; normalTitle = "言語設定"; ObjectID = "G2m-mx-yyz"; */
+"G2m-mx-yyz.normalTitle" = "言語設定";
+
+/* Class = "UITextField"; placeholder = "URLや文字を記入"; ObjectID = "Ggl-s4-ZLV"; */
+"Ggl-s4-ZLV.placeholder" = "URLや文字を記入";
+
+/* Class = "UIButton"; normalTitle = "広告非表示"; ObjectID = "Jf0-SO-Sx6"; */
+"Jf0-SO-Sx6.normalTitle" = "広告非表示";
+
+/* Class = "UINavigationItem"; title = "その他"; ObjectID = "NIn-HX-fK1"; */
+"NIn-HX-fK1.title" = "その他";
+
+/* Class = "UIButton"; normalTitle = "利用規約"; ObjectID = "Uyp-a4-ftM"; */
+"Uyp-a4-ftM.normalTitle" = "利用規約";
+
+/* Class = "UIButton"; normalTitle = "読み込み"; ObjectID = "Vcm-H4-GRe"; */
+"Vcm-H4-GRe.normalTitle" = "読み込み";
+
+/* Class = "UIButton"; normalTitle = "お問い合わせ"; ObjectID = "aJR-Y0-8wc"; */
+"aJR-Y0-8wc.normalTitle" = "お問い合わせ";
+
+/* Class = "UIButton"; normalTitle = "アプリを評価する"; ObjectID = "aet-lI-VpX"; */
+"aet-lI-VpX.normalTitle" = "アプリを評価する";
+
+/* Class = "UILabel"; text = " "; ObjectID = "bJE-VO-sYX"; */
+"bJE-VO-sYX.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "削除"; ObjectID = "bzW-BX-eeF"; */
+"bzW-BX-eeF.normalTitle" = "削除";
+
+/* Class = "UILabel"; text = "$0.99; ObjectID = "g8f-yc-KEN"; */
+"g8f-yc-KEN.text" = "￥100";
+
+/* Class = "UIButton"; normalTitle = "AmazonでNFCタグを購入する"; ObjectID = "gPu-GC-2Tq"; */
+"gPu-GC-2Tq.normalTitle" = "AmazonでNFCタグを購入する";
+
+/* Class = "UIButton"; normalTitle = "リストラ(購入の復元)"; ObjectID = "ivE-o3-0qW"; */
+"ivE-o3-0qW.normalTitle" = "リストラ(購入の復元)";
+
+/* Class = "UIButton"; normalTitle = "書き込む"; ObjectID = "k92-IX-8JL"; */
+"k92-IX-8JL.normalTitle" = "書き込む";
+
+/* Class = "UIButton"; normalTitle = "アプリの使い方を見る(実用例)"; ObjectID = "xZa-Gx-EIp"; */
+"xZa-Gx-EIp.normalTitle" = "アプリの使い方を見る(実用例)";
+
+"nfc_not_supported" = "このNFCは使えません";
+"nfc_bring_closer" = "NFCタグをiPhone上部に近づけてください";
+"nfc_tag_not_supported" = "このNFCタグは対応していません";
+"nfc_remove_alert" = "下記の情報を削除します\nNFCタグを動かないでください \n\n %@";
+"nfc_read_only" = "このNFCタグには書き込みできません";
+"nfc_payload_fail" = "ペイロードの作成に失敗しました";
+"nfc_over_capacity" = "容量オーバーで書き込めません！\n容量は%@bytesです";
+"nfc_deleted" = "削除しました";

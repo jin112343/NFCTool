@@ -1,0 +1,62 @@
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "7qV-0H-MQh"; */
+"7qV-0H-MQh.normalTitle" = "Tulis";
+
+/* Class = "UIButton"; normalTitle = "Other"; ObjectID = "7zn-1x-0oo"; */
+"7zn-1x-0oo.normalTitle" = "Lainnya";
+
+/* Class = "UIButton"; normalTitle = "Hide Ads"; ObjectID = "C0S-eJ-Oeh"; */
+"C0S-eJ-Oeh.normalTitle" = "Sembunyikan Iklan";
+
+/* Class = "UILabel"; text = "NFC"; ObjectID = "C0s-U5-5Pi"; */
+"C0s-U5-5Pi.text" = "NFC";
+
+/* Class = "UITextField"; placeholder = "Enter URL and characters"; ObjectID = "Ggl-s4-ZLV"; */
+"Ggl-s4-ZLV.placeholder" = "Masukkan URL dan karakter";
+
+/* Class = "UIButton"; normalTitle = "Hide Ads"; ObjectID = "Jf0-SO-Sx6"; */
+"Jf0-SO-Sx6.normalTitle" = "Sembunyikan Iklan";
+
+/* Class = "UINavigationItem"; title = "その他"; ObjectID = "NIn-HX-fK1"; */
+"NIn-HX-fK1.title" = "Lainnya";
+
+/* Class = "UIButton"; normalTitle = "Terms of Service"; ObjectID = "Uyp-a4-ftM"; */
+"Uyp-a4-ftM.normalTitle" = "Syarat Layanan";
+
+/* Class = "UIButton"; normalTitle = "Read"; ObjectID = "Vcm-H4-GRe"; */
+"Vcm-H4-GRe.normalTitle" = "Baca";
+
+/* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "aJR-Y0-8wc"; */
+"aJR-Y0-8wc.normalTitle" = "Hubungi Kami";
+
+/* Class = "UIButton"; normalTitle = "Rate App"; ObjectID = "aet-lI-VpX"; */
+"aet-lI-VpX.normalTitle" = "Beri Penilaian Aplikasi";
+
+/* Class = "UILabel"; text = " "; ObjectID = "bJE-VO-sYX"; */
+"bJE-VO-sYX.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
+"bzW-BX-eeF.normalTitle" = "Hapus";
+
+/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
+"g8f-yc-KEN.text" = "Rp14.000"; /* Approximate price in Indonesian Rupiah */
+
+/* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
+"gPu-GC-2Tq.normalTitle" = "Beli Tag NFC di Amazon";
+
+/* Class = "UIButton"; normalTitle = "Restore Purchase"; ObjectID = "ivE-o3-0qW"; */
+"ivE-o3-0qW.normalTitle" = "Pulihkan Pembelian";
+
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "k92-IX-8JL"; */
+"k92-IX-8JL.normalTitle" = "Tulis";
+
+/* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
+"xZa-Gx-EIp.normalTitle" = "Cara Menggunakan Aplikasi (Contoh)";
+
+"nfc_not_supported" = "NFC ini tidak dapat digunakan";
+"nfc_bring_closer" = "Dekatkan tag NFC ke bagian atas iPhone";
+"nfc_tag_not_supported" = "Tag NFC ini tidak didukung";
+"nfc_remove_alert" = "Informasi berikut akan dihapus\nJangan pindahkan tag NFC \n\n %@";
+"nfc_read_only" = "Tag NFC ini hanya bisa dibaca";
+"nfc_payload_fail" = "Gagal membuat payload";
+"nfc_over_capacity" = "Tidak dapat menulis karena kapasitas melebihi batas!\nKapasitas adalah %@ byte";
+"nfc_deleted" = "Berhasil dihapus";

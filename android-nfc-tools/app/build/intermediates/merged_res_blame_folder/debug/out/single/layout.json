@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "com.nfctools.app-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "com.nfctools.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.nfctools.app-mergeDebugResources-43:/layout/activity_tutorial.xml",
+        "source": "com.nfctools.app-main-46:/layout/activity_tutorial.xml"
+    },
+    {
+        "merged": "com.nfctools.app-mergeDebugResources-43:/layout/tutorial_page.xml",
+        "source": "com.nfctools.app-main-46:/layout/tutorial_page.xml"
+    },
+    {
+        "merged": "com.nfctools.app-mergeDebugResources-43:/layout/activity_sns_write.xml",
+        "source": "com.nfctools.app-main-46:/layout/activity_sns_write.xml"
+    }
+]

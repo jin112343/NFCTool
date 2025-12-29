@@ -1,0 +1,62 @@
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "7qV-0H-MQh"; */
+"7qV-0H-MQh.normalTitle" = "Scrivi";
+
+/* Class = "UIButton"; normalTitle = "Other"; ObjectID = "7zn-1x-0oo"; */
+"7zn-1x-0oo.normalTitle" = "Altro";
+
+/* Class = "UIButton"; normalTitle = "Hide Ads"; ObjectID = "C0S-eJ-Oeh"; */
+"C0S-eJ-Oeh.normalTitle" = "Nascondi annunci";
+
+/* Class = "UILabel"; text = "NFC"; ObjectID = "C0s-U5-5Pi"; */
+"C0s-U5-5Pi.text" = "NFC";
+
+/* Class = "UITextField"; placeholder = "Enter URL and characters"; ObjectID = "Ggl-s4-ZLV"; */
+"Ggl-s4-ZLV.placeholder" = "Inserisci URL e caratteri";
+
+/* Class = "UIButton"; normalTitle = "Hide Ads"; ObjectID = "Jf0-SO-Sx6"; */
+"Jf0-SO-Sx6.normalTitle" = "Nascondi annunci";
+
+/* Class = "UINavigationItem"; title = "その他"; ObjectID = "NIn-HX-fK1"; */
+"NIn-HX-fK1.title" = "Altro";
+
+/* Class = "UIButton"; normalTitle = "Terms of Service"; ObjectID = "Uyp-a4-ftM"; */
+"Uyp-a4-ftM.normalTitle" = "Termini di servizio";
+
+/* Class = "UIButton"; normalTitle = "Read"; ObjectID = "Vcm-H4-GRe"; */
+"Vcm-H4-GRe.normalTitle" = "Leggi";
+
+/* Class = "UIButton"; normalTitle = "Contact Us"; ObjectID = "aJR-Y0-8wc"; */
+"aJR-Y0-8wc.normalTitle" = "Contattaci";
+
+/* Class = "UIButton"; normalTitle = "Rate App"; ObjectID = "aet-lI-VpX"; */
+"aet-lI-VpX.normalTitle" = "Valuta l'app";
+
+/* Class = "UILabel"; text = " "; ObjectID = "bJE-VO-sYX"; */
+"bJE-VO-sYX.text" = " ";
+
+/* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
+"bzW-BX-eeF.normalTitle" = "Elimina";
+
+/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
+"g8f-yc-KEN.text" = "0,99 €";
+
+/* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
+"gPu-GC-2Tq.normalTitle" = "Acquista tag NFC su Amazon";
+
+/* Class = "UIButton"; normalTitle = "Restore Purchase"; ObjectID = "ivE-o3-0qW"; */
+"ivE-o3-0qW.normalTitle" = "Ripristina acquisto";
+
+/* Class = "UIButton"; normalTitle = "Write"; ObjectID = "k92-IX-8JL"; */
+"k92-IX-8JL.normalTitle" = "Scrivi";
+
+/* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
+"xZa-Gx-EIp.normalTitle" = "Come usare l'app (esempio)";
+
+"nfc_not_supported" = "Questo NFC non può essere utilizzato";
+"nfc_bring_closer" = "Avvicina il tag NFC alla parte superiore dell'iPhone";
+"nfc_tag_not_supported" = "Questo tag NFC non è supportato";
+"nfc_remove_alert" = "Le seguenti informazioni verranno eliminate\nNon spostare il tag NFC \n\n %@";
+"nfc_read_only" = "Questo tag NFC è solo in lettura";
+"nfc_payload_fail" = "Creazione del payload non riuscita";
+"nfc_over_capacity" = "Impossibile scrivere a causa del superamento della capacità!\nLa capacità è di %@ byte";
+"nfc_deleted" = "Eliminato con successo";

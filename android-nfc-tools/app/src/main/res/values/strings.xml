@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NFC Tools</string>
+
+    <!-- Main Screen -->
+    <string name="read_button">Read</string>
+    <string name="write_button">Write</string>
+    <string name="delete_button">Delete</string>
+    <string name="other_button">Other</string>
+
+    <!-- NFC Messages -->
+    <string name="nfc_not_supported">このNFCは使えません</string>
+    <string name="nfc_bring_closer">NFCタグをスマートフォン背面に近づけてください</string>
+    <string name="nfc_tag_not_supported">このNFCタグは対応していません</string>
+    <string name="nfc_remove_alert">下記の情報を削除します\nNFCタグを動かないでください \n\n %s</string>
+    <string name="nfc_read_only">このNFCタグには書き込みできません</string>
+    <string name="nfc_payload_fail">ペイロードの作成に失敗しました</string>
+    <string name="nfc_over_capacity">容量オーバーで書き込めません！\n容量は%sbyteです</string>
+    <string name="nfc_deleted">削除しました</string>
+    <string name="nfc_written">書き込み完了</string>
+
+    <!-- Tutorial -->
+    <string name="tutorial_title">Welcome to NFC Tools</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="done">Done</string>
+
+    <!-- Error Messages -->
+    <string name="error_no_nfc">NFC機能が利用できません</string>
+    <string name="error_nfc_disabled">NFC機能を有効にしてください</string>
+
+    <!-- Ad Remove -->
+    <string name="remove_ads">広告を削除</string>
+</resources>

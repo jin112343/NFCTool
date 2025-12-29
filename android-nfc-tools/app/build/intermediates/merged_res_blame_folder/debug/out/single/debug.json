@@ -1,0 +1,86 @@
+[
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/layout_activity_tutorial.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/layout/activity_tutorial.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_ic_write.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/ic_write.xml"
+    },
+    {
+        "merged": "com.nfctools.app-merged_res-44:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.nfctools.app-main-46:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_ic_facebook.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/ic_facebook.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_ic_other.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/ic_other.xml"
+    },
+    {
+        "merged": "com.nfctools.app-merged_res-44:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.nfctools.app-main-46:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/layout_activity_sns_write.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/layout/activity_sns_write.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/layout_activity_main.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.nfctools.app-merged_res-44:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.nfctools.app-main-46:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_ic_youtube.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/ic_youtube.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_dot_active.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/dot_active.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_ic_delete.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/ic_delete.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_ic_instagram.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/ic_instagram.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_dot_inactive.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/dot_inactive.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_ic_twitter.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/ic_twitter.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/drawable_ic_read.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/drawable/ic_read.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/layout_tutorial_page.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/layout/tutorial_page.xml"
+    },
+    {
+        "merged": "com.nfctools.app-merged_res-44:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.nfctools.app-main-46:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-merged_res-44:/xml_backup_rules.xml.flat",
+        "source": "/Users/jin/.gradle/daemon/8.4/com.nfctools.app-main-46:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.nfctools.app-merged_res-44:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.nfctools.app-main-46:/drawable/ic_launcher_foreground.xml"
+    }
+]

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="background_light">#F5F5F5</color>
+    <color name="black">#FF000000</color>
+    <color name="gray">#9E9E9E</color>
+    <color name="primary_blue">#2196F3</color>
+    <color name="primary_blue_dark">#1976D2</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="white">#FFFFFFFF</color>
+    <string name="app_name">NFC Tools</string>
+    <string name="default_web_client_id" translatable="false">123456789012-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com</string>
+    <string name="delete_button">Delete</string>
+    <string name="done">Done</string>
+    <string name="error_nfc_disabled">NFC機能を有効にしてください</string>
+    <string name="error_no_nfc">NFC機能が利用できません</string>
+    <string name="gcm_defaultSenderId" translatable="false">123456789012</string>
+    <string name="google_api_key" translatable="false">AIzaSyABCDEFGHIJKLMNOPQRSTUVWXYZ1234567</string>
+    <string name="google_app_id" translatable="false">1:123456789012:android:abcdef123456789</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyABCDEFGHIJKLMNOPQRSTUVWXYZ1234567</string>
+    <string name="google_storage_bucket" translatable="false">nfc-tools-android.appspot.com</string>
+    <string name="next">Next</string>
+    <string name="nfc_bring_closer">NFCタグをスマートフォン背面に近づけてください</string>
+    <string name="nfc_deleted">削除しました</string>
+    <string name="nfc_not_supported">このNFCは使えません</string>
+    <string name="nfc_over_capacity">容量オーバーで書き込めません！\n容量は%sbyteです</string>
+    <string name="nfc_payload_fail">ペイロードの作成に失敗しました</string>
+    <string name="nfc_read_only">このNFCタグには書き込みできません</string>
+    <string name="nfc_remove_alert">下記の情報を削除します\nNFCタグを動かないでください \n\n %s</string>
+    <string name="nfc_tag_not_supported">このNFCタグは対応していません</string>
+    <string name="nfc_written">書き込み完了</string>
+    <string name="other_button">Other</string>
+    <string name="project_id" translatable="false">nfc-tools-android</string>
+    <string name="read_button">Read</string>
+    <string name="remove_ads">広告を削除</string>
+    <string name="skip">Skip</string>
+    <string name="tutorial_title">Welcome to NFC Tools</string>
+    <string name="write_button">Write</string>
+    <style name="Theme.NFCTools" parent="Theme.Material3.DayNight">
+        
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <item name="android:statusBarColor" ns1:targetApi="l">?attr/colorPrimaryVariant</item>
+        
+    </style>
+</resources>

@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Padam";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "RM4.50"; /* Approximate price in Malaysian Ringgit */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Beli Tag NFC di Amazon";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Cara Menggunakan Aplikasi (Contoh)";
+
+/* NFC Messages */
+"nfc_not_supported" = "NFC tidak disokong pada peranti ini";
+"nfc_bring_closer" = "Dekatkan peranti ke tag NFC";
+"nfc_tag_not_supported" = "Tag NFC ini tidak disokong";
+"nfc_remove_alert" = "Keluarkan tag NFC";
+"nfc_read_only" = "Tag ini hanya boleh dibaca";
+"nfc_payload_fail" = "Gagal membuat payload";
+"nfc_over_capacity" = "Data melebihi kapasiti tag";
+"nfc_deleted" = "Data dipadam";
+"loading" = "Memuatkan...";
+
+/* Read Result */
+"result_title" = "Hasil Bacaan";
+"result_section_tag_info" = "Maklumat Tag";
+"result_section_records" = "Rekod";
+"result_section_felica" = "Maklumat FeliCa";
+"result_section_history" = "Sejarah Penggunaan";
+"result_section_raw" = "Data Mentah";
+
+/* Tag Info */
+"tag_type" = "Jenis Tag";
+"tag_id" = "ID Tag";
+"capacity" = "Kapasiti";
+"used_size" = "Saiz Digunakan";
+"free_space" = "Ruang Kosong";
+"writable" = "Boleh Tulis";
+"writable_yes" = "Ya";
+"writable_no" = "Baca Sahaja";
+"ndef_status" = "Status NDEF";
+
+/* Record Info */
+"record_number" = "Rekod #%d";
+"record_type" = "Jenis";
+"record_tnf" = "TNF";
+"record_text" = "Teks";
+"record_url" = "URL";
+"record_locale" = "Bahasa";
+"record_size" = "Saiz";
+
+/* FeliCa */
+"felica_balance" = "Baki";
+"felica_system" = "Kod Sistem";
+"history_date" = "Tarikh";
+"history_type" = "Jenis";
+"history_balance" = "Baki";
+"history_terminal" = "Terminal";
+
+/* Common */
+"bytes_format" = "%d bait";
+"no_data" = "Tiada Data";
+"tap_to_open" = "Ketik untuk buka pautan";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Mesin tambang";
+"terminal_mobile" = "Telefon bimbit";
+"terminal_ticket_machine" = "Mesin tiket";
+"terminal_ticket_machine_commuter" = "Mesin (pas)";
+"terminal_charge_machine" = "Mesin tambah nilai";
+"terminal_auto_ticket_machine" = "Mesin tiket automatik";
+"terminal_gate" = "Pintu";
+"terminal_auto_fare_machine" = "Mesin tambang automatik";
+"terminal_simple_gate" = "Pintu mudah";
+"terminal_counter" = "Kaunter";
+"terminal_retail" = "Runcit";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Bayaran tambang";
+"process_charge" = "Tambah nilai";
+"process_commuter_pass" = "Pembelian pas";
+"process_fare_adjustment" = "Pelarasan tambang";
+"process_counter_exit" = "Keluar kaunter";
+"process_new_issue" = "Terbitan baru";
+"process_deduction" = "Potongan";
+"process_counter_entry" = "Masuk kaunter";
+"process_bus_charge" = "Tambah nilai bas";
+"process_bus_payment" = "Bayaran bas";
+"process_reissue" = "Terbitan semula";
+"process_payment_refund" = "Bayaran/Bayaran balik";
+"process_charge_commuter" = "Tambah nilai/Pas";
+"process_ticket_counter" = "Kaunter tiket";
+"process_deposit" = "Deposit";
+"process_counter" = "Kaunter";
+"process_retail" = "Runcit";
+"process_retail_bonus" = "Bonus runcit";
+"process_retail_cancel" = "Pembatalan runcit";
+"process_cash_combined" = "Tunai gabungan";
+"process_transfer_adjustment" = "Pelarasan pindahan";
+"process_default" = "Pemprosesan";
+

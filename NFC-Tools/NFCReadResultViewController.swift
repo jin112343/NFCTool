@@ -15,6 +15,7 @@ struct NFCReadResult {
     var records: [NFCRecordInfo]     // 各レコードの情報
     var felicaBalance: Int?          // FeliCa残高（交通系IC）
     var felicaSystemCode: String?    // FeliCaシステムコード
+    var felicaHistories: [FeliCaHistoryEntry]  // FeliCa利用履歴
     var rawPayloadData: [Data]       // 生データ
 
     init() {
@@ -28,7 +29,75 @@ struct NFCReadResult {
         self.records = []
         self.felicaBalance = nil
         self.felicaSystemCode = nil
+        self.felicaHistories = []
         self.rawPayloadData = []
+    }
+}
+
+// MARK: - FeliCa利用履歴エントリ
+struct FeliCaHistoryEntry {
+    var index: Int                   // 履歴インデックス（0が最新）
+    var terminalType: UInt8          // 端末種
+    var processType: UInt8           // 処理種
+    var entryStationCode: Int        // 入場駅コード
+    var exitStationCode: Int         // 出場駅コード
+    var balance: Int                 // 残高
+    var year: Int                    // 年
+    var month: Int                   // 月
+    var day: Int                     // 日
+    var sequenceNumber: Int          // 通番
+    var regionCode: UInt8            // 地域コード
+
+    var dateString: String {
+        return String(format: "%04d/%02d/%02d", year, month, day)
+    }
+
+    var terminalTypeName: String {
+        switch terminalType {
+        case 0x03: return NSLocalizedString("terminal_fare_machine", tableName: "Main", comment: "精算機")
+        case 0x04: return NSLocalizedString("terminal_mobile", tableName: "Main", comment: "携帯電話")
+        case 0x05: return NSLocalizedString("terminal_ticket_machine", tableName: "Main", comment: "券売機")
+        case 0x07: return NSLocalizedString("terminal_ticket_machine_commuter", tableName: "Main", comment: "券売機(定期)")
+        case 0x08: return NSLocalizedString("terminal_ticket_machine", tableName: "Main", comment: "券売機")
+        case 0x09: return NSLocalizedString("terminal_charge_machine", tableName: "Main", comment: "入金機")
+        case 0x12: return NSLocalizedString("terminal_auto_ticket_machine", tableName: "Main", comment: "自動券売機")
+        case 0x14: return NSLocalizedString("terminal_gate", tableName: "Main", comment: "改札機")
+        case 0x15: return NSLocalizedString("terminal_auto_fare_machine", tableName: "Main", comment: "自動精算機")
+        case 0x16: return NSLocalizedString("terminal_gate", tableName: "Main", comment: "改札機")
+        case 0x17: return NSLocalizedString("terminal_simple_gate", tableName: "Main", comment: "簡易改札機")
+        case 0x18, 0x19, 0x1A, 0x1B, 0x1F: return NSLocalizedString("terminal_counter", tableName: "Main", comment: "窓口")
+        case 0x1C, 0x1D: return NSLocalizedString("terminal_auto_fare_machine", tableName: "Main", comment: "自動精算機")
+        case 0x46, 0x48: return "VIEW ALTTE"
+        case 0xC7, 0xC8: return NSLocalizedString("terminal_retail", tableName: "Main", comment: "物販")
+        default: return NSLocalizedString("terminal_default", tableName: "Main", comment: "端末")
+        }
+    }
+
+    var processTypeName: String {
+        switch processType {
+        case 0x01: return NSLocalizedString("process_fare_payment", tableName: "Main", comment: "運賃支払")
+        case 0x02: return NSLocalizedString("process_charge", tableName: "Main", comment: "チャージ")
+        case 0x03: return NSLocalizedString("process_commuter_pass", tableName: "Main", comment: "定期購入")
+        case 0x04, 0x05: return NSLocalizedString("process_fare_adjustment", tableName: "Main", comment: "精算")
+        case 0x06: return NSLocalizedString("process_counter_exit", tableName: "Main", comment: "窓口出場")
+        case 0x07: return NSLocalizedString("process_new_issue", tableName: "Main", comment: "新規発行")
+        case 0x08: return NSLocalizedString("process_deduction", tableName: "Main", comment: "控除")
+        case 0x0C: return NSLocalizedString("process_counter_entry", tableName: "Main", comment: "窓口入場")
+        case 0x0D: return NSLocalizedString("process_bus_charge", tableName: "Main", comment: "バス入金")
+        case 0x0F: return NSLocalizedString("process_bus_payment", tableName: "Main", comment: "バス支払")
+        case 0x11: return NSLocalizedString("process_reissue", tableName: "Main", comment: "再発行")
+        case 0x13: return NSLocalizedString("process_payment_refund", tableName: "Main", comment: "支払/払戻")
+        case 0x14: return NSLocalizedString("process_charge_commuter", tableName: "Main", comment: "入金/定期")
+        case 0x15: return NSLocalizedString("process_ticket_counter", tableName: "Main", comment: "券売窓口")
+        case 0x1F, 0x49, 0x4A, 0xCB: return NSLocalizedString("process_deposit", tableName: "Main", comment: "入金")
+        case 0x23: return NSLocalizedString("process_counter", tableName: "Main", comment: "窓口")
+        case 0x46: return NSLocalizedString("process_retail", tableName: "Main", comment: "物販")
+        case 0x48: return NSLocalizedString("process_retail_bonus", tableName: "Main", comment: "物販特典")
+        case 0x4B: return NSLocalizedString("process_retail_cancel", tableName: "Main", comment: "物販取消")
+        case 0xC6: return NSLocalizedString("process_cash_combined", tableName: "Main", comment: "現金併用")
+        case 0x84, 0x85: return NSLocalizedString("process_transfer_adjustment", tableName: "Main", comment: "他社精算")
+        default: return NSLocalizedString("process_default", tableName: "Main", comment: "処理")
+        }
     }
 }
 
@@ -59,81 +128,22 @@ class NFCReadResultViewController: UIViewController {
     // セクション定義
     private enum Section: Int, CaseIterable {
         case tagInfo = 0
-        case records
         case felica
+        case history
+        case records
         case rawData
 
         var title: String {
             switch self {
-            case .tagInfo: return NSLocalizedString("result_section_tag_info", comment: "タグ情報")
-            case .records: return NSLocalizedString("result_section_records", comment: "レコード")
-            case .felica: return NSLocalizedString("result_section_felica", comment: "FeliCa情報")
-            case .rawData: return NSLocalizedString("result_section_raw", comment: "生データ")
+            case .tagInfo: return NSLocalizedString("result_section_tag_info", tableName: "Main", comment: "タグ情報")
+            case .felica: return NSLocalizedString("result_section_felica", tableName: "Main", comment: "FeliCa情報")
+            case .history: return NSLocalizedString("result_section_history", tableName: "Main", comment: "利用履歴")
+            case .records: return NSLocalizedString("result_section_records", tableName: "Main", comment: "レコード")
+            case .rawData: return NSLocalizedString("result_section_raw", tableName: "Main", comment: "生データ")
             }
         }
     }
 
-    // 多言語対応メッセージ
-    private let localizedMessages: [String: [String: String]] = [
-        "ja": [
-            "result_title": "読み取り結果",
-            "result_section_tag_info": "タグ情報",
-            "result_section_records": "レコード",
-            "result_section_felica": "FeliCa情報",
-            "result_section_raw": "生データ",
-            "tag_type": "タグ種類",
-            "tag_id": "タグID",
-            "capacity": "容量",
-            "used_size": "使用サイズ",
-            "free_space": "空き容量",
-            "writable": "書き込み",
-            "writable_yes": "可能",
-            "writable_no": "読み取り専用",
-            "ndef_status": "NDEFステータス",
-            "record_number": "レコード #%d",
-            "record_type": "タイプ",
-            "record_tnf": "TNF",
-            "record_text": "テキスト",
-            "record_url": "URL",
-            "record_locale": "言語",
-            "record_size": "サイズ",
-            "felica_balance": "残高",
-            "felica_system": "システムコード",
-            "bytes": "%d bytes",
-            "yen": "¥%d",
-            "no_data": "データなし",
-            "tap_to_open": "タップしてリンクを開く"
-        ],
-        "en": [
-            "result_title": "Read Result",
-            "result_section_tag_info": "Tag Information",
-            "result_section_records": "Records",
-            "result_section_felica": "FeliCa Information",
-            "result_section_raw": "Raw Data",
-            "tag_type": "Tag Type",
-            "tag_id": "Tag ID",
-            "capacity": "Capacity",
-            "used_size": "Used Size",
-            "free_space": "Free Space",
-            "writable": "Writable",
-            "writable_yes": "Yes",
-            "writable_no": "Read Only",
-            "ndef_status": "NDEF Status",
-            "record_number": "Record #%d",
-            "record_type": "Type",
-            "record_tnf": "TNF",
-            "record_text": "Text",
-            "record_url": "URL",
-            "record_locale": "Locale",
-            "record_size": "Size",
-            "felica_balance": "Balance",
-            "felica_system": "System Code",
-            "bytes": "%d bytes",
-            "yen": "¥%d",
-            "no_data": "No Data",
-            "tap_to_open": "Tap to open link"
-        ]
-    ]
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -141,6 +151,13 @@ class NFCReadResultViewController: UIViewController {
         setupUI()
         setupTableView()
         setupAdvertisement()
+
+        // デバッグログ
+        if let result = readResult {
+            logger.info("NFCReadResultViewController - Balance: \(result.felicaBalance ?? -1), SystemCode: \(result.felicaSystemCode ?? "nil"), Histories: \(result.felicaHistories.count)")
+        } else {
+            logger.error("NFCReadResultViewController - readResult is nil!")
+        }
     }
 
     // MARK: - Setup
@@ -191,18 +208,19 @@ class NFCReadResultViewController: UIViewController {
 
     // MARK: - Localization
     private func getLocalizedMessage(key: String) -> String {
-        let currentLanguage: String
-        if #available(iOS 16, *) {
-            currentLanguage = Locale.current.language.languageCode?.identifier ?? "en"
-        } else {
-            currentLanguage = Locale.current.languageCode ?? "en"
-        }
-        return localizedMessages[currentLanguage]?[key]
-            ?? localizedMessages["en"]?[key]
-            ?? key
+        return NSLocalizedString(key, tableName: "Main", comment: "")
     }
 
     // MARK: - Helper Methods
+
+    private func formatCurrency(_ amount: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = ","
+        let formattedNumber = formatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
+        return "¥\(formattedNumber)"
+    }
+
     private func getTNFDescription(_ tnf: String) -> String {
         switch tnf {
         case "empty": return "Empty"
@@ -220,57 +238,72 @@ class NFCReadResultViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension NFCReadResultViewController: UITableViewDataSource {
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        guard let result = readResult else { return 0 }
-        var count = 2 // タグ情報 + レコード
+    // 動的にセクションを決定するヘルパー
+    private func getVisibleSections() -> [Section] {
+        guard let result = readResult else { return [] }
+        var sections: [Section] = [.tagInfo]
+
+        // FeliCa情報（残高がある場合）
         if result.felicaBalance != nil || result.felicaSystemCode != nil {
-            count += 1 // FeliCa情報
+            sections.append(.felica)
         }
+
+        // 利用履歴（履歴がある場合）
+        if !result.felicaHistories.isEmpty {
+            sections.append(.history)
+        }
+
+        // NDEFレコード（レコードがある場合）
+        if !result.records.isEmpty {
+            sections.append(.records)
+        }
+
+        // 生データ（データがある場合）
         if !result.rawPayloadData.isEmpty {
-            count += 1 // 生データ
+            sections.append(.rawData)
         }
-        return count
+
+        return sections
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return getVisibleSections().count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let result = readResult else { return nil }
+        let sections = getVisibleSections()
+        guard section < sections.count else { return nil }
 
-        switch section {
-        case 0:
+        switch sections[section] {
+        case .tagInfo:
             return getLocalizedMessage(key: "result_section_tag_info")
-        case 1:
+        case .felica:
+            return getLocalizedMessage(key: "result_section_felica")
+        case .history:
+            return getLocalizedMessage(key: "result_section_history")
+        case .records:
             return getLocalizedMessage(key: "result_section_records")
-        case 2:
-            if result.felicaBalance != nil || result.felicaSystemCode != nil {
-                return getLocalizedMessage(key: "result_section_felica")
-            } else {
-                return getLocalizedMessage(key: "result_section_raw")
-            }
-        case 3:
+        case .rawData:
             return getLocalizedMessage(key: "result_section_raw")
-        default:
-            return nil
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let result = readResult else { return 0 }
+        let sections = getVisibleSections()
+        guard section < sections.count else { return 0 }
 
-        switch section {
-        case 0: // タグ情報
+        switch sections[section] {
+        case .tagInfo:
             return 6 // タイプ、ID、容量、使用サイズ、空き、書き込み可否
-        case 1: // レコード
+        case .felica:
+            return 2 // 残高、システムコード
+        case .history:
+            return result.felicaHistories.count
+        case .records:
             return result.records.isEmpty ? 1 : result.records.count * 5 // 各レコードに5行
-        case 2: // FeliCaまたは生データ
-            if result.felicaBalance != nil || result.felicaSystemCode != nil {
-                return 2 // 残高、システムコード
-            } else {
-                return result.rawPayloadData.count
-            }
-        case 3: // 生データ
+        case .rawData:
             return result.rawPayloadData.count
-        default:
-            return 0
         }
     }
 
@@ -279,24 +312,25 @@ extension NFCReadResultViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
+        let sections = getVisibleSections()
+        guard indexPath.section < sections.count else {
+            return UITableViewCell()
+        }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell", for: indexPath) as! SubtitleCell
         cell.selectionStyle = .none
 
-        switch indexPath.section {
-        case 0: // タグ情報
+        switch sections[indexPath.section] {
+        case .tagInfo:
             configureTagInfoCell(cell, row: indexPath.row, result: result)
-        case 1: // レコード
+        case .felica:
+            configureFeliCaCell(cell, row: indexPath.row, result: result)
+        case .history:
+            configureHistoryCell(cell, row: indexPath.row, result: result)
+        case .records:
             configureRecordCell(cell, row: indexPath.row, result: result)
-        case 2: // FeliCaまたは生データ
-            if result.felicaBalance != nil || result.felicaSystemCode != nil {
-                configureFeliCaCell(cell, row: indexPath.row, result: result)
-            } else {
-                configureRawDataCell(cell, row: indexPath.row, result: result)
-            }
-        case 3: // 生データ
+        case .rawData:
             configureRawDataCell(cell, row: indexPath.row, result: result)
-        default:
-            break
         }
 
         return cell
@@ -312,13 +346,13 @@ extension NFCReadResultViewController: UITableViewDataSource {
             cell.detailTextLabel?.text = result.tagIdentifier ?? "-"
         case 2:
             cell.textLabel?.text = getLocalizedMessage(key: "capacity")
-            cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes"), result.capacity)
+            cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes_format"), result.capacity)
         case 3:
             cell.textLabel?.text = getLocalizedMessage(key: "used_size")
-            cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes"), result.usedSize)
+            cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes_format"), result.usedSize)
         case 4:
             cell.textLabel?.text = getLocalizedMessage(key: "free_space")
-            cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes"), result.freeSpace)
+            cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes_format"), result.freeSpace)
         case 5:
             cell.textLabel?.text = getLocalizedMessage(key: "writable")
             cell.detailTextLabel?.text = result.isWritable ?
@@ -367,11 +401,11 @@ extension NFCReadResultViewController: UITableViewDataSource {
                 cell.selectionStyle = .default
             } else {
                 cell.textLabel?.text = "  " + getLocalizedMessage(key: "record_size")
-                cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes"), record.payloadSize)
+                cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes_format"), record.payloadSize)
             }
         case 4:
             cell.textLabel?.text = "  " + getLocalizedMessage(key: "record_size")
-            cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes"), record.payloadSize)
+            cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes_format"), record.payloadSize)
         default:
             break
         }
@@ -382,7 +416,7 @@ extension NFCReadResultViewController: UITableViewDataSource {
         case 0:
             cell.textLabel?.text = getLocalizedMessage(key: "felica_balance")
             if let balance = result.felicaBalance {
-                cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "yen"), balance)
+                cell.detailTextLabel?.text = formatCurrency(balance)
                 cell.detailTextLabel?.textColor = .systemGreen
                 cell.detailTextLabel?.font = .boldSystemFont(ofSize: 20)
             } else {
@@ -393,6 +427,29 @@ extension NFCReadResultViewController: UITableViewDataSource {
             cell.detailTextLabel?.text = result.felicaSystemCode ?? "-"
         default:
             break
+        }
+    }
+
+    private func configureHistoryCell(_ cell: SubtitleCell, row: Int, result: NFCReadResult) {
+        guard row < result.felicaHistories.count else { return }
+        let history = result.felicaHistories[row]
+
+        // 日付と処理種別
+        cell.textLabel?.text = "\(history.dateString)  \(history.processTypeName)"
+        cell.textLabel?.font = .systemFont(ofSize: 15)
+
+        // 残高（カンマ区切り）
+        cell.detailTextLabel?.text = formatCurrency(history.balance)
+        cell.detailTextLabel?.font = .boldSystemFont(ofSize: 16)
+
+        // チャージは緑、支払いは赤
+        switch history.processType {
+        case 0x02, 0x1F, 0x49, 0x4A, 0xCB: // チャージ系
+            cell.detailTextLabel?.textColor = .systemGreen
+        case 0x01, 0x04, 0x05, 0x0F, 0x46, 0xC6: // 支払い系
+            cell.detailTextLabel?.textColor = .systemRed
+        default:
+            cell.detailTextLabel?.textColor = .label
         }
     }
 
@@ -412,16 +469,22 @@ extension NFCReadResultViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        guard let result = readResult, indexPath.section == 1 else { return }
+        guard let result = readResult else { return }
 
-        let recordIndex = indexPath.row / 5
-        let fieldIndex = indexPath.row % 5
+        let sections = getVisibleSections()
+        guard indexPath.section < sections.count else { return }
 
-        guard recordIndex < result.records.count, fieldIndex == 3 else { return }
-        let record = result.records[recordIndex]
+        // レコードセクションの場合、URLタップ処理
+        if sections[indexPath.section] == .records {
+            let recordIndex = indexPath.row / 5
+            let fieldIndex = indexPath.row % 5
 
-        if let url = record.urlContent {
-            UIApplication.shared.open(url)
+            guard recordIndex < result.records.count, fieldIndex == 3 else { return }
+            let record = result.records[recordIndex]
+
+            if let url = record.urlContent {
+                UIApplication.shared.open(url)
+            }
         }
     }
 }

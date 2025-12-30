@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Izbriši";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "0,99 $";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Kupi NFC oznake na Amazonu";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Kako koristiti aplikaciju (Primjer)";
+
+/* NFC Messages */
+"nfc_not_supported" = "NFC nije podržan na ovom uređaju";
+"nfc_bring_closer" = "Približite uređaj NFC oznaci";
+"nfc_tag_not_supported" = "Ova NFC oznaka nije podržana";
+"nfc_remove_alert" = "Uklonite NFC oznaku";
+"nfc_read_only" = "Ova oznaka je samo za čitanje";
+"nfc_payload_fail" = "Nije uspjelo stvaranje podataka";
+"nfc_over_capacity" = "Podaci premašuju kapacitet oznake";
+"nfc_deleted" = "Podaci izbrisani";
+"loading" = "Učitavanje...";
+
+/* Read Result */
+"result_title" = "Rezultat čitanja";
+"result_section_tag_info" = "Informacije o oznaci";
+"result_section_records" = "Zapisi";
+"result_section_felica" = "FeliCa informacije";
+"result_section_history" = "Povijest korištenja";
+"result_section_raw" = "Sirovi podaci";
+
+/* Tag Info */
+"tag_type" = "Vrsta oznake";
+"tag_id" = "ID oznake";
+"capacity" = "Kapacitet";
+"used_size" = "Iskorištena veličina";
+"free_space" = "Slobodni prostor";
+"writable" = "Zapisivo";
+"writable_yes" = "Da";
+"writable_no" = "Samo za čitanje";
+"ndef_status" = "NDEF status";
+
+/* Record Info */
+"record_number" = "Zapis #%d";
+"record_type" = "Vrsta";
+"record_tnf" = "TNF";
+"record_text" = "Tekst";
+"record_url" = "URL";
+"record_locale" = "Jezik";
+"record_size" = "Veličina";
+
+/* FeliCa */
+"felica_balance" = "Stanje";
+"felica_system" = "Sistemski kod";
+"history_date" = "Datum";
+"history_type" = "Vrsta";
+"history_balance" = "Stanje";
+"history_terminal" = "Terminal";
+
+/* Common */
+"bytes_format" = "%d bajtova";
+"no_data" = "Nema podataka";
+"tap_to_open" = "Dodirnite za otvaranje veze";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Automat za naplatu";
+"terminal_mobile" = "Mobilni telefon";
+"terminal_ticket_machine" = "Automat za karte";
+"terminal_ticket_machine_commuter" = "Automat (pretplata)";
+"terminal_charge_machine" = "Automat za punjenje";
+"terminal_auto_ticket_machine" = "Automatski automat za karte";
+"terminal_gate" = "Vrata";
+"terminal_auto_fare_machine" = "Automatski automat za naplatu";
+"terminal_simple_gate" = "Jednostavna vrata";
+"terminal_counter" = "Šalter";
+"terminal_retail" = "Maloprodaja";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Plaćanje prijevoza";
+"process_charge" = "Punjenje";
+"process_commuter_pass" = "Kupnja pretplate";
+"process_fare_adjustment" = "Prilagodba cijene";
+"process_counter_exit" = "Izlaz na šalteru";
+"process_new_issue" = "Nova izdaja";
+"process_deduction" = "Odbitak";
+"process_counter_entry" = "Ulaz na šalteru";
+"process_bus_charge" = "Punjenje za autobus";
+"process_bus_payment" = "Plaćanje autobusa";
+"process_reissue" = "Ponovna izdaja";
+"process_payment_refund" = "Plaćanje/Povrat";
+"process_charge_commuter" = "Punjenje/Pretplata";
+"process_ticket_counter" = "Šalter za karte";
+"process_deposit" = "Uplata";
+"process_counter" = "Šalter";
+"process_retail" = "Maloprodaja";
+"process_retail_bonus" = "Maloprodajni bonus";
+"process_retail_cancel" = "Otkazivanje maloprodaje";
+"process_cash_combined" = "Kombinirana gotovina";
+"process_transfer_adjustment" = "Prilagodba prijenosa";
+"process_default" = "Obrada";
+

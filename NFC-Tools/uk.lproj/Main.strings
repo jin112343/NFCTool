@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Видалити";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "₴36"; /* Приблизна ціна в гривнях */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Купити NFC-мітки на Amazon";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Як використовувати додаток (приклад)";
+
+"nfc_not_supported" = "Цей NFC не можна використовувати";
+"nfc_bring_closer" = "Піднесіть мітку NFC до верхньої частини iPhone";
+"nfc_tag_not_supported" = "Ця мітка NFC не підтримується";
+"nfc_remove_alert" = "Наступна інформація буде видалена\nНе переміщуйте мітку NFC\n\n %@";
+"nfc_read_only" = "Ця мітка NFC лише для читання";
+"nfc_payload_fail" = "Не вдалося створити payload";
+"nfc_over_capacity" = "Неможливо записати через перевищення ємності!\nЄмність становить %@ байт";
+"nfc_deleted" = "Успішно видалено";
+
+/* Loading text */
+"loading" = "Завантаження...";
+
+/* Read Result Screen */
+"result_title" = "Результат читання";
+"result_section_tag_info" = "Інформація про мітку";
+"result_section_records" = "Записи";
+"result_section_felica" = "Інформація FeliCa";
+"result_section_history" = "Історія використання";
+"result_section_raw" = "Сирі дані";
+"tag_type" = "Тип мітки";
+"tag_id" = "ID мітки";
+"capacity" = "Ємність";
+"used_size" = "Використано";
+"free_space" = "Вільно";
+"writable" = "Запис";
+"writable_yes" = "Так";
+"writable_no" = "Лише читання";
+"ndef_status" = "Статус NDEF";
+"record_number" = "Запис #%d";
+"record_type" = "Тип";
+"record_tnf" = "TNF";
+"record_text" = "Текст";
+"record_url" = "URL";
+"record_locale" = "Мова";
+"record_size" = "Розмір";
+"felica_balance" = "Баланс";
+"felica_system" = "Код системи";
+"history_date" = "Дата";
+"history_type" = "Тип";
+"history_balance" = "Баланс";
+"history_terminal" = "Термінал";
+"bytes_format" = "%d байт";
+"no_data" = "Немає даних";
+"tap_to_open" = "Торкніться, щоб відкрити посилання";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Касовий апарат";
+"terminal_mobile" = "Мобільний телефон";
+"terminal_ticket_machine" = "Квитковий автомат";
+"terminal_ticket_machine_commuter" = "Квитковий автомат (абонемент)";
+"terminal_charge_machine" = "Апарат поповнення";
+"terminal_auto_ticket_machine" = "Автоматичний квитковий апарат";
+"terminal_gate" = "Турнікет";
+"terminal_auto_fare_machine" = "Автоматичний касовий апарат";
+"terminal_simple_gate" = "Простий турнікет";
+"terminal_counter" = "Каса";
+"terminal_retail" = "Роздрібна торгівля";
+"terminal_default" = "Термінал";
+
+/* Process Types */
+"process_fare_payment" = "Оплата проїзду";
+"process_charge" = "Поповнення";
+"process_commuter_pass" = "Абонемент";
+"process_fare_adjustment" = "Корегування тарифу";
+"process_counter_exit" = "Вихід через касу";
+"process_new_issue" = "Новий випуск";
+"process_deduction" = "Списання";
+"process_counter_entry" = "Вхід через касу";
+"process_bus_charge" = "Поповнення автобуса";
+"process_bus_payment" = "Оплата автобуса";
+"process_reissue" = "Перевипуск";
+"process_payment_refund" = "Оплата/Повернення";
+"process_charge_commuter" = "Поповнення/Абонемент";
+"process_ticket_counter" = "Квиткова каса";
+"process_deposit" = "Депозит";
+"process_counter" = "Каса";
+"process_retail" = "Роздрібна торгівля";
+"process_retail_bonus" = "Роздрібний бонус";
+"process_retail_cancel" = "Скасування роздрібної покупки";
+"process_cash_combined" = "Комбінована оплата";
+"process_transfer_adjustment" = "Корегування пересадки";
+"process_default" = "Обробка";
+

@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Sil";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "₺25"; /* Türk Lirası cinsinden yaklaşık fiyat */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Amazon'da NFC Etiketleri Satın Al";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Uygulama Nasıl Kullanılır (Örnek)";
+
+"nfc_not_supported" = "Bu NFC kullanılamaz";
+"nfc_bring_closer" = "NFC etiketini iPhone'un üst kısmına yaklaştırın";
+"nfc_tag_not_supported" = "Bu NFC etiketi desteklenmiyor";
+"nfc_remove_alert" = "Aşağıdaki bilgiler silinecek\nNFC etiketini hareket ettirmeyin\n\n %@";
+"nfc_read_only" = "Bu NFC etiketi salt okunur";
+"nfc_payload_fail" = "Yük oluşturma başarısız";
+"nfc_over_capacity" = "Kapasite aşımı nedeniyle yazılamıyor!\nKapasite %@ bayt";
+"nfc_deleted" = "Başarıyla silindi";
+
+/* Loading text */
+"loading" = "Yükleniyor...";
+
+/* Read Result Screen */
+"result_title" = "Okuma Sonucu";
+"result_section_tag_info" = "Etiket Bilgisi";
+"result_section_records" = "Kayıtlar";
+"result_section_felica" = "FeliCa Bilgisi";
+"result_section_history" = "Kullanım Geçmişi";
+"result_section_raw" = "Ham Veri";
+"tag_type" = "Etiket Türü";
+"tag_id" = "Etiket ID";
+"capacity" = "Kapasite";
+"used_size" = "Kullanılan Boyut";
+"free_space" = "Boş Alan";
+"writable" = "Yazılabilir";
+"writable_yes" = "Evet";
+"writable_no" = "Salt Okunur";
+"ndef_status" = "NDEF Durumu";
+"record_number" = "Kayıt #%d";
+"record_type" = "Tür";
+"record_tnf" = "TNF";
+"record_text" = "Metin";
+"record_url" = "URL";
+"record_locale" = "Dil";
+"record_size" = "Boyut";
+"felica_balance" = "Bakiye";
+"felica_system" = "Sistem Kodu";
+"history_date" = "Tarih";
+"history_type" = "Tür";
+"history_balance" = "Bakiye";
+"history_terminal" = "Terminal";
+"bytes_format" = "%d bayt";
+"no_data" = "Veri Yok";
+"tap_to_open" = "Bağlantıyı açmak için dokunun";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Ücret Makinesi";
+"terminal_mobile" = "Cep Telefonu";
+"terminal_ticket_machine" = "Bilet Makinesi";
+"terminal_ticket_machine_commuter" = "Bilet Makinesi (Abonelik)";
+"terminal_charge_machine" = "Yükleme Makinesi";
+"terminal_auto_ticket_machine" = "Otomatik Bilet Makinesi";
+"terminal_gate" = "Turnike";
+"terminal_auto_fare_machine" = "Otomatik Ücret Makinesi";
+"terminal_simple_gate" = "Basit Turnike";
+"terminal_counter" = "Gişe";
+"terminal_retail" = "Perakende";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Ücret Ödemesi";
+"process_charge" = "Yükleme";
+"process_commuter_pass" = "Abonelik";
+"process_fare_adjustment" = "Ücret Düzeltmesi";
+"process_counter_exit" = "Gişe Çıkışı";
+"process_new_issue" = "Yeni Çıkış";
+"process_deduction" = "Kesinti";
+"process_counter_entry" = "Gişe Girişi";
+"process_bus_charge" = "Otobüs Yükleme";
+"process_bus_payment" = "Otobüs Ödemesi";
+"process_reissue" = "Yeniden Çıkış";
+"process_payment_refund" = "Ödeme/İade";
+"process_charge_commuter" = "Yükleme/Abonelik";
+"process_ticket_counter" = "Bilet Gişesi";
+"process_deposit" = "Para Yatırma";
+"process_counter" = "Gişe";
+"process_retail" = "Perakende";
+"process_retail_bonus" = "Perakende Bonusu";
+"process_retail_cancel" = "Perakende İptali";
+"process_cash_combined" = "Nakit Kombinasyonu";
+"process_transfer_adjustment" = "Transfer Düzeltmesi";
+"process_default" = "İşlem";
+

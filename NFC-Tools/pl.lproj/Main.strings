@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Usuń";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "0,99 zł"; /* Approximate price in Polish Zloty */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Kup tagi NFC na Amazon";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Jak używać aplikacji (przykład)";
+
+"nfc_not_supported" = "Ten NFC nie może być użyty";
+"nfc_bring_closer" = "Zbliż tag NFC do górnej części iPhone'a";
+"nfc_tag_not_supported" = "Ten tag NFC nie jest obsługiwany";
+"nfc_remove_alert" = "Następujące informacje zostaną usunięte\nNie ruszaj tagu NFC\n\n %@";
+"nfc_read_only" = "Ten tag NFC jest tylko do odczytu";
+"nfc_payload_fail" = "Nie udało się utworzyć ładunku";
+"nfc_over_capacity" = "Nie można zapisać z powodu przekroczenia pojemności!\nPojemność wynosi %@ bajtów";
+"nfc_deleted" = "Pomyślnie usunięto";
+
+/* Loading text */
+"loading" = "Ładowanie...";
+
+/* Read Result Screen */
+"result_title" = "Wynik odczytu";
+"result_section_tag_info" = "Informacje o tagu";
+"result_section_records" = "Rekordy";
+"result_section_felica" = "Informacje FeliCa";
+"result_section_history" = "Historia użycia";
+"result_section_raw" = "Surowe dane";
+"tag_type" = "Typ tagu";
+"tag_id" = "ID tagu";
+"capacity" = "Pojemność";
+"used_size" = "Użyty rozmiar";
+"free_space" = "Wolne miejsce";
+"writable" = "Zapisywalny";
+"writable_yes" = "Tak";
+"writable_no" = "Tylko odczyt";
+"ndef_status" = "Status NDEF";
+"record_number" = "Rekord #%d";
+"record_type" = "Typ";
+"record_tnf" = "TNF";
+"record_text" = "Tekst";
+"record_url" = "URL";
+"record_locale" = "Język";
+"record_size" = "Rozmiar";
+"felica_balance" = "Saldo";
+"felica_system" = "Kod systemu";
+"history_date" = "Data";
+"history_type" = "Typ";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminal";
+"bytes_format" = "%d bajtów";
+"no_data" = "Brak danych";
+"tap_to_open" = "Dotknij, aby otworzyć link";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Automat taryfowy";
+"terminal_mobile" = "Telefon komórkowy";
+"terminal_ticket_machine" = "Automat biletowy";
+"terminal_ticket_machine_commuter" = "Automat (abonament)";
+"terminal_charge_machine" = "Automat doładowań";
+"terminal_auto_ticket_machine" = "Automatyczny automat biletowy";
+"terminal_gate" = "Bramka";
+"terminal_auto_fare_machine" = "Automatyczny automat taryfowy";
+"terminal_simple_gate" = "Prosta bramka";
+"terminal_counter" = "Okienko";
+"terminal_retail" = "Sprzedaż detaliczna";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Płatność za przejazd";
+"process_charge" = "Doładowanie";
+"process_commuter_pass" = "Bilet okresowy";
+"process_fare_adjustment" = "Korekta taryfy";
+"process_counter_exit" = "Wyjście przez okienko";
+"process_new_issue" = "Nowe wydanie";
+"process_deduction" = "Potrącenie";
+"process_counter_entry" = "Wejście przez okienko";
+"process_bus_charge" = "Doładowanie autobusu";
+"process_bus_payment" = "Płatność za autobus";
+"process_reissue" = "Ponowne wydanie";
+"process_payment_refund" = "Płatność/Zwrot";
+"process_charge_commuter" = "Doładowanie/Abonament";
+"process_ticket_counter" = "Kasa biletowa";
+"process_deposit" = "Wpłata";
+"process_counter" = "Okienko";
+"process_retail" = "Sprzedaż detaliczna";
+"process_retail_bonus" = "Bonus detaliczny";
+"process_retail_cancel" = "Anulowanie detaliczne";
+"process_cash_combined" = "Gotówka łączona";
+"process_transfer_adjustment" = "Korekta przesiadki";
+"process_default" = "Przetwarzanie";
+

@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Poista";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "0,99 €";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Osta NFC-tunnisteita Amazonista";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Kuinka käyttää sovellusta (Esimerkki)";
+
+"nfc_not_supported" = "Tätä NFC:tä ei voi käyttää";
+"nfc_bring_closer" = "Tuo NFC-tunniste lähemmäs iPhonen yläosaa";
+"nfc_tag_not_supported" = "Tätä NFC-tunnistetta ei tueta";
+"nfc_remove_alert" = "Seuraavat tiedot poistetaan\nÄlä siirrä NFC-tunnistetta\n\n %@";
+"nfc_read_only" = "Tämä NFC-tunniste on vain luku";
+"nfc_payload_fail" = "Payloadin luominen epäonnistui";
+"nfc_over_capacity" = "Ei voida kirjoittaa kapasiteetin ylityksen vuoksi!\nKapasiteetti on %@ tavua";
+"nfc_deleted" = "Poistettu onnistuneesti";
+
+/* Loading text */
+"loading" = "Ladataan...";
+
+/* Read Result Screen */
+"result_title" = "Lukutulos";
+"result_section_tag_info" = "Tunnistetiedot";
+"result_section_records" = "Tietueet";
+"result_section_felica" = "FeliCa-tiedot";
+"result_section_history" = "Käyttöhistoria";
+"result_section_raw" = "Raakatiedot";
+"tag_type" = "Tunnistetyyppi";
+"tag_id" = "Tunniste-ID";
+"capacity" = "Kapasiteetti";
+"used_size" = "Käytetty koko";
+"free_space" = "Vapaa tila";
+"writable" = "Kirjoitettava";
+"writable_yes" = "Kyllä";
+"writable_no" = "Vain luku";
+"ndef_status" = "NDEF-tila";
+"record_number" = "Tietue #%d";
+"record_type" = "Tyyppi";
+"record_tnf" = "TNF";
+"record_text" = "Teksti";
+"record_url" = "URL";
+"record_locale" = "Kieli";
+"record_size" = "Koko";
+"felica_balance" = "Saldo";
+"felica_system" = "Järjestelmäkoodi";
+"history_date" = "Päivämäärä";
+"history_type" = "Tyyppi";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminaali";
+"bytes_format" = "%d tavua";
+"no_data" = "Ei tietoja";
+"tap_to_open" = "Napauta avataksesi linkin";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Maksukone";
+"terminal_mobile" = "Matkapuhelin";
+"terminal_ticket_machine" = "Lipunmyyntiautomaatti";
+"terminal_ticket_machine_commuter" = "Lipunmyyntiautomaatti (kausilippu)";
+"terminal_charge_machine" = "Latauskone";
+"terminal_auto_ticket_machine" = "Automaattinen lipunmyynti";
+"terminal_gate" = "Portti";
+"terminal_auto_fare_machine" = "Automaattinen maksukone";
+"terminal_simple_gate" = "Yksinkertainen portti";
+"terminal_counter" = "Tiski";
+"terminal_retail" = "Vähittäismyynti";
+"terminal_default" = "Pääte";
+
+/* Process Types */
+"process_fare_payment" = "Matkan maksu";
+"process_charge" = "Lataus";
+"process_commuter_pass" = "Kausilippu";
+"process_fare_adjustment" = "Maksun tasaus";
+"process_counter_exit" = "Poistuminen tiskiltä";
+"process_new_issue" = "Uusi myöntö";
+"process_deduction" = "Vähennys";
+"process_counter_entry" = "Sisäänkäynti tiskiltä";
+"process_bus_charge" = "Bussin lataus";
+"process_bus_payment" = "Bussin maksu";
+"process_reissue" = "Uudelleenmyöntö";
+"process_payment_refund" = "Maksu/Palautus";
+"process_charge_commuter" = "Lataus/Kausilippu";
+"process_ticket_counter" = "Lipunmyyntitiski";
+"process_deposit" = "Talletus";
+"process_counter" = "Tiski";
+"process_retail" = "Vähittäismyynti";
+"process_retail_bonus" = "Vähittäismyyntibonus";
+"process_retail_cancel" = "Vähittäismyynnin peruutus";
+"process_cash_combined" = "Käteisyhdistelmä";
+"process_transfer_adjustment" = "Siirron tasaus";
+"process_default" = "Prosessi";
+

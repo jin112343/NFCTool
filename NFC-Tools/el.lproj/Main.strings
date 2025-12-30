@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Διαγραφή";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "$0.99";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Αγορά NFC Tags από το Amazon";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Πώς να χρησιμοποιήσετε την εφαρμογή (Παράδειγμα)";
+
+/* NFC Messages */
+"nfc_not_supported" = "Το NFC δεν υποστηρίζεται σε αυτή τη συσκευή";
+"nfc_bring_closer" = "Φέρτε τη συσκευή πιο κοντά στην ετικέτα NFC";
+"nfc_tag_not_supported" = "Αυτή η ετικέτα NFC δεν υποστηρίζεται";
+"nfc_remove_alert" = "Αφαιρέστε την ετικέτα NFC";
+"nfc_read_only" = "Αυτή η ετικέτα είναι μόνο για ανάγνωση";
+"nfc_payload_fail" = "Αποτυχία δημιουργίας payload";
+"nfc_over_capacity" = "Τα δεδομένα υπερβαίνουν τη χωρητικότητα της ετικέτας";
+"nfc_deleted" = "Τα δεδομένα διαγράφηκαν";
+"loading" = "Φόρτωση...";
+
+/* Read Result */
+"result_title" = "Αποτέλεσμα ανάγνωσης";
+"result_section_tag_info" = "Πληροφορίες ετικέτας";
+"result_section_records" = "Εγγραφές";
+"result_section_felica" = "Πληροφορίες FeliCa";
+"result_section_history" = "Ιστορικό χρήσης";
+"result_section_raw" = "Ακατέργαστα δεδομένα";
+
+/* Tag Info */
+"tag_type" = "Τύπος ετικέτας";
+"tag_id" = "ID ετικέτας";
+"capacity" = "Χωρητικότητα";
+"used_size" = "Χρησιμοποιημένο μέγεθος";
+"free_space" = "Ελεύθερος χώρος";
+"writable" = "Εγγράψιμη";
+"writable_yes" = "Ναι";
+"writable_no" = "Μόνο για ανάγνωση";
+"ndef_status" = "Κατάσταση NDEF";
+
+/* Record Info */
+"record_number" = "Εγγραφή #%d";
+"record_type" = "Τύπος";
+"record_tnf" = "TNF";
+"record_text" = "Κείμενο";
+"record_url" = "URL";
+"record_locale" = "Γλώσσα";
+"record_size" = "Μέγεθος";
+
+/* FeliCa */
+"felica_balance" = "Υπόλοιπο";
+"felica_system" = "Κωδικός συστήματος";
+"history_date" = "Ημερομηνία";
+"history_type" = "Τύπος";
+"history_balance" = "Υπόλοιπο";
+"history_terminal" = "Τερματικό";
+
+/* Common */
+"bytes_format" = "%d bytes";
+"no_data" = "Χωρίς δεδομένα";
+"tap_to_open" = "Πατήστε για άνοιγμα συνδέσμου";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Μηχάνημα κομίστρου";
+"terminal_mobile" = "Κινητό τηλέφωνο";
+"terminal_ticket_machine" = "Μηχάνημα εισιτηρίων";
+"terminal_ticket_machine_commuter" = "Μηχάνημα (κάρτα)";
+"terminal_charge_machine" = "Μηχάνημα φόρτισης";
+"terminal_auto_ticket_machine" = "Αυτόματο μηχάνημα εισιτηρίων";
+"terminal_gate" = "Πύλη";
+"terminal_auto_fare_machine" = "Αυτόματο μηχάνημα κομίστρου";
+"terminal_simple_gate" = "Απλή πύλη";
+"terminal_counter" = "Γκισέ";
+"terminal_retail" = "Λιανική";
+"terminal_default" = "Τερματικό";
+
+/* Process Types */
+"process_fare_payment" = "Πληρωμή κομίστρου";
+"process_charge" = "Φόρτιση";
+"process_commuter_pass" = "Αγορά κάρτας";
+"process_fare_adjustment" = "Ρύθμιση κομίστρου";
+"process_counter_exit" = "Έξοδος γκισέ";
+"process_new_issue" = "Νέα έκδοση";
+"process_deduction" = "Αφαίρεση";
+"process_counter_entry" = "Είσοδος γκισέ";
+"process_bus_charge" = "Φόρτιση λεωφορείου";
+"process_bus_payment" = "Πληρωμή λεωφορείου";
+"process_reissue" = "Επανέκδοση";
+"process_payment_refund" = "Πληρωμή/Επιστροφή";
+"process_charge_commuter" = "Φόρτιση/Κάρτα";
+"process_ticket_counter" = "Γκισέ εισιτηρίων";
+"process_deposit" = "Κατάθεση";
+"process_counter" = "Γκισέ";
+"process_retail" = "Λιανική";
+"process_retail_bonus" = "Μπόνους λιανικής";
+"process_retail_cancel" = "Ακύρωση λιανικής";
+"process_cash_combined" = "Μετρητά συνδυασμένα";
+"process_transfer_adjustment" = "Ρύθμιση μεταφοράς";
+"process_default" = "Επεξεργασία";
+

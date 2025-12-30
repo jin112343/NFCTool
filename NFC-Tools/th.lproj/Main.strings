@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "ลบ";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "฿35"; /* ประมาณราคาในบาทไทย */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "ซื้อ NFC แท็กบน Amazon";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "วิธีใช้แอป (ตัวอย่าง)";
+
+"nfc_not_supported" = "NFC นี้ไม่สามารถใช้งานได้";
+"nfc_bring_closer" = "นำแท็ก NFC เข้าใกล้ด้านบนของ iPhone";
+"nfc_tag_not_supported" = "แท็ก NFC นี้ไม่รองรับ";
+"nfc_remove_alert" = "ข้อมูลต่อไปนี้จะถูกลบ\nอย่าเคลื่อนย้ายแท็ก NFC\n\n %@";
+"nfc_read_only" = "แท็ก NFC นี้เป็นแบบอ่านอย่างเดียว";
+"nfc_payload_fail" = "สร้าง payload ไม่สำเร็จ";
+"nfc_over_capacity" = "ไม่สามารถเขียนได้เนื่องจากเกินความจุ!\nความจุคือ %@ ไบต์";
+"nfc_deleted" = "ลบเรียบร้อยแล้ว";
+
+/* Loading text */
+"loading" = "กำลังโหลด...";
+
+/* Read Result Screen */
+"result_title" = "ผลการอ่าน";
+"result_section_tag_info" = "ข้อมูลแท็ก";
+"result_section_records" = "ระเบียน";
+"result_section_felica" = "ข้อมูล FeliCa";
+"result_section_history" = "ประวัติการใช้งาน";
+"result_section_raw" = "ข้อมูลดิบ";
+"tag_type" = "ประเภทแท็ก";
+"tag_id" = "ID แท็ก";
+"capacity" = "ความจุ";
+"used_size" = "ขนาดที่ใช้";
+"free_space" = "พื้นที่ว่าง";
+"writable" = "เขียนได้";
+"writable_yes" = "ได้";
+"writable_no" = "อ่านอย่างเดียว";
+"ndef_status" = "สถานะ NDEF";
+"record_number" = "ระเบียน #%d";
+"record_type" = "ประเภท";
+"record_tnf" = "TNF";
+"record_text" = "ข้อความ";
+"record_url" = "URL";
+"record_locale" = "ภาษา";
+"record_size" = "ขนาด";
+"felica_balance" = "ยอดคงเหลือ";
+"felica_system" = "รหัสระบบ";
+"history_date" = "วันที่";
+"history_type" = "ประเภท";
+"history_balance" = "ยอดคงเหลือ";
+"history_terminal" = "เทอร์มินัล";
+"bytes_format" = "%d ไบต์";
+"no_data" = "ไม่มีข้อมูล";
+"tap_to_open" = "แตะเพื่อเปิดลิงก์";
+
+/* Terminal Types */
+"terminal_fare_machine" = "เครื่องปรับค่าโดยสาร";
+"terminal_mobile" = "โทรศัพท์มือถือ";
+"terminal_ticket_machine" = "เครื่องจำหน่ายตั๋ว";
+"terminal_ticket_machine_commuter" = "เครื่องจำหน่ายตั๋ว (เดือน)";
+"terminal_charge_machine" = "เครื่องเติมเงิน";
+"terminal_auto_ticket_machine" = "เครื่องจำหน่ายตั๋วอัตโนมัติ";
+"terminal_gate" = "ประตูตรวจตั๋ว";
+"terminal_auto_fare_machine" = "เครื่องปรับค่าโดยสารอัตโนมัติ";
+"terminal_simple_gate" = "ประตูอย่างง่าย";
+"terminal_counter" = "เคาน์เตอร์";
+"terminal_retail" = "ร้านค้าปลีก";
+"terminal_default" = "เทอร์มินัล";
+
+/* Process Types */
+"process_fare_payment" = "ชำระค่าโดยสาร";
+"process_charge" = "เติมเงิน";
+"process_commuter_pass" = "บัตรโดยสารรายเดือน";
+"process_fare_adjustment" = "ปรับค่าโดยสาร";
+"process_counter_exit" = "ออกทางเคาน์เตอร์";
+"process_new_issue" = "ออกใหม่";
+"process_deduction" = "หักเงิน";
+"process_counter_entry" = "เข้าทางเคาน์เตอร์";
+"process_bus_charge" = "เติมเงินรถบัส";
+"process_bus_payment" = "ชำระค่ารถบัส";
+"process_reissue" = "ออกใหม่";
+"process_payment_refund" = "ชำระเงิน/คืนเงิน";
+"process_charge_commuter" = "เติมเงิน/รายเดือน";
+"process_ticket_counter" = "เคาน์เตอร์จำหน่ายตั๋ว";
+"process_deposit" = "ฝากเงิน";
+"process_counter" = "เคาน์เตอร์";
+"process_retail" = "ร้านค้าปลีก";
+"process_retail_bonus" = "โบนัสร้านค้า";
+"process_retail_cancel" = "ยกเลิกร้านค้า";
+"process_cash_combined" = "รวมเงินสด";
+"process_transfer_adjustment" = "ปรับการโอน";
+"process_default" = "ประมวลผล";
+

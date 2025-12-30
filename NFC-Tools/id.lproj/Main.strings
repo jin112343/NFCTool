@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Hapus";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "Rp14.000"; /* Approximate price in Indonesian Rupiah */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Beli Tag NFC di Amazon";
 
@@ -60,3 +57,78 @@
 "nfc_payload_fail" = "Gagal membuat payload";
 "nfc_over_capacity" = "Tidak dapat menulis karena kapasitas melebihi batas!\nKapasitas adalah %@ byte";
 "nfc_deleted" = "Berhasil dihapus";
+
+/* Loading text */
+"loading" = "Memuat...";
+
+/* Read Result Screen */
+"result_title" = "Hasil Baca";
+"result_section_tag_info" = "Informasi Tag";
+"result_section_records" = "Rekaman";
+"result_section_felica" = "Informasi FeliCa";
+"result_section_history" = "Riwayat Penggunaan";
+"result_section_raw" = "Data Mentah";
+"tag_type" = "Jenis Tag";
+"tag_id" = "ID Tag";
+"capacity" = "Kapasitas";
+"used_size" = "Ukuran Terpakai";
+"free_space" = "Ruang Kosong";
+"writable" = "Dapat Ditulis";
+"writable_yes" = "Ya";
+"writable_no" = "Hanya Baca";
+"ndef_status" = "Status NDEF";
+"record_number" = "Rekaman #%d";
+"record_type" = "Jenis";
+"record_tnf" = "TNF";
+"record_text" = "Teks";
+"record_url" = "URL";
+"record_locale" = "Bahasa";
+"record_size" = "Ukuran";
+"felica_balance" = "Saldo";
+"felica_system" = "Kode Sistem";
+"history_date" = "Tanggal";
+"history_type" = "Jenis";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminal";
+"bytes_format" = "%d byte";
+"no_data" = "Tidak Ada Data";
+"tap_to_open" = "Ketuk untuk membuka tautan";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Mesin Tarif";
+"terminal_mobile" = "Ponsel";
+"terminal_ticket_machine" = "Mesin Tiket";
+"terminal_ticket_machine_commuter" = "Mesin Tiket (Komuter)";
+"terminal_charge_machine" = "Mesin Isi Ulang";
+"terminal_auto_ticket_machine" = "Mesin Tiket Otomatis";
+"terminal_gate" = "Gerbang Tiket";
+"terminal_auto_fare_machine" = "Mesin Tarif Otomatis";
+"terminal_simple_gate" = "Gerbang Sederhana";
+"terminal_counter" = "Loket";
+"terminal_retail" = "Ritel";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Pembayaran Tarif";
+"process_charge" = "Isi Ulang";
+"process_commuter_pass" = "Kartu Komuter";
+"process_fare_adjustment" = "Penyesuaian Tarif";
+"process_counter_exit" = "Keluar Loket";
+"process_new_issue" = "Penerbitan Baru";
+"process_deduction" = "Pengurangan";
+"process_counter_entry" = "Masuk Loket";
+"process_bus_charge" = "Isi Ulang Bus";
+"process_bus_payment" = "Pembayaran Bus";
+"process_reissue" = "Penerbitan Ulang";
+"process_payment_refund" = "Pembayaran/Pengembalian";
+"process_charge_commuter" = "Isi Ulang/Komuter";
+"process_ticket_counter" = "Loket Tiket";
+"process_deposit" = "Setoran";
+"process_counter" = "Loket";
+"process_retail" = "Ritel";
+"process_retail_bonus" = "Bonus Ritel";
+"process_retail_cancel" = "Pembatalan Ritel";
+"process_cash_combined" = "Gabungan Tunai";
+"process_transfer_adjustment" = "Penyesuaian Transfer";
+"process_default" = "Proses";
+

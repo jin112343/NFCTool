@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Törlés";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "0,99 $";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Vásárolj NFC címkéket az Amazonon";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Hogyan használd az alkalmazást (példa)";
+
+/* NFC Messages */
+"nfc_not_supported" = "Az NFC nem támogatott ezen az eszközön";
+"nfc_bring_closer" = "Tartsa az eszközt közelebb az NFC címkéhez";
+"nfc_tag_not_supported" = "Ez az NFC címke nem támogatott";
+"nfc_remove_alert" = "Távolítsa el az NFC címkét";
+"nfc_read_only" = "Ez a címke csak olvasható";
+"nfc_payload_fail" = "Nem sikerült létrehozni a payload-ot";
+"nfc_over_capacity" = "Az adatok meghaladják a címke kapacitását";
+"nfc_deleted" = "Adatok törölve";
+"loading" = "Betöltés...";
+
+/* Read Result */
+"result_title" = "Olvasás eredménye";
+"result_section_tag_info" = "Címke információ";
+"result_section_records" = "Rekordok";
+"result_section_felica" = "FeliCa információ";
+"result_section_history" = "Használati előzmények";
+"result_section_raw" = "Nyers adatok";
+
+/* Tag Info */
+"tag_type" = "Címke típusa";
+"tag_id" = "Címke ID";
+"capacity" = "Kapacitás";
+"used_size" = "Használt méret";
+"free_space" = "Szabad hely";
+"writable" = "Írható";
+"writable_yes" = "Igen";
+"writable_no" = "Csak olvasható";
+"ndef_status" = "NDEF állapot";
+
+/* Record Info */
+"record_number" = "Rekord #%d";
+"record_type" = "Típus";
+"record_tnf" = "TNF";
+"record_text" = "Szöveg";
+"record_url" = "URL";
+"record_locale" = "Nyelv";
+"record_size" = "Méret";
+
+/* FeliCa */
+"felica_balance" = "Egyenleg";
+"felica_system" = "Rendszerkód";
+"history_date" = "Dátum";
+"history_type" = "Típus";
+"history_balance" = "Egyenleg";
+"history_terminal" = "Terminál";
+
+/* Common */
+"bytes_format" = "%d bájt";
+"no_data" = "Nincs adat";
+"tap_to_open" = "Koppintson a link megnyitásához";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Viteldíj automata";
+"terminal_mobile" = "Mobiltelefon";
+"terminal_ticket_machine" = "Jegykiadó automata";
+"terminal_ticket_machine_commuter" = "Automata (bérlet)";
+"terminal_charge_machine" = "Feltöltő automata";
+"terminal_auto_ticket_machine" = "Automatikus jegykiadó";
+"terminal_gate" = "Kapu";
+"terminal_auto_fare_machine" = "Automatikus viteldíj automata";
+"terminal_simple_gate" = "Egyszerű kapu";
+"terminal_counter" = "Pénztár";
+"terminal_retail" = "Kiskereskedelem";
+"terminal_default" = "Terminál";
+
+/* Process Types */
+"process_fare_payment" = "Viteldíj fizetés";
+"process_charge" = "Feltöltés";
+"process_commuter_pass" = "Bérlet vásárlás";
+"process_fare_adjustment" = "Viteldíj módosítás";
+"process_counter_exit" = "Pénztári kilépés";
+"process_new_issue" = "Új kibocsátás";
+"process_deduction" = "Levonás";
+"process_counter_entry" = "Pénztári belépés";
+"process_bus_charge" = "Busz feltöltés";
+"process_bus_payment" = "Busz fizetés";
+"process_reissue" = "Újrakibocsátás";
+"process_payment_refund" = "Fizetés/Visszatérítés";
+"process_charge_commuter" = "Feltöltés/Bérlet";
+"process_ticket_counter" = "Jegypénztár";
+"process_deposit" = "Befizetés";
+"process_counter" = "Pénztár";
+"process_retail" = "Kiskereskedelem";
+"process_retail_bonus" = "Kiskereskedelmi bónusz";
+"process_retail_cancel" = "Kiskereskedelmi törlés";
+"process_cash_combined" = "Kombinált készpénz";
+"process_transfer_adjustment" = "Átszállás módosítás";
+"process_default" = "Feldolgozás";
+

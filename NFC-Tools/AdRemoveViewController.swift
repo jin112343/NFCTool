@@ -20,6 +20,7 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
 
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var restoreButton: UIButton!
+    @IBOutlet weak var priceLabel: UILabel!
 
     private let productID = "8721897482"
 
@@ -29,19 +30,20 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        priceLabel.text = NSLocalizedString("loading", tableName: "Main", comment: "読み込み中...")
         fetchProductPrice()
     }
 
-    /// ストアから価格情報を取得してボタンに表示
+    /// ストアから価格情報を取得してラベルに表示
     private func fetchProductPrice() {
         SwiftyStoreKit.retrieveProductsInfo([productID]) { [weak self] result in
             guard let self = self else { return }
 
             if let product = result.retrievedProducts.first {
-                // 価格をローカライズされた形式で取得
+                // App Storeから取得した価格をそのまま表示
                 let priceString = product.localizedPrice ?? "---"
                 DispatchQueue.main.async {
-                    self.removeButton.setTitle("広告を非表示にする \(priceString)", for: .normal)
+                    self.priceLabel.text = priceString
                 }
             } else if let error = result.error {
                 debugPrint("価格取得エラー: \(error.localizedDescription)")

@@ -689,8 +689,11 @@ extension ViewController: NFCTagReaderSessionDelegate {
         result.tagIdentifier = tag.currentIDm.map { String(format: "%02X", $0) }.joined(separator: ":")
         result.felicaSystemCode = tag.currentSystemCode.map { String(format: "%02X", $0) }.joined()
 
+        logger.info("FeliCa detected - IDm: \(result.tagIdentifier ?? "nil"), SystemCode: \(result.felicaSystemCode ?? "nil")")
+
         // 交通系ICカードの残高読み取りを試みる
         readFeliCaBalance(tag, result: &result) { updatedResult in
+            self.logger.info("FeliCa read complete - Balance: \(updatedResult.felicaBalance ?? -1), Histories: \(updatedResult.felicaHistories.count)")
             self.currentReadResult = updatedResult
             self.stopSessionAndShowResult(alert: self.getLocalizedMessage(key: "nfc_read_success"))
         }
@@ -845,36 +848,223 @@ extension ViewController: NFCTagReaderSessionDelegate {
     // MARK: - FeliCa Balance Reading
 
     private func readFeliCaBalance(_ tag: NFCFeliCaTag, result: inout NFCReadResult, completion: @escaping (NFCReadResult) -> Void) {
+        let initialResult = result
+
+        // 残高専用サービスコード: 0x008B (リトルエンディアン: 0x8B00)
+        let balanceServiceCode = Data([0x8B, 0x00])
+
+        // まず残高を読み取る
+        tag.requestService(nodeCodeList: [balanceServiceCode]) { nodes, error in
+            var mutableResult = initialResult
+
+            if let error = error {
+                self.logger.error("FeliCa balance requestService failed: \(error.localizedDescription)")
+                // 残高サービスが失敗しても履歴読み取りに進む
+                self.readFeliCaHistory(tag, result: mutableResult, completion: completion)
+                return
+            }
+
+            // サービスが存在するか確認（0xFFFFはサービスが存在しないことを示す）
+            guard let nodeKeyVersion = nodes.first,
+                  nodeKeyVersion != Data([0xFF, 0xFF]) else {
+                self.logger.info("FeliCa balance service not available, trying history")
+                self.readFeliCaHistory(tag, result: mutableResult, completion: completion)
+                return
+            }
+
+            // 残高ブロックを読み取る（ブロック0）
+            let balanceBlockList = [Data([0x80, 0x00])]
+
+            tag.readWithoutEncryption(serviceCodeList: [balanceServiceCode], blockList: balanceBlockList) { status1, status2, blockData, error in
+                if let error = error {
+                    self.logger.error("FeliCa balance read failed: \(error.localizedDescription)")
+                } else if status1 == 0x00 && status2 == 0x00, let balanceData = blockData.first {
+                    self.logger.info("FeliCa balance raw data: \(balanceData.map { String(format: "%02X", $0) }.joined(separator: " "))")
+
+                    // 残高データの解析（バイト11-12がリトルエンディアンで残高）
+                    if balanceData.count >= 13 {
+                        let balance = Int(balanceData[11]) + (Int(balanceData[12]) << 8)
+                        mutableResult.felicaBalance = balance
+                        self.logger.info("FeliCa balance read successfully: \(balance)")
+                    }
+                }
+
+                // 次に利用履歴を読み取る
+                self.readFeliCaHistory(tag, result: mutableResult, completion: completion)
+            }
+        }
+    }
+
+    private func readFeliCaHistory(_ tag: NFCFeliCaTag, result: NFCReadResult, completion: @escaping (NFCReadResult) -> Void) {
         var mutableResult = result
 
-        // 交通系ICカードのサービスコード（残高情報）
-        // サービスコード: 0x008B (リトルエンディアン: 0x8B00)
-        let serviceCode = Data([0x8B, 0x00])
+        // 利用履歴サービスコード: 0x090F (リトルエンディアン: 0x0F09)
+        let historyServiceCode = Data([0x0F, 0x09])
 
-        tag.requestService(nodeCodeList: [serviceCode]) { nodes, error in
+        tag.requestService(nodeCodeList: [historyServiceCode]) { nodes, error in
             if let error = error {
-                self.logger.error("FeliCa requestService failed: \(error.localizedDescription)")
+                self.logger.error("FeliCa history requestService failed: \(error.localizedDescription)")
                 completion(mutableResult)
                 return
             }
 
-            // ブロック0から残高を読み取る
-            let blockList = [Data([0x80, 0x00])]
-            tag.readWithoutEncryption(serviceCodeList: [serviceCode], blockList: blockList) { status1, status2, blockData, error in
+            // サービスが存在するか確認
+            self.logger.info("FeliCa history requestService response: \(nodes.map { $0.map { String(format: "%02X", $0) }.joined() })")
+
+            guard let nodeKeyVersion = nodes.first,
+                  nodeKeyVersion != Data([0xFF, 0xFF]) else {
+                self.logger.info("FeliCa history service not available (0xFFFF)")
+                completion(mutableResult)
+                return
+            }
+
+            // 利用履歴を読み取る（FeliCaは一度に最大12ブロックまで）
+            var blockList: [Data] = []
+            for i in 0..<12 {
+                blockList.append(Data([0x80, UInt8(i)]))
+            }
+
+            tag.readWithoutEncryption(serviceCodeList: [historyServiceCode], blockList: blockList) { status1, status2, blockData, error in
                 if let error = error {
-                    self.logger.error("FeliCa read failed: \(error.localizedDescription)")
+                    self.logger.error("FeliCa history read failed: \(error.localizedDescription)")
                     completion(mutableResult)
                     return
                 }
 
-                if status1 == 0x00 && status2 == 0x00, let data = blockData.first, data.count >= 11 {
-                    // 残高はブロックデータの11-12バイト目（リトルエンディアン）
-                    let balance = Int(data[10]) | (Int(data[11]) << 8)
-                    mutableResult.felicaBalance = balance
+                self.logger.info("FeliCa history read - status1: \(status1), status2: \(status2), blocks: \(blockData.count)")
+
+                if status1 == 0x00 && status2 == 0x00 {
+                    var histories: [FeliCaHistoryEntry] = []
+
+                    for (index, data) in blockData.enumerated() {
+                        self.logger.info("History block \(index): \(data.map { String(format: "%02X", $0) }.joined(separator: " "))")
+                        guard data.count >= 16 else { continue }
+
+                        // 空のブロックをスキップ（全て0x00の場合）
+                        if data.allSatisfy({ $0 == 0x00 }) { continue }
+
+                        let entry = self.parseHistoryBlock(data, index: index)
+                        histories.append(entry)
+                    }
+
+                    mutableResult.felicaHistories = histories
+
+                    // 残高が取得できていない場合は履歴から取得（フォールバック）
+                    if mutableResult.felicaBalance == nil, let firstHistory = histories.first {
+                        mutableResult.felicaBalance = firstHistory.balance
+                        self.logger.info("FeliCa balance from history: \(firstHistory.balance)")
+                    }
                 }
 
                 completion(mutableResult)
             }
+        }
+    }
+
+    // MARK: - FeliCa History Parsing
+
+    private func parseHistoryBlock(_ data: Data, index: Int) -> FeliCaHistoryEntry {
+        // バイト0: 端末種
+        let terminalType = data[0]
+
+        // バイト1: 処理種
+        let processType = data[1]
+
+        // バイト4-5: 日付（ビット詰め形式）
+        // バイト4の上位7ビット: 年（2000年からのオフセット）
+        // バイト4の最下位1ビット + バイト5の上位3ビット: 月
+        // バイト5の下位5ビット: 日
+        let year = Int(data[4] >> 1) + 2000
+        let month = ((data[4] & 1) == 1 ? 8 : 0) + Int(data[5] >> 5)
+        let day = Int(data[5] & 0x1F)
+
+        // バイト6-7: 入場駅コード
+        let entryStationCode = (Int(data[6]) << 8) + Int(data[7])
+
+        // バイト8-9: 出場駅コード
+        let exitStationCode = (Int(data[8]) << 8) + Int(data[9])
+
+        // バイト10-11: 残高（リトルエンディアン）
+        let balance = Int(data[10]) + (Int(data[11]) << 8)
+
+        // バイト12-13: 通番
+        let sequenceNumber = (Int(data[12]) << 8) + Int(data[13])
+
+        // バイト15: 地域コード（入場: 上位2ビット、出場: 次の2ビット）
+        let regionCode = data[15]
+
+        return FeliCaHistoryEntry(
+            index: index,
+            terminalType: terminalType,
+            processType: processType,
+            entryStationCode: entryStationCode,
+            exitStationCode: exitStationCode,
+            balance: balance,
+            year: year,
+            month: month,
+            day: day,
+            sequenceNumber: sequenceNumber,
+            regionCode: regionCode
+        )
+    }
+
+    private func getTerminalTypeName(_ type: UInt8) -> String {
+        switch type {
+        case 0x03: return "精算機"
+        case 0x04: return "携帯電話"
+        case 0x05: return "券売機"
+        case 0x07: return "券売機(定期)"
+        case 0x08: return "券売機"
+        case 0x09: return "入金機"
+        case 0x12: return "自動券売機"
+        case 0x14: return "改札機"
+        case 0x15: return "自動精算機"
+        case 0x16: return "改札機"
+        case 0x17: return "簡易改札機"
+        case 0x18: return "窓口"
+        case 0x19: return "窓口"
+        case 0x1A: return "窓口"
+        case 0x1B: return "窓口"
+        case 0x1C: return "自動精算機"
+        case 0x1D: return "自動精算機"
+        case 0x1F: return "窓口"
+        case 0x46: return "VIEW ALTTE"
+        case 0x48: return "VIEW ALTTE"
+        case 0xC7: return "物販"
+        case 0xC8: return "物販"
+        default: return "端末(\(String(format: "0x%02X", type)))"
+        }
+    }
+
+    private func getProcessTypeName(_ type: UInt8) -> String {
+        switch type {
+        case 0x01: return "運賃支払"
+        case 0x02: return "チャージ"
+        case 0x03: return "定期購入"
+        case 0x04: return "精算"
+        case 0x05: return "精算"
+        case 0x06: return "窓口出場"
+        case 0x07: return "新規発行"
+        case 0x08: return "控除"
+        case 0x0C: return "窓口入場"
+        case 0x0D: return "バス入金(様)"
+        case 0x0F: return "バス支払"
+        case 0x11: return "再発行"
+        case 0x13: return "支払/払戻"
+        case 0x14: return "入金/定期"
+        case 0x15: return "券売窓口"
+        case 0x1F: return "入金(様)"
+        case 0x23: return "窓口"
+        case 0x46: return "物販"
+        case 0x48: return "物販特典"
+        case 0x49: return "入金(様)"
+        case 0x4A: return "入金(様)"
+        case 0x4B: return "物販取消"
+        case 0xC6: return "現金併用"
+        case 0xCB: return "入金(様)"
+        case 0x84: return "他社精算"
+        case 0x85: return "他社精算"
+        default: return "処理(\(String(format: "0x%02X", type)))"
         }
     }
 }

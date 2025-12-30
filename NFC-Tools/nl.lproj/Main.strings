@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Verwijderen";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "€0,99";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Koop NFC-tags op Amazon";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Hoe de app te gebruiken (voorbeeld)";
+
+"nfc_not_supported" = "Deze NFC kan niet worden gebruikt";
+"nfc_bring_closer" = "Breng de NFC-tag dichter bij de bovenkant van de iPhone";
+"nfc_tag_not_supported" = "Deze NFC-tag wordt niet ondersteund";
+"nfc_remove_alert" = "De volgende informatie wordt verwijderd\nBeweeg de NFC-tag niet\n\n %@";
+"nfc_read_only" = "Deze NFC-tag is alleen-lezen";
+"nfc_payload_fail" = "Payload maken mislukt";
+"nfc_over_capacity" = "Kan niet schrijven vanwege capaciteitsoverschrijding!\nCapaciteit is %@ bytes";
+"nfc_deleted" = "Succesvol verwijderd";
+
+/* Loading text */
+"loading" = "Laden...";
+
+/* Read Result Screen */
+"result_title" = "Leesresultaat";
+"result_section_tag_info" = "Tag-informatie";
+"result_section_records" = "Records";
+"result_section_felica" = "FeliCa-informatie";
+"result_section_history" = "Gebruiksgeschiedenis";
+"result_section_raw" = "Ruwe gegevens";
+"tag_type" = "Tag type";
+"tag_id" = "Tag ID";
+"capacity" = "Capaciteit";
+"used_size" = "Gebruikte grootte";
+"free_space" = "Vrije ruimte";
+"writable" = "Beschrijfbaar";
+"writable_yes" = "Ja";
+"writable_no" = "Alleen-lezen";
+"ndef_status" = "NDEF-status";
+"record_number" = "Record #%d";
+"record_type" = "Type";
+"record_tnf" = "TNF";
+"record_text" = "Tekst";
+"record_url" = "URL";
+"record_locale" = "Taal";
+"record_size" = "Grootte";
+"felica_balance" = "Saldo";
+"felica_system" = "Systeemcode";
+"history_date" = "Datum";
+"history_type" = "Type";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminal";
+"bytes_format" = "%d bytes";
+"no_data" = "Geen gegevens";
+"tap_to_open" = "Tik om link te openen";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Tariefmachine";
+"terminal_mobile" = "Mobiele telefoon";
+"terminal_ticket_machine" = "Kaartautomaat";
+"terminal_ticket_machine_commuter" = "Automaat (abonnement)";
+"terminal_charge_machine" = "Oplaadmachine";
+"terminal_auto_ticket_machine" = "Automatische kaartautomaat";
+"terminal_gate" = "Poortje";
+"terminal_auto_fare_machine" = "Automatische tariefmachine";
+"terminal_simple_gate" = "Eenvoudig poortje";
+"terminal_counter" = "Balie";
+"terminal_retail" = "Winkel";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Tariefbetaling";
+"process_charge" = "Opladen";
+"process_commuter_pass" = "Abonnement";
+"process_fare_adjustment" = "Tariefaanpassing";
+"process_counter_exit" = "Balie-uitgang";
+"process_new_issue" = "Nieuwe uitgifte";
+"process_deduction" = "Aftrek";
+"process_counter_entry" = "Balie-ingang";
+"process_bus_charge" = "Bus opladen";
+"process_bus_payment" = "Busbetaling";
+"process_reissue" = "Heruitgifte";
+"process_payment_refund" = "Betaling/Terugbetaling";
+"process_charge_commuter" = "Opladen/Abonnement";
+"process_ticket_counter" = "Kaartbalie";
+"process_deposit" = "Storting";
+"process_counter" = "Balie";
+"process_retail" = "Winkel";
+"process_retail_bonus" = "Winkelbonus";
+"process_retail_cancel" = "Winkelannulering";
+"process_cash_combined" = "Contant gecombineerd";
+"process_transfer_adjustment" = "Overstapafrekening";
+"process_default" = "Verwerking";
+

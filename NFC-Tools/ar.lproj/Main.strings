@@ -41,9 +41,6 @@
 /* Class = "UIButton"; normalTitle = "Erase"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "مسح";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "$0.99";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "اشترِ علامات NFC من أمازون";
 
@@ -55,4 +52,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "كيفية استخدام التطبيق (مثال)";
+
+"nfc_not_supported" = "لا يمكن استخدام هذا NFC";
+"nfc_bring_closer" = "قرّب علامة NFC من الجزء العلوي من iPhone";
+"nfc_tag_not_supported" = "علامة NFC هذه غير مدعومة";
+"nfc_remove_alert" = "سيتم حذف المعلومات التالية\nلا تحرك علامة NFC\n\n %@";
+"nfc_read_only" = "علامة NFC هذه للقراءة فقط";
+"nfc_payload_fail" = "فشل في إنشاء الحمولة";
+"nfc_over_capacity" = "لا يمكن الكتابة بسبب تجاوز السعة!\nالسعة %@ بايت";
+"nfc_deleted" = "تم الحذف بنجاح";
+
+/* Loading text */
+"loading" = "جارٍ التحميل...";
+
+/* Read Result Screen */
+"result_title" = "نتيجة القراءة";
+"result_section_tag_info" = "معلومات العلامة";
+"result_section_records" = "السجلات";
+"result_section_felica" = "معلومات FeliCa";
+"result_section_history" = "سجل الاستخدام";
+"result_section_raw" = "البيانات الخام";
+"tag_type" = "نوع العلامة";
+"tag_id" = "معرف العلامة";
+"capacity" = "السعة";
+"used_size" = "الحجم المستخدم";
+"free_space" = "المساحة الفارغة";
+"writable" = "قابل للكتابة";
+"writable_yes" = "نعم";
+"writable_no" = "للقراءة فقط";
+"ndef_status" = "حالة NDEF";
+"record_number" = "سجل #%d";
+"record_type" = "النوع";
+"record_tnf" = "TNF";
+"record_text" = "نص";
+"record_url" = "رابط";
+"record_locale" = "اللغة";
+"record_size" = "الحجم";
+"felica_balance" = "الرصيد";
+"felica_system" = "رمز النظام";
+"history_date" = "التاريخ";
+"history_type" = "النوع";
+"history_balance" = "الرصيد";
+"history_terminal" = "الطرفية";
+"bytes_format" = "%d بايت";
+"no_data" = "لا توجد بيانات";
+"tap_to_open" = "اضغط لفتح الرابط";
+
+/* Terminal Types */
+"terminal_fare_machine" = "آلة الأجرة";
+"terminal_mobile" = "هاتف محمول";
+"terminal_ticket_machine" = "آلة التذاكر";
+"terminal_ticket_machine_commuter" = "آلة التذاكر (اشتراك)";
+"terminal_charge_machine" = "آلة الشحن";
+"terminal_auto_ticket_machine" = "آلة تذاكر تلقائية";
+"terminal_gate" = "بوابة";
+"terminal_auto_fare_machine" = "آلة أجرة تلقائية";
+"terminal_simple_gate" = "بوابة بسيطة";
+"terminal_counter" = "شباك";
+"terminal_retail" = "بيع بالتجزئة";
+"terminal_default" = "طرفية";
+
+/* Process Types */
+"process_fare_payment" = "دفع الأجرة";
+"process_charge" = "شحن";
+"process_commuter_pass" = "اشتراك";
+"process_fare_adjustment" = "تعديل الأجرة";
+"process_counter_exit" = "خروج من الشباك";
+"process_new_issue" = "إصدار جديد";
+"process_deduction" = "خصم";
+"process_counter_entry" = "دخول من الشباك";
+"process_bus_charge" = "شحن الحافلة";
+"process_bus_payment" = "دفع الحافلة";
+"process_reissue" = "إعادة إصدار";
+"process_payment_refund" = "دفع/استرداد";
+"process_charge_commuter" = "شحن/اشتراك";
+"process_ticket_counter" = "شباك التذاكر";
+"process_deposit" = "إيداع";
+"process_counter" = "شباك";
+"process_retail" = "بيع بالتجزئة";
+"process_retail_bonus" = "مكافأة التجزئة";
+"process_retail_cancel" = "إلغاء التجزئة";
+"process_cash_combined" = "دمج نقدي";
+"process_transfer_adjustment" = "تعديل التحويل";
+"process_default" = "معالجة";
 

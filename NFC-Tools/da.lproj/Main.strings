@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Slet";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "$0.99";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Køb NFC-tags på Amazon";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Sådan bruges appen (Eksempel)";
+
+"nfc_not_supported" = "Denne NFC kan ikke bruges";
+"nfc_bring_closer" = "Bring NFC-taggen tættere på toppen af iPhone";
+"nfc_tag_not_supported" = "Denne NFC-tag understøttes ikke";
+"nfc_remove_alert" = "Følgende oplysninger vil blive slettet\nFlyt ikke NFC-taggen\n\n %@";
+"nfc_read_only" = "Denne NFC-tag er skrivebeskyttet";
+"nfc_payload_fail" = "Kunne ikke oprette payload";
+"nfc_over_capacity" = "Kan ikke skrive på grund af kapacitetsoverskridelse!\nKapaciteten er %@ bytes";
+"nfc_deleted" = "Slettet med succes";
+
+/* Loading text */
+"loading" = "Indlæser...";
+
+/* Read Result Screen */
+"result_title" = "Læseresultat";
+"result_section_tag_info" = "Tag-information";
+"result_section_records" = "Poster";
+"result_section_felica" = "FeliCa-information";
+"result_section_history" = "Brugshistorik";
+"result_section_raw" = "Rå data";
+"tag_type" = "Tag-type";
+"tag_id" = "Tag-ID";
+"capacity" = "Kapacitet";
+"used_size" = "Brugt størrelse";
+"free_space" = "Ledig plads";
+"writable" = "Skrivbar";
+"writable_yes" = "Ja";
+"writable_no" = "Skrivebeskyttet";
+"ndef_status" = "NDEF-status";
+"record_number" = "Post #%d";
+"record_type" = "Type";
+"record_tnf" = "TNF";
+"record_text" = "Tekst";
+"record_url" = "URL";
+"record_locale" = "Sprog";
+"record_size" = "Størrelse";
+"felica_balance" = "Saldo";
+"felica_system" = "Systemkode";
+"history_date" = "Dato";
+"history_type" = "Type";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminal";
+"bytes_format" = "%d bytes";
+"no_data" = "Ingen data";
+"tap_to_open" = "Tryk for at åbne link";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Takstmaskine";
+"terminal_mobile" = "Mobiltelefon";
+"terminal_ticket_machine" = "Billetautomat";
+"terminal_ticket_machine_commuter" = "Automat (periodekort)";
+"terminal_charge_machine" = "Optankningsmaskine";
+"terminal_auto_ticket_machine" = "Automatisk billetautomat";
+"terminal_gate" = "Port";
+"terminal_auto_fare_machine" = "Automatisk takstmaskine";
+"terminal_simple_gate" = "Simpel port";
+"terminal_counter" = "Skranke";
+"terminal_retail" = "Detailhandel";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Takstbetaling";
+"process_charge" = "Optankning";
+"process_commuter_pass" = "Periodekort";
+"process_fare_adjustment" = "Takstjustering";
+"process_counter_exit" = "Skranke-udgang";
+"process_new_issue" = "Ny udstedelse";
+"process_deduction" = "Fradrag";
+"process_counter_entry" = "Skranke-indgang";
+"process_bus_charge" = "Bus-optankning";
+"process_bus_payment" = "Busbetaling";
+"process_reissue" = "Genudstedelse";
+"process_payment_refund" = "Betaling/Refusion";
+"process_charge_commuter" = "Optankning/Periodekort";
+"process_ticket_counter" = "Billetskranke";
+"process_deposit" = "Indbetaling";
+"process_counter" = "Skranke";
+"process_retail" = "Detailhandel";
+"process_retail_bonus" = "Detailhandelsbonus";
+"process_retail_cancel" = "Detailhandelsannullering";
+"process_cash_combined" = "Kontant kombineret";
+"process_transfer_adjustment" = "Skiftejustering";
+"process_default" = "Behandling";
+

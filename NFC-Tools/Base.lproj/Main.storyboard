@@ -391,6 +391,7 @@
                     <navigationItem key="navigationItem" id="hfR-K6-XX2"/>
                     <connections>
                         <outlet property="bannerView" destination="G8j-Si-Cmb" id="aOF-Bw-wSY"/>
+                        <outlet property="priceLabel" destination="g8f-yc-KEN" id="prc-Lb-001"/>
                         <outlet property="removeButton" destination="Jf0-SO-Sx6" id="ahg-7v-1nQ"/>
                         <outlet property="restoreButton" destination="ivE-o3-0qW" id="H5J-hf-ypd"/>
                     </connections>

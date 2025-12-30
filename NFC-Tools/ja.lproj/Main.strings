@@ -47,9 +47,6 @@
 /* Class = "UIButton"; normalTitle = "削除"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "削除";
 
-/* Class = "UILabel"; text = "$0.99; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "￥100";
-
 /* Class = "UIButton"; normalTitle = "AmazonでNFCタグを購入する"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "AmazonでNFCタグを購入する";
 
@@ -70,3 +67,78 @@
 "nfc_payload_fail" = "ペイロードの作成に失敗しました";
 "nfc_over_capacity" = "容量オーバーで書き込めません！\n容量は%@bytesです";
 "nfc_deleted" = "削除しました";
+
+/* Loading text */
+"loading" = "読み込み中...";
+
+/* Read Result Screen */
+"result_title" = "読み取り結果";
+"result_section_tag_info" = "タグ情報";
+"result_section_records" = "レコード";
+"result_section_felica" = "FeliCa情報";
+"result_section_history" = "利用履歴";
+"result_section_raw" = "生データ";
+"tag_type" = "タグ種類";
+"tag_id" = "タグID";
+"capacity" = "容量";
+"used_size" = "使用サイズ";
+"free_space" = "空き容量";
+"writable" = "書き込み";
+"writable_yes" = "可能";
+"writable_no" = "読み取り専用";
+"ndef_status" = "NDEFステータス";
+"record_number" = "レコード #%d";
+"record_type" = "タイプ";
+"record_tnf" = "TNF";
+"record_text" = "テキスト";
+"record_url" = "URL";
+"record_locale" = "言語";
+"record_size" = "サイズ";
+"felica_balance" = "残高";
+"felica_system" = "システムコード";
+"history_date" = "日付";
+"history_type" = "種別";
+"history_balance" = "残高";
+"history_terminal" = "端末";
+"bytes_format" = "%d bytes";
+"no_data" = "データなし";
+"tap_to_open" = "タップしてリンクを開く";
+
+/* Terminal Types */
+"terminal_fare_machine" = "精算機";
+"terminal_mobile" = "携帯電話";
+"terminal_ticket_machine" = "券売機";
+"terminal_ticket_machine_commuter" = "券売機(定期)";
+"terminal_charge_machine" = "入金機";
+"terminal_auto_ticket_machine" = "自動券売機";
+"terminal_gate" = "改札機";
+"terminal_auto_fare_machine" = "自動精算機";
+"terminal_simple_gate" = "簡易改札機";
+"terminal_counter" = "窓口";
+"terminal_retail" = "物販";
+"terminal_default" = "端末";
+
+/* Process Types */
+"process_fare_payment" = "運賃支払";
+"process_charge" = "チャージ";
+"process_commuter_pass" = "定期購入";
+"process_fare_adjustment" = "精算";
+"process_counter_exit" = "窓口出場";
+"process_new_issue" = "新規発行";
+"process_deduction" = "控除";
+"process_counter_entry" = "窓口入場";
+"process_bus_charge" = "バス入金";
+"process_bus_payment" = "バス支払";
+"process_reissue" = "再発行";
+"process_payment_refund" = "支払/払戻";
+"process_charge_commuter" = "入金/定期";
+"process_ticket_counter" = "券売窓口";
+"process_deposit" = "入金";
+"process_counter" = "窓口";
+"process_retail" = "物販";
+"process_retail_bonus" = "物販特典";
+"process_retail_cancel" = "物販取消";
+"process_cash_combined" = "現金併用";
+"process_transfer_adjustment" = "他社精算";
+"process_default" = "処理";
+

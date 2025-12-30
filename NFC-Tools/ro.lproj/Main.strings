@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Șterge";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "0,99 RON"; /* Aproximativ în Lei Românești */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Cumpără etichete NFC pe Amazon";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Cum să folosești aplicația (Exemplu)";
+
+/* NFC Messages */
+"nfc_not_supported" = "NFC nu este suportat pe acest dispozitiv";
+"nfc_bring_closer" = "Apropiați dispozitivul de eticheta NFC";
+"nfc_tag_not_supported" = "Această etichetă NFC nu este suportată";
+"nfc_remove_alert" = "Îndepărtați eticheta NFC";
+"nfc_read_only" = "Această etichetă este doar pentru citire";
+"nfc_payload_fail" = "Nu s-a putut crea payload-ul";
+"nfc_over_capacity" = "Datele depășesc capacitatea etichetei";
+"nfc_deleted" = "Datele au fost șterse";
+"loading" = "Se încarcă...";
+
+/* Read Result */
+"result_title" = "Rezultatul citirii";
+"result_section_tag_info" = "Informații etichetă";
+"result_section_records" = "Înregistrări";
+"result_section_felica" = "Informații FeliCa";
+"result_section_history" = "Istoric utilizare";
+"result_section_raw" = "Date brute";
+
+/* Tag Info */
+"tag_type" = "Tip etichetă";
+"tag_id" = "ID etichetă";
+"capacity" = "Capacitate";
+"used_size" = "Dimensiune utilizată";
+"free_space" = "Spațiu liber";
+"writable" = "Inscriptibil";
+"writable_yes" = "Da";
+"writable_no" = "Doar citire";
+"ndef_status" = "Stare NDEF";
+
+/* Record Info */
+"record_number" = "Înregistrare #%d";
+"record_type" = "Tip";
+"record_tnf" = "TNF";
+"record_text" = "Text";
+"record_url" = "URL";
+"record_locale" = "Limbă";
+"record_size" = "Dimensiune";
+
+/* FeliCa */
+"felica_balance" = "Sold";
+"felica_system" = "Cod sistem";
+"history_date" = "Data";
+"history_type" = "Tip";
+"history_balance" = "Sold";
+"history_terminal" = "Terminal";
+
+/* Common */
+"bytes_format" = "%d octeți";
+"no_data" = "Fără date";
+"tap_to_open" = "Atingeți pentru a deschide linkul";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Automat de bilete";
+"terminal_mobile" = "Telefon mobil";
+"terminal_ticket_machine" = "Automat de bilete";
+"terminal_ticket_machine_commuter" = "Automat (abonament)";
+"terminal_charge_machine" = "Automat de încărcare";
+"terminal_auto_ticket_machine" = "Automat de bilete automat";
+"terminal_gate" = "Poartă";
+"terminal_auto_fare_machine" = "Automat de tarife";
+"terminal_simple_gate" = "Poartă simplă";
+"terminal_counter" = "Ghișeu";
+"terminal_retail" = "Retail";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Plată tarif";
+"process_charge" = "Încărcare";
+"process_commuter_pass" = "Achiziție abonament";
+"process_fare_adjustment" = "Ajustare tarif";
+"process_counter_exit" = "Ieșire ghișeu";
+"process_new_issue" = "Emitere nouă";
+"process_deduction" = "Deducere";
+"process_counter_entry" = "Intrare ghișeu";
+"process_bus_charge" = "Încărcare autobuz";
+"process_bus_payment" = "Plată autobuz";
+"process_reissue" = "Reemitere";
+"process_payment_refund" = "Plată/Rambursare";
+"process_charge_commuter" = "Încărcare/Abonament";
+"process_ticket_counter" = "Ghișeu bilete";
+"process_deposit" = "Depozit";
+"process_counter" = "Ghișeu";
+"process_retail" = "Retail";
+"process_retail_bonus" = "Bonus retail";
+"process_retail_cancel" = "Anulare retail";
+"process_cash_combined" = "Numerar combinat";
+"process_transfer_adjustment" = "Ajustare transfer";
+"process_default" = "Procesare";
+

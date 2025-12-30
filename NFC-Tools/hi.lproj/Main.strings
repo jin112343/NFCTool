@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "हटाएं";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "₹0.99";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Amazon पर NFC टैग खरीदें";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "ऐप का उपयोग कैसे करें (उदाहरण)";
+
+/* NFC Messages */
+"nfc_not_supported" = "इस डिवाइस पर NFC समर्थित नहीं है";
+"nfc_bring_closer" = "डिवाइस को NFC टैग के करीब लाएं";
+"nfc_tag_not_supported" = "यह NFC टैग समर्थित नहीं है";
+"nfc_remove_alert" = "NFC टैग हटाएं";
+"nfc_read_only" = "यह टैग केवल पढ़ने योग्य है";
+"nfc_payload_fail" = "पेलोड बनाने में विफल";
+"nfc_over_capacity" = "डेटा टैग की क्षमता से अधिक है";
+"nfc_deleted" = "डेटा हटा दिया गया";
+"loading" = "लोड हो रहा है...";
+
+/* Read Result */
+"result_title" = "पढ़ने का परिणाम";
+"result_section_tag_info" = "टैग जानकारी";
+"result_section_records" = "रिकॉर्ड";
+"result_section_felica" = "FeliCa जानकारी";
+"result_section_history" = "उपयोग इतिहास";
+"result_section_raw" = "कच्चा डेटा";
+
+/* Tag Info */
+"tag_type" = "टैग प्रकार";
+"tag_id" = "टैग ID";
+"capacity" = "क्षमता";
+"used_size" = "उपयोग किया गया आकार";
+"free_space" = "खाली जगह";
+"writable" = "लिखने योग्य";
+"writable_yes" = "हाँ";
+"writable_no" = "केवल पढ़ने योग्य";
+"ndef_status" = "NDEF स्थिति";
+
+/* Record Info */
+"record_number" = "रिकॉर्ड #%d";
+"record_type" = "प्रकार";
+"record_tnf" = "TNF";
+"record_text" = "पाठ";
+"record_url" = "URL";
+"record_locale" = "भाषा";
+"record_size" = "आकार";
+
+/* FeliCa */
+"felica_balance" = "शेष राशि";
+"felica_system" = "सिस्टम कोड";
+"history_date" = "तारीख";
+"history_type" = "प्रकार";
+"history_balance" = "शेष राशि";
+"history_terminal" = "टर्मिनल";
+
+/* Common */
+"bytes_format" = "%d बाइट्स";
+"no_data" = "कोई डेटा नहीं";
+"tap_to_open" = "लिंक खोलने के लिए टैप करें";
+
+/* Terminal Types */
+"terminal_fare_machine" = "किराया मशीन";
+"terminal_mobile" = "मोबाइल फोन";
+"terminal_ticket_machine" = "टिकट मशीन";
+"terminal_ticket_machine_commuter" = "मशीन (पास)";
+"terminal_charge_machine" = "चार्ज मशीन";
+"terminal_auto_ticket_machine" = "स्वचालित टिकट मशीन";
+"terminal_gate" = "गेट";
+"terminal_auto_fare_machine" = "स्वचालित किराया मशीन";
+"terminal_simple_gate" = "सरल गेट";
+"terminal_counter" = "काउंटर";
+"terminal_retail" = "खुदरा";
+"terminal_default" = "टर्मिनल";
+
+/* Process Types */
+"process_fare_payment" = "किराया भुगतान";
+"process_charge" = "चार्ज";
+"process_commuter_pass" = "पास खरीद";
+"process_fare_adjustment" = "किराया समायोजन";
+"process_counter_exit" = "काउंटर निकास";
+"process_new_issue" = "नया जारी";
+"process_deduction" = "कटौती";
+"process_counter_entry" = "काउंटर प्रवेश";
+"process_bus_charge" = "बस चार्ज";
+"process_bus_payment" = "बस भुगतान";
+"process_reissue" = "पुनः जारी";
+"process_payment_refund" = "भुगतान/वापसी";
+"process_charge_commuter" = "चार्ज/पास";
+"process_ticket_counter" = "टिकट काउंटर";
+"process_deposit" = "जमा";
+"process_counter" = "काउंटर";
+"process_retail" = "खुदरा";
+"process_retail_bonus" = "खुदरा बोनस";
+"process_retail_cancel" = "खुदरा रद्द";
+"process_cash_combined" = "नकद संयुक्त";
+"process_transfer_adjustment" = "स्थानांतरण समायोजन";
+"process_default" = "प्रक्रिया";
+

@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Vymazať";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "0,99 €"; /* Prevod do eur */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Kúpiť NFC štítky na Amazone";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Ako používať aplikáciu (príklad)";
+
+/* NFC Messages */
+"nfc_not_supported" = "NFC nie je na tomto zariadení podporované";
+"nfc_bring_closer" = "Priblížte zariadenie k NFC štítku";
+"nfc_tag_not_supported" = "Tento NFC štítok nie je podporovaný";
+"nfc_remove_alert" = "Odstráňte NFC štítok";
+"nfc_read_only" = "Tento štítok je len na čítanie";
+"nfc_payload_fail" = "Nepodarilo sa vytvoriť payload";
+"nfc_over_capacity" = "Dáta presahujú kapacitu štítku";
+"nfc_deleted" = "Dáta boli vymazané";
+"loading" = "Načítava sa...";
+
+/* Read Result */
+"result_title" = "Výsledok čítania";
+"result_section_tag_info" = "Informácie o štítku";
+"result_section_records" = "Záznamy";
+"result_section_felica" = "Informácie o FeliCa";
+"result_section_history" = "História používania";
+"result_section_raw" = "Surové dáta";
+
+/* Tag Info */
+"tag_type" = "Typ štítku";
+"tag_id" = "ID štítku";
+"capacity" = "Kapacita";
+"used_size" = "Použitá veľkosť";
+"free_space" = "Voľné miesto";
+"writable" = "Zapisovateľný";
+"writable_yes" = "Áno";
+"writable_no" = "Len na čítanie";
+"ndef_status" = "Stav NDEF";
+
+/* Record Info */
+"record_number" = "Záznam #%d";
+"record_type" = "Typ";
+"record_tnf" = "TNF";
+"record_text" = "Text";
+"record_url" = "URL";
+"record_locale" = "Jazyk";
+"record_size" = "Veľkosť";
+
+/* FeliCa */
+"felica_balance" = "Zostatok";
+"felica_system" = "Systémový kód";
+"history_date" = "Dátum";
+"history_type" = "Typ";
+"history_balance" = "Zostatok";
+"history_terminal" = "Terminál";
+
+/* Common */
+"bytes_format" = "%d bajtov";
+"no_data" = "Žiadne dáta";
+"tap_to_open" = "Ťuknite pre otvorenie odkazu";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Automat na cestovné";
+"terminal_mobile" = "Mobilný telefón";
+"terminal_ticket_machine" = "Predajný automat";
+"terminal_ticket_machine_commuter" = "Automat (predplatné)";
+"terminal_charge_machine" = "Nabíjací automat";
+"terminal_auto_ticket_machine" = "Automatický predajný automat";
+"terminal_gate" = "Turniket";
+"terminal_auto_fare_machine" = "Automatický automat na cestovné";
+"terminal_simple_gate" = "Jednoduchý turniket";
+"terminal_counter" = "Prepážka";
+"terminal_retail" = "Maloobchod";
+"terminal_default" = "Terminál";
+
+/* Process Types */
+"process_fare_payment" = "Platba cestovného";
+"process_charge" = "Dobíjanie";
+"process_commuter_pass" = "Kúpa predplatného";
+"process_fare_adjustment" = "Úprava cestovného";
+"process_counter_exit" = "Výstup pri prepážke";
+"process_new_issue" = "Nové vydanie";
+"process_deduction" = "Odpočet";
+"process_counter_entry" = "Vstup pri prepážke";
+"process_bus_charge" = "Dobíjanie autobusu";
+"process_bus_payment" = "Platba autobusu";
+"process_reissue" = "Opätovné vydanie";
+"process_payment_refund" = "Platba/Vrátenie";
+"process_charge_commuter" = "Dobíjanie/Predplatné";
+"process_ticket_counter" = "Predajná prepážka";
+"process_deposit" = "Vklad";
+"process_counter" = "Prepážka";
+"process_retail" = "Maloobchod";
+"process_retail_bonus" = "Maloobchodný bonus";
+"process_retail_cancel" = "Zrušenie maloobchodu";
+"process_cash_combined" = "Kombinovaná hotovosť";
+"process_transfer_adjustment" = "Úprava prestupu";
+"process_default" = "Spracovanie";
+

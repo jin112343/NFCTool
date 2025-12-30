@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Ta bort";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "9,99 kr"; /* Cirka pris i svenska kronor */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Köp NFC-taggar på Amazon";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Hur man använder appen (Exempel)";
+
+"nfc_not_supported" = "Denna NFC kan inte användas";
+"nfc_bring_closer" = "För NFC-taggen närmare toppen av iPhone";
+"nfc_tag_not_supported" = "Denna NFC-tagg stöds inte";
+"nfc_remove_alert" = "Följande information kommer att raderas\nFlytta inte NFC-taggen\n\n %@";
+"nfc_read_only" = "Denna NFC-tagg är skrivskyddad";
+"nfc_payload_fail" = "Misslyckades att skapa nyttolast";
+"nfc_over_capacity" = "Kan inte skriva på grund av kapacitetsöverskridning!\nKapaciteten är %@ bytes";
+"nfc_deleted" = "Raderades framgångsrikt";
+
+/* Loading text */
+"loading" = "Laddar...";
+
+/* Read Result Screen */
+"result_title" = "Läsresultat";
+"result_section_tag_info" = "Tagginformation";
+"result_section_records" = "Poster";
+"result_section_felica" = "FeliCa-information";
+"result_section_history" = "Användningshistorik";
+"result_section_raw" = "Rådata";
+"tag_type" = "Taggtyp";
+"tag_id" = "Tagg-ID";
+"capacity" = "Kapacitet";
+"used_size" = "Använd storlek";
+"free_space" = "Ledigt utrymme";
+"writable" = "Skrivbar";
+"writable_yes" = "Ja";
+"writable_no" = "Skrivskyddad";
+"ndef_status" = "NDEF-status";
+"record_number" = "Post #%d";
+"record_type" = "Typ";
+"record_tnf" = "TNF";
+"record_text" = "Text";
+"record_url" = "URL";
+"record_locale" = "Språk";
+"record_size" = "Storlek";
+"felica_balance" = "Saldo";
+"felica_system" = "Systemkod";
+"history_date" = "Datum";
+"history_type" = "Typ";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminal";
+"bytes_format" = "%d bytes";
+"no_data" = "Ingen data";
+"tap_to_open" = "Tryck för att öppna länken";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Avgiftsmaskin";
+"terminal_mobile" = "Mobiltelefon";
+"terminal_ticket_machine" = "Biljettautomat";
+"terminal_ticket_machine_commuter" = "Automat (periodkort)";
+"terminal_charge_machine" = "Laddningsmaskin";
+"terminal_auto_ticket_machine" = "Automatisk biljettautomat";
+"terminal_gate" = "Spärr";
+"terminal_auto_fare_machine" = "Automatisk avgiftsmaskin";
+"terminal_simple_gate" = "Enkel spärr";
+"terminal_counter" = "Lucka";
+"terminal_retail" = "Detaljhandel";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Avgiftsbetalning";
+"process_charge" = "Laddning";
+"process_commuter_pass" = "Periodkort";
+"process_fare_adjustment" = "Avgiftsjustering";
+"process_counter_exit" = "Lucka-utgång";
+"process_new_issue" = "Ny utgivning";
+"process_deduction" = "Avdrag";
+"process_counter_entry" = "Lucka-ingång";
+"process_bus_charge" = "Bussladdning";
+"process_bus_payment" = "Bussbetalning";
+"process_reissue" = "Omutgivning";
+"process_payment_refund" = "Betalning/Återbetalning";
+"process_charge_commuter" = "Laddning/Periodkort";
+"process_ticket_counter" = "Biljettlucka";
+"process_deposit" = "Insättning";
+"process_counter" = "Lucka";
+"process_retail" = "Detaljhandel";
+"process_retail_bonus" = "Detaljhandelsbonus";
+"process_retail_cancel" = "Detaljhandelsavbokning";
+"process_cash_combined" = "Kontant kombinerad";
+"process_transfer_adjustment" = "Bytejustering";
+"process_default" = "Bearbetning";
+

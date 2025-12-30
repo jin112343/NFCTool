@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Delete";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "$0.99 AUD";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Buy NFC Tags on Amazon";
 
@@ -60,3 +57,78 @@
 "nfc_payload_fail" = "Failed to create payload";
 "nfc_over_capacity" = "Cannot write due to capacity overload!\nCapacity is %@ bytes";
 "nfc_deleted" = "Deleted successfully";
+
+/* Loading text */
+"loading" = "Loading...";
+
+/* Read Result Screen */
+"result_title" = "Read Result";
+"result_section_tag_info" = "Tag Information";
+"result_section_records" = "Records";
+"result_section_felica" = "FeliCa Information";
+"result_section_history" = "Usage History";
+"result_section_raw" = "Raw Data";
+"tag_type" = "Tag Type";
+"tag_id" = "Tag ID";
+"capacity" = "Capacity";
+"used_size" = "Used Size";
+"free_space" = "Free Space";
+"writable" = "Writable";
+"writable_yes" = "Yes";
+"writable_no" = "Read Only";
+"ndef_status" = "NDEF Status";
+"record_number" = "Record #%d";
+"record_type" = "Type";
+"record_tnf" = "TNF";
+"record_text" = "Text";
+"record_url" = "URL";
+"record_locale" = "Locale";
+"record_size" = "Size";
+"felica_balance" = "Balance";
+"felica_system" = "System Code";
+"history_date" = "Date";
+"history_type" = "Type";
+"history_balance" = "Balance";
+"history_terminal" = "Terminal";
+"bytes_format" = "%d bytes";
+"no_data" = "No Data";
+"tap_to_open" = "Tap to open link";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Fare Adjustment Machine";
+"terminal_mobile" = "Mobile Phone";
+"terminal_ticket_machine" = "Ticket Machine";
+"terminal_ticket_machine_commuter" = "Ticket Machine (Commuter)";
+"terminal_charge_machine" = "Charge Machine";
+"terminal_auto_ticket_machine" = "Auto Ticket Machine";
+"terminal_gate" = "Ticket Gate";
+"terminal_auto_fare_machine" = "Auto Fare Machine";
+"terminal_simple_gate" = "Simple Gate";
+"terminal_counter" = "Counter";
+"terminal_retail" = "Retail";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Fare Payment";
+"process_charge" = "Charge";
+"process_commuter_pass" = "Commuter Pass";
+"process_fare_adjustment" = "Fare Adjustment";
+"process_counter_exit" = "Counter Exit";
+"process_new_issue" = "New Issue";
+"process_deduction" = "Deduction";
+"process_counter_entry" = "Counter Entry";
+"process_bus_charge" = "Bus Charge";
+"process_bus_payment" = "Bus Payment";
+"process_reissue" = "Reissue";
+"process_payment_refund" = "Payment/Refund";
+"process_charge_commuter" = "Charge/Commuter";
+"process_ticket_counter" = "Ticket Counter";
+"process_deposit" = "Deposit";
+"process_counter" = "Counter";
+"process_retail" = "Retail";
+"process_retail_bonus" = "Retail Bonus";
+"process_retail_cancel" = "Retail Cancel";
+"process_cash_combined" = "Cash Combined";
+"process_transfer_adjustment" = "Transfer Adjustment";
+"process_default" = "Process";
+

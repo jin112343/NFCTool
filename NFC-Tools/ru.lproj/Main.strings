@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Удалить";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "₽99"; /* Approximate price in Russian Rubles */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Купить NFC-метки на Amazon";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Как использовать приложение (пример)";
+
+"nfc_not_supported" = "Этот NFC не может быть использован";
+"nfc_bring_closer" = "Поднесите метку NFC к верхней части iPhone";
+"nfc_tag_not_supported" = "Эта NFC-метка не поддерживается";
+"nfc_remove_alert" = "Следующая информация будет удалена\nНе перемещайте NFC-метку\n\n %@";
+"nfc_read_only" = "Эта NFC-метка только для чтения";
+"nfc_payload_fail" = "Не удалось создать payload";
+"nfc_over_capacity" = "Невозможно записать из-за превышения емкости!\nЕмкость составляет %@ байт";
+"nfc_deleted" = "Успешно удалено";
+
+/* Loading text */
+"loading" = "Загрузка...";
+
+/* Read Result Screen */
+"result_title" = "Результат чтения";
+"result_section_tag_info" = "Информация о метке";
+"result_section_records" = "Записи";
+"result_section_felica" = "Информация FeliCa";
+"result_section_history" = "История использования";
+"result_section_raw" = "Сырые данные";
+"tag_type" = "Тип метки";
+"tag_id" = "ID метки";
+"capacity" = "Емкость";
+"used_size" = "Использовано";
+"free_space" = "Свободно";
+"writable" = "Запись";
+"writable_yes" = "Да";
+"writable_no" = "Только чтение";
+"ndef_status" = "Статус NDEF";
+"record_number" = "Запись #%d";
+"record_type" = "Тип";
+"record_tnf" = "TNF";
+"record_text" = "Текст";
+"record_url" = "URL";
+"record_locale" = "Язык";
+"record_size" = "Размер";
+"felica_balance" = "Баланс";
+"felica_system" = "Код системы";
+"history_date" = "Дата";
+"history_type" = "Тип";
+"history_balance" = "Баланс";
+"history_terminal" = "Терминал";
+"bytes_format" = "%d байт";
+"no_data" = "Нет данных";
+"tap_to_open" = "Нажмите, чтобы открыть ссылку";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Касса";
+"terminal_mobile" = "Мобильный телефон";
+"terminal_ticket_machine" = "Билетный автомат";
+"terminal_ticket_machine_commuter" = "Автомат (абонемент)";
+"terminal_charge_machine" = "Автомат пополнения";
+"terminal_auto_ticket_machine" = "Автоматический билетный автомат";
+"terminal_gate" = "Турникет";
+"terminal_auto_fare_machine" = "Автоматическая касса";
+"terminal_simple_gate" = "Простой турникет";
+"terminal_counter" = "Окошко";
+"terminal_retail" = "Розничная продажа";
+"terminal_default" = "Терминал";
+
+/* Process Types */
+"process_fare_payment" = "Оплата проезда";
+"process_charge" = "Пополнение";
+"process_commuter_pass" = "Проездной";
+"process_fare_adjustment" = "Корректировка тарифа";
+"process_counter_exit" = "Выход через окошко";
+"process_new_issue" = "Новый выпуск";
+"process_deduction" = "Списание";
+"process_counter_entry" = "Вход через окошко";
+"process_bus_charge" = "Пополнение автобуса";
+"process_bus_payment" = "Оплата автобуса";
+"process_reissue" = "Перевыпуск";
+"process_payment_refund" = "Оплата/Возврат";
+"process_charge_commuter" = "Пополнение/Проездной";
+"process_ticket_counter" = "Билетная касса";
+"process_deposit" = "Депозит";
+"process_counter" = "Окошко";
+"process_retail" = "Розничная продажа";
+"process_retail_bonus" = "Бонус розницы";
+"process_retail_cancel" = "Отмена розницы";
+"process_cash_combined" = "Комбинированная оплата";
+"process_transfer_adjustment" = "Корректировка пересадки";
+"process_default" = "Обработка";
+

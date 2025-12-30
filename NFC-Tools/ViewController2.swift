@@ -11,6 +11,7 @@ import MessageUI
 import GoogleMobileAds
 import SwiftUI
 import OSLog
+import StoreKit
 
 class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GADBannerViewDelegate, CatchProtcol {
 
@@ -28,9 +29,8 @@ class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GA
     
     
     @IBAction func terms(_ sender: Any) {
-        let url = URL(string: "https://apps.apple.com/jp/app/nfctool/id1548623317")!
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url)
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: windowScene)
         }
     }
     

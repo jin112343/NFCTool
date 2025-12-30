@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Eliminar";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "0,99 €"; /* Conversão para euros */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Comprar etiquetas NFC na Amazon";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Como usar a aplicação (Exemplo)";
+
+/* NFC Messages */
+"nfc_not_supported" = "NFC não é suportado neste dispositivo";
+"nfc_bring_closer" = "Aproxime o dispositivo da etiqueta NFC";
+"nfc_tag_not_supported" = "Esta etiqueta NFC não é suportada";
+"nfc_remove_alert" = "Remova a etiqueta NFC";
+"nfc_read_only" = "Esta etiqueta é apenas de leitura";
+"nfc_payload_fail" = "Falha ao criar os dados";
+"nfc_over_capacity" = "Os dados excedem a capacidade da etiqueta";
+"nfc_deleted" = "Dados eliminados";
+"loading" = "A carregar...";
+
+/* Read Result */
+"result_title" = "Resultado da leitura";
+"result_section_tag_info" = "Informação da etiqueta";
+"result_section_records" = "Registos";
+"result_section_felica" = "Informação FeliCa";
+"result_section_history" = "Histórico de utilização";
+"result_section_raw" = "Dados em bruto";
+
+/* Tag Info */
+"tag_type" = "Tipo de etiqueta";
+"tag_id" = "ID da etiqueta";
+"capacity" = "Capacidade";
+"used_size" = "Tamanho utilizado";
+"free_space" = "Espaço livre";
+"writable" = "Gravável";
+"writable_yes" = "Sim";
+"writable_no" = "Apenas leitura";
+"ndef_status" = "Estado NDEF";
+
+/* Record Info */
+"record_number" = "Registo #%d";
+"record_type" = "Tipo";
+"record_tnf" = "TNF";
+"record_text" = "Texto";
+"record_url" = "URL";
+"record_locale" = "Idioma";
+"record_size" = "Tamanho";
+
+/* FeliCa */
+"felica_balance" = "Saldo";
+"felica_system" = "Código do sistema";
+"history_date" = "Data";
+"history_type" = "Tipo";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminal";
+
+/* Common */
+"bytes_format" = "%d bytes";
+"no_data" = "Sem dados";
+"tap_to_open" = "Toque para abrir a ligação";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Máquina de tarifa";
+"terminal_mobile" = "Telemóvel";
+"terminal_ticket_machine" = "Máquina de bilhetes";
+"terminal_ticket_machine_commuter" = "Máquina (passe)";
+"terminal_charge_machine" = "Máquina de carregamento";
+"terminal_auto_ticket_machine" = "Máquina automática";
+"terminal_gate" = "Torniquete";
+"terminal_auto_fare_machine" = "Máquina de tarifa auto";
+"terminal_simple_gate" = "Torniquete simples";
+"terminal_counter" = "Balcão";
+"terminal_retail" = "Retalho";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Pagamento de tarifa";
+"process_charge" = "Carregamento";
+"process_commuter_pass" = "Passe mensal";
+"process_fare_adjustment" = "Ajuste de tarifa";
+"process_counter_exit" = "Saída balcão";
+"process_new_issue" = "Nova emissão";
+"process_deduction" = "Dedução";
+"process_counter_entry" = "Entrada balcão";
+"process_bus_charge" = "Carregamento autocarro";
+"process_bus_payment" = "Pagamento autocarro";
+"process_reissue" = "Reemissão";
+"process_payment_refund" = "Pagamento/Reembolso";
+"process_charge_commuter" = "Carregamento/Passe";
+"process_ticket_counter" = "Bilheteira";
+"process_deposit" = "Depósito";
+"process_counter" = "Balcão";
+"process_retail" = "Retalho";
+"process_retail_bonus" = "Bónus retalho";
+"process_retail_cancel" = "Cancelamento retalho";
+"process_cash_combined" = "Combinação numerário";
+"process_transfer_adjustment" = "Ajuste transferência";
+"process_default" = "Processo";
+

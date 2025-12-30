@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "删除";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "¥7"; /* 大约以人民币为单位 */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "在亚马逊上购买NFC标签";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "如何使用应用（示例）";
+
+"nfc_not_supported" = "此NFC无法使用";
+"nfc_bring_closer" = "请将NFC标签靠近iPhone顶部";
+"nfc_tag_not_supported" = "此NFC标签不受支持";
+"nfc_remove_alert" = "以下信息将被删除\n请不要移动NFC标签\n\n %@";
+"nfc_read_only" = "此NFC标签为只读";
+"nfc_payload_fail" = "载荷创建失败";
+"nfc_over_capacity" = "容量超限无法写入！\n容量为%@字节";
+"nfc_deleted" = "删除成功";
+
+/* Loading text */
+"loading" = "加载中...";
+
+/* Read Result Screen */
+"result_title" = "读取结果";
+"result_section_tag_info" = "标签信息";
+"result_section_records" = "记录";
+"result_section_felica" = "FeliCa信息";
+"result_section_history" = "使用历史";
+"result_section_raw" = "原始数据";
+"tag_type" = "标签类型";
+"tag_id" = "标签ID";
+"capacity" = "容量";
+"used_size" = "已用大小";
+"free_space" = "剩余空间";
+"writable" = "可写入";
+"writable_yes" = "是";
+"writable_no" = "只读";
+"ndef_status" = "NDEF状态";
+"record_number" = "记录 #%d";
+"record_type" = "类型";
+"record_tnf" = "TNF";
+"record_text" = "文本";
+"record_url" = "URL";
+"record_locale" = "语言";
+"record_size" = "大小";
+"felica_balance" = "余额";
+"felica_system" = "系统代码";
+"history_date" = "日期";
+"history_type" = "类型";
+"history_balance" = "余额";
+"history_terminal" = "终端";
+"bytes_format" = "%d 字节";
+"no_data" = "无数据";
+"tap_to_open" = "点击打开链接";
+
+/* Terminal Types */
+"terminal_fare_machine" = "精算机";
+"terminal_mobile" = "手机";
+"terminal_ticket_machine" = "售票机";
+"terminal_ticket_machine_commuter" = "售票机(定期)";
+"terminal_charge_machine" = "充值机";
+"terminal_auto_ticket_machine" = "自动售票机";
+"terminal_gate" = "检票闸机";
+"terminal_auto_fare_machine" = "自动精算机";
+"terminal_simple_gate" = "简易闸机";
+"terminal_counter" = "窗口";
+"terminal_retail" = "零售";
+"terminal_default" = "终端";
+
+/* Process Types */
+"process_fare_payment" = "车费支付";
+"process_charge" = "充值";
+"process_commuter_pass" = "定期票购买";
+"process_fare_adjustment" = "精算";
+"process_counter_exit" = "窗口出站";
+"process_new_issue" = "新发行";
+"process_deduction" = "扣款";
+"process_counter_entry" = "窗口进站";
+"process_bus_charge" = "公交充值";
+"process_bus_payment" = "公交支付";
+"process_reissue" = "补发";
+"process_payment_refund" = "支付/退款";
+"process_charge_commuter" = "充值/定期";
+"process_ticket_counter" = "售票窗口";
+"process_deposit" = "存款";
+"process_counter" = "窗口";
+"process_retail" = "零售";
+"process_retail_bonus" = "零售优惠";
+"process_retail_cancel" = "零售取消";
+"process_cash_combined" = "现金组合";
+"process_transfer_adjustment" = "换乘精算";
+"process_default" = "处理";
+

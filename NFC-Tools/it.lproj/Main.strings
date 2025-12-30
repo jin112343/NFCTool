@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Elimina";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "0,99 €";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Acquista tag NFC su Amazon";
 
@@ -60,3 +57,78 @@
 "nfc_payload_fail" = "Creazione del payload non riuscita";
 "nfc_over_capacity" = "Impossibile scrivere a causa del superamento della capacità!\nLa capacità è di %@ byte";
 "nfc_deleted" = "Eliminato con successo";
+
+/* Loading text */
+"loading" = "Caricamento...";
+
+/* Read Result Screen */
+"result_title" = "Risultato lettura";
+"result_section_tag_info" = "Informazioni tag";
+"result_section_records" = "Record";
+"result_section_felica" = "Informazioni FeliCa";
+"result_section_history" = "Cronologia utilizzo";
+"result_section_raw" = "Dati grezzi";
+"tag_type" = "Tipo di tag";
+"tag_id" = "ID tag";
+"capacity" = "Capacità";
+"used_size" = "Dimensione usata";
+"free_space" = "Spazio libero";
+"writable" = "Scrivibile";
+"writable_yes" = "Sì";
+"writable_no" = "Solo lettura";
+"ndef_status" = "Stato NDEF";
+"record_number" = "Record #%d";
+"record_type" = "Tipo";
+"record_tnf" = "TNF";
+"record_text" = "Testo";
+"record_url" = "URL";
+"record_locale" = "Lingua";
+"record_size" = "Dimensione";
+"felica_balance" = "Saldo";
+"felica_system" = "Codice sistema";
+"history_date" = "Data";
+"history_type" = "Tipo";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminale";
+"bytes_format" = "%d byte";
+"no_data" = "Nessun dato";
+"tap_to_open" = "Tocca per aprire il link";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Macchina tariffe";
+"terminal_mobile" = "Cellulare";
+"terminal_ticket_machine" = "Distributore biglietti";
+"terminal_ticket_machine_commuter" = "Distributore (abbonamento)";
+"terminal_charge_machine" = "Macchina ricarica";
+"terminal_auto_ticket_machine" = "Distributore automatico";
+"terminal_gate" = "Tornello";
+"terminal_auto_fare_machine" = "Macchina tariffe auto";
+"terminal_simple_gate" = "Tornello semplice";
+"terminal_counter" = "Sportello";
+"terminal_retail" = "Vendita";
+"terminal_default" = "Terminale";
+
+/* Process Types */
+"process_fare_payment" = "Pagamento tariffa";
+"process_charge" = "Ricarica";
+"process_commuter_pass" = "Abbonamento";
+"process_fare_adjustment" = "Aggiustamento tariffa";
+"process_counter_exit" = "Uscita sportello";
+"process_new_issue" = "Nuova emissione";
+"process_deduction" = "Detrazione";
+"process_counter_entry" = "Ingresso sportello";
+"process_bus_charge" = "Ricarica bus";
+"process_bus_payment" = "Pagamento bus";
+"process_reissue" = "Riemissione";
+"process_payment_refund" = "Pagamento/Rimborso";
+"process_charge_commuter" = "Ricarica/Abbonamento";
+"process_ticket_counter" = "Biglietteria";
+"process_deposit" = "Deposito";
+"process_counter" = "Sportello";
+"process_retail" = "Vendita";
+"process_retail_bonus" = "Bonus vendita";
+"process_retail_cancel" = "Annullamento vendita";
+"process_cash_combined" = "Combinazione contanti";
+"process_transfer_adjustment" = "Aggiustamento trasferimento";
+"process_default" = "Elaborazione";
+

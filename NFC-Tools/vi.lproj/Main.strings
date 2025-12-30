@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Xóa";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "23.000₫"; /* Giá trị ước lượng bằng Đồng Việt Nam */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Mua thẻ NFC trên Amazon";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Cách sử dụng ứng dụng (Ví dụ)";
+
+"nfc_not_supported" = "NFC này không thể sử dụng";
+"nfc_bring_closer" = "Đưa thẻ NFC lại gần phía trên iPhone";
+"nfc_tag_not_supported" = "Thẻ NFC này không được hỗ trợ";
+"nfc_remove_alert" = "Thông tin sau sẽ bị xóa\nKhông di chuyển thẻ NFC\n\n %@";
+"nfc_read_only" = "Thẻ NFC này chỉ đọc";
+"nfc_payload_fail" = "Không tạo được payload";
+"nfc_over_capacity" = "Không thể ghi do vượt quá dung lượng!\nDung lượng là %@ byte";
+"nfc_deleted" = "Đã xóa thành công";
+
+/* Loading text */
+"loading" = "Đang tải...";
+
+/* Read Result Screen */
+"result_title" = "Kết quả đọc";
+"result_section_tag_info" = "Thông tin thẻ";
+"result_section_records" = "Bản ghi";
+"result_section_felica" = "Thông tin FeliCa";
+"result_section_history" = "Lịch sử sử dụng";
+"result_section_raw" = "Dữ liệu thô";
+"tag_type" = "Loại thẻ";
+"tag_id" = "ID thẻ";
+"capacity" = "Dung lượng";
+"used_size" = "Kích thước đã dùng";
+"free_space" = "Còn trống";
+"writable" = "Có thể ghi";
+"writable_yes" = "Có";
+"writable_no" = "Chỉ đọc";
+"ndef_status" = "Trạng thái NDEF";
+"record_number" = "Bản ghi #%d";
+"record_type" = "Loại";
+"record_tnf" = "TNF";
+"record_text" = "Văn bản";
+"record_url" = "URL";
+"record_locale" = "Ngôn ngữ";
+"record_size" = "Kích thước";
+"felica_balance" = "Số dư";
+"felica_system" = "Mã hệ thống";
+"history_date" = "Ngày";
+"history_type" = "Loại";
+"history_balance" = "Số dư";
+"history_terminal" = "Thiết bị đầu cuối";
+"bytes_format" = "%d byte";
+"no_data" = "Không có dữ liệu";
+"tap_to_open" = "Chạm để mở liên kết";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Máy thanh toán";
+"terminal_mobile" = "Điện thoại di động";
+"terminal_ticket_machine" = "Máy bán vé";
+"terminal_ticket_machine_commuter" = "Máy bán vé (tháng)";
+"terminal_charge_machine" = "Máy nạp tiền";
+"terminal_auto_ticket_machine" = "Máy bán vé tự động";
+"terminal_gate" = "Cổng soát vé";
+"terminal_auto_fare_machine" = "Máy thanh toán tự động";
+"terminal_simple_gate" = "Cổng đơn giản";
+"terminal_counter" = "Quầy";
+"terminal_retail" = "Bán lẻ";
+"terminal_default" = "Thiết bị đầu cuối";
+
+/* Process Types */
+"process_fare_payment" = "Thanh toán vé";
+"process_charge" = "Nạp tiền";
+"process_commuter_pass" = "Vé tháng";
+"process_fare_adjustment" = "Điều chỉnh giá vé";
+"process_counter_exit" = "Ra qua quầy";
+"process_new_issue" = "Phát hành mới";
+"process_deduction" = "Khấu trừ";
+"process_counter_entry" = "Vào qua quầy";
+"process_bus_charge" = "Nạp tiền xe buýt";
+"process_bus_payment" = "Thanh toán xe buýt";
+"process_reissue" = "Phát hành lại";
+"process_payment_refund" = "Thanh toán/Hoàn tiền";
+"process_charge_commuter" = "Nạp tiền/Vé tháng";
+"process_ticket_counter" = "Quầy vé";
+"process_deposit" = "Nạp tiền";
+"process_counter" = "Quầy";
+"process_retail" = "Bán lẻ";
+"process_retail_bonus" = "Thưởng bán lẻ";
+"process_retail_cancel" = "Hủy bán lẻ";
+"process_cash_combined" = "Kết hợp tiền mặt";
+"process_transfer_adjustment" = "Điều chỉnh chuyển tuyến";
+"process_default" = "Xử lý";
+

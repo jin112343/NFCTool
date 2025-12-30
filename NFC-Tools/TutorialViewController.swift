@@ -322,6 +322,8 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
         }
         
         let templateImages = ["1.png", "2.png", "3.png", "4.png"]
+        let screenSize = UIScreen.main.bounds.size
+
         return zip(templateImages, messages).enumerated().compactMap { (index, element) in
             let (imageName, message) = element
             guard let templateImage = UIImage(named: imageName) else {
@@ -329,15 +331,15 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
                 return nil
             }
 
-            // ページごとのY軸オフセット
+            // ページごとのY軸オフセット（画面サイズに合わせて調整）
             let additionalYOffset: CGFloat
             switch index {
             case 2: // 3枚目は上寄せ
-                additionalYOffset = -50
+                additionalYOffset = -20
             case 3: // 4枚目は中央寄せ
-                additionalYOffset = 120
+                additionalYOffset = 40
             default: // その他はデフォルト値
-                additionalYOffset = 20
+                additionalYOffset = 10
             }
 
             let page = EAIntroPage()
@@ -346,39 +348,73 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
                 text: message,
                 textColor: .black,
                 font: UIFont.systemFont(ofSize: 80),
-                yOffset: additionalYOffset
+                yOffset: additionalYOffset,
+                screenSize: screenSize
             )
             return page
         }
     }
     
+    /// 画像を画面サイズに合わせてリサイズ（アスペクト比を維持）
+    private func resizeImageToFitScreen(_ image: UIImage, targetSize: CGSize) -> UIImage {
+        let widthRatio = targetSize.width / image.size.width
+        let heightRatio = targetSize.height / image.size.height
+        let ratio = min(widthRatio, heightRatio)
+
+        let newSize = CGSize(
+            width: image.size.width * ratio,
+            height: image.size.height * ratio
+        )
+
+        let renderer = UIGraphicsImageRenderer(size: targetSize)
+        let resizedImage = renderer.image { context in
+            // 背景を白で塗りつぶし
+            UIColor.white.setFill()
+            context.fill(CGRect(origin: .zero, size: targetSize))
+
+            // 画像を中央に配置
+            let x = (targetSize.width - newSize.width) / 2
+            let y = (targetSize.height - newSize.height) / 2
+            image.draw(in: CGRect(x: x, y: y, width: newSize.width, height: newSize.height))
+        }
+
+        return resizedImage
+    }
+
     /// 画像にテキストを描画
-    private func addTextToImage(image: UIImage, text: String, textColor: UIColor, font: UIFont, yOffset: CGFloat) -> UIImage {
-        let whiteAreaHeight = image.size.height * 0.3
-        let whiteAreaY = image.size.height - whiteAreaHeight
+    private func addTextToImage(image: UIImage, text: String, textColor: UIColor, font: UIFont, yOffset: CGFloat, screenSize: CGSize) -> UIImage {
+        // 画像を画面サイズに合わせてリサイズ
+        let resizedImage = resizeImageToFitScreen(image, targetSize: screenSize)
+
+        let whiteAreaHeight = resizedImage.size.height * 0.3
+        let whiteAreaY = resizedImage.size.height - whiteAreaHeight
 
         // 中央揃えの段落スタイルを設定
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
 
+        // 画面サイズに応じてフォントサイズを調整
+        let adjustedFontSize = min(font.pointSize, screenSize.width / 10)
+        let adjustedFont = font.withSize(adjustedFontSize)
+
         let textAttributes: [NSAttributedString.Key: Any] = [
-            .font: font,
+            .font: adjustedFont,
             .foregroundColor: textColor,
             .paragraphStyle: paragraphStyle
         ]
 
-        let textWidth = image.size.width * 0.9
+        let textWidth = resizedImage.size.width * 0.9
         let textHeight = whiteAreaHeight * 0.8
         let textRect = CGRect(
-            x: image.size.width * 0.05,
+            x: resizedImage.size.width * 0.05,
             y: whiteAreaY + (whiteAreaHeight - textHeight) / 2 + yOffset,
             width: textWidth,
             height: textHeight
         )
 
-        let renderer = UIGraphicsImageRenderer(size: image.size)
+        let renderer = UIGraphicsImageRenderer(size: resizedImage.size)
         let newImage = renderer.image { _ in
-            image.draw(in: CGRect(origin: .zero, size: image.size))
+            resizedImage.draw(in: CGRect(origin: .zero, size: resizedImage.size))
             text.draw(in: textRect, withAttributes: textAttributes)
         }
 

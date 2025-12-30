@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "מחק";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "‏0.99 $";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "קנה תגי NFC באמזון";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "איך להשתמש באפליקציה (דוגמה)";
+
+/* NFC Messages */
+"nfc_not_supported" = "NFC אינו נתמך במכשיר זה";
+"nfc_bring_closer" = "קרב את המכשיר לתג NFC";
+"nfc_tag_not_supported" = "תג NFC זה אינו נתמך";
+"nfc_remove_alert" = "הסר את תג ה-NFC";
+"nfc_read_only" = "תג זה לקריאה בלבד";
+"nfc_payload_fail" = "נכשל ביצירת הנתונים";
+"nfc_over_capacity" = "הנתונים חורגים מקיבולת התג";
+"nfc_deleted" = "הנתונים נמחקו";
+"loading" = "טוען...";
+
+/* Read Result */
+"result_title" = "תוצאת קריאה";
+"result_section_tag_info" = "מידע על התג";
+"result_section_records" = "רשומות";
+"result_section_felica" = "מידע FeliCa";
+"result_section_history" = "היסטוריית שימוש";
+"result_section_raw" = "נתונים גולמיים";
+
+/* Tag Info */
+"tag_type" = "סוג תג";
+"tag_id" = "מזהה תג";
+"capacity" = "קיבולת";
+"used_size" = "גודל בשימוש";
+"free_space" = "מקום פנוי";
+"writable" = "ניתן לכתיבה";
+"writable_yes" = "כן";
+"writable_no" = "קריאה בלבד";
+"ndef_status" = "סטטוס NDEF";
+
+/* Record Info */
+"record_number" = "רשומה #%d";
+"record_type" = "סוג";
+"record_tnf" = "TNF";
+"record_text" = "טקסט";
+"record_url" = "URL";
+"record_locale" = "שפה";
+"record_size" = "גודל";
+
+/* FeliCa */
+"felica_balance" = "יתרה";
+"felica_system" = "קוד מערכת";
+"history_date" = "תאריך";
+"history_type" = "סוג";
+"history_balance" = "יתרה";
+"history_terminal" = "מסוף";
+
+/* Common */
+"bytes_format" = "%d בתים";
+"no_data" = "אין נתונים";
+"tap_to_open" = "הקש לפתיחת הקישור";
+
+/* Terminal Types */
+"terminal_fare_machine" = "מכונת תשלום";
+"terminal_mobile" = "טלפון נייד";
+"terminal_ticket_machine" = "מכונת כרטיסים";
+"terminal_ticket_machine_commuter" = "מכונה (כרטיסייה)";
+"terminal_charge_machine" = "מכונת טעינה";
+"terminal_auto_ticket_machine" = "מכונת כרטיסים אוטומטית";
+"terminal_gate" = "שער";
+"terminal_auto_fare_machine" = "מכונת תשלום אוטומטית";
+"terminal_simple_gate" = "שער פשוט";
+"terminal_counter" = "דלפק";
+"terminal_retail" = "קמעונאות";
+"terminal_default" = "מסוף";
+
+/* Process Types */
+"process_fare_payment" = "תשלום נסיעה";
+"process_charge" = "טעינה";
+"process_commuter_pass" = "רכישת כרטיסייה";
+"process_fare_adjustment" = "התאמת תעריף";
+"process_counter_exit" = "יציאה מדלפק";
+"process_new_issue" = "הנפקה חדשה";
+"process_deduction" = "ניכוי";
+"process_counter_entry" = "כניסה לדלפק";
+"process_bus_charge" = "טעינת אוטובוס";
+"process_bus_payment" = "תשלום אוטובוס";
+"process_reissue" = "הנפקה מחדש";
+"process_payment_refund" = "תשלום/החזר";
+"process_charge_commuter" = "טעינה/כרטיסייה";
+"process_ticket_counter" = "דלפק כרטיסים";
+"process_deposit" = "הפקדה";
+"process_counter" = "דלפק";
+"process_retail" = "קמעונאות";
+"process_retail_bonus" = "בונוס קמעונאי";
+"process_retail_cancel" = "ביטול קמעונאי";
+"process_cash_combined" = "מזומן משולב";
+"process_transfer_adjustment" = "התאמת העברה";
+"process_default" = "עיבוד";
+

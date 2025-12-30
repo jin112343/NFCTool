@@ -40,9 +40,6 @@
 /* Class = "UIButton"; normalTitle = "Erase"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Esborra";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "$0.99";
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Compra etiquetes NFC a Amazon";
 
@@ -54,3 +51,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Com utilitzar l'aplicació (Exemple)";
+
+/* NFC Messages */
+"nfc_not_supported" = "NFC no és compatible amb aquest dispositiu";
+"nfc_bring_closer" = "Apropa el dispositiu a l'etiqueta NFC";
+"nfc_tag_not_supported" = "Aquesta etiqueta NFC no és compatible";
+"nfc_remove_alert" = "Retira l'etiqueta NFC";
+"nfc_read_only" = "Aquesta etiqueta és de només lectura";
+"nfc_payload_fail" = "No s'ha pogut crear les dades";
+"nfc_over_capacity" = "Les dades superen la capacitat de l'etiqueta";
+"nfc_deleted" = "Dades eliminades";
+"loading" = "Carregant...";
+
+/* Read Result */
+"result_title" = "Resultat de lectura";
+"result_section_tag_info" = "Informació de l'etiqueta";
+"result_section_records" = "Registres";
+"result_section_felica" = "Informació FeliCa";
+"result_section_history" = "Historial d'ús";
+"result_section_raw" = "Dades en brut";
+
+/* Tag Info */
+"tag_type" = "Tipus d'etiqueta";
+"tag_id" = "ID de l'etiqueta";
+"capacity" = "Capacitat";
+"used_size" = "Mida utilitzada";
+"free_space" = "Espai lliure";
+"writable" = "Escrivible";
+"writable_yes" = "Sí";
+"writable_no" = "Només lectura";
+"ndef_status" = "Estat NDEF";
+
+/* Record Info */
+"record_number" = "Registre #%d";
+"record_type" = "Tipus";
+"record_tnf" = "TNF";
+"record_text" = "Text";
+"record_url" = "URL";
+"record_locale" = "Idioma";
+"record_size" = "Mida";
+
+/* FeliCa */
+"felica_balance" = "Saldo";
+"felica_system" = "Codi del sistema";
+"history_date" = "Data";
+"history_type" = "Tipus";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminal";
+
+/* Common */
+"bytes_format" = "%d bytes";
+"no_data" = "Sense dades";
+"tap_to_open" = "Toca per obrir l'enllaç";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Màquina de pagament";
+"terminal_mobile" = "Telèfon mòbil";
+"terminal_ticket_machine" = "Màquina de bitllets";
+"terminal_ticket_machine_commuter" = "Màquina (abonament)";
+"terminal_charge_machine" = "Màquina de càrrega";
+"terminal_auto_ticket_machine" = "Màquina automàtica de bitllets";
+"terminal_gate" = "Porta";
+"terminal_auto_fare_machine" = "Màquina automàtica de pagament";
+"terminal_simple_gate" = "Porta simple";
+"terminal_counter" = "Taquilla";
+"terminal_retail" = "Comerç";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Pagament de tarifa";
+"process_charge" = "Càrrega";
+"process_commuter_pass" = "Compra d'abonament";
+"process_fare_adjustment" = "Ajust de tarifa";
+"process_counter_exit" = "Sortida per taquilla";
+"process_new_issue" = "Nova emissió";
+"process_deduction" = "Deducció";
+"process_counter_entry" = "Entrada per taquilla";
+"process_bus_charge" = "Càrrega d'autobús";
+"process_bus_payment" = "Pagament d'autobús";
+"process_reissue" = "Reemissió";
+"process_payment_refund" = "Pagament/Reemborsament";
+"process_charge_commuter" = "Càrrega/Abonament";
+"process_ticket_counter" = "Taquilla de bitllets";
+"process_deposit" = "Dipòsit";
+"process_counter" = "Taquilla";
+"process_retail" = "Comerç";
+"process_retail_bonus" = "Bonus de comerç";
+"process_retail_cancel" = "Cancel·lació de comerç";
+"process_cash_combined" = "Efectiu combinat";
+"process_transfer_adjustment" = "Ajust de transferència";
+"process_default" = "Processament";
+

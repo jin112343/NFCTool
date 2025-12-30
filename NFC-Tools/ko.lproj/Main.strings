@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "삭제";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "₩1,300"; /* Approximate price in Korean Won */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Amazon에서 NFC 태그 구매하기";
 
@@ -51,3 +48,87 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "앱 사용 방법 (예시)";
+
+"nfc_not_supported" = "이 NFC는 사용할 수 없습니다";
+"nfc_bring_closer" = "NFC 태그를 iPhone 상단에 가까이 대주세요";
+"nfc_tag_not_supported" = "이 NFC 태그는 지원되지 않습니다";
+"nfc_remove_alert" = "다음 정보가 삭제됩니다\nNFC 태그를 움직이지 마세요\n\n %@";
+"nfc_read_only" = "이 NFC 태그는 읽기 전용입니다";
+"nfc_payload_fail" = "페이로드 생성 실패";
+"nfc_over_capacity" = "용량 초과로 쓸 수 없습니다!\n용량은 %@ 바이트입니다";
+"nfc_deleted" = "삭제 완료";
+
+/* Loading text */
+"loading" = "로딩 중...";
+
+/* Read Result Screen */
+"result_title" = "읽기 결과";
+"result_section_tag_info" = "태그 정보";
+"result_section_records" = "레코드";
+"result_section_felica" = "FeliCa 정보";
+"result_section_history" = "사용 기록";
+"result_section_raw" = "원시 데이터";
+"tag_type" = "태그 유형";
+"tag_id" = "태그 ID";
+"capacity" = "용량";
+"used_size" = "사용 크기";
+"free_space" = "남은 공간";
+"writable" = "쓰기 가능";
+"writable_yes" = "예";
+"writable_no" = "읽기 전용";
+"ndef_status" = "NDEF 상태";
+"record_number" = "레코드 #%d";
+"record_type" = "유형";
+"record_tnf" = "TNF";
+"record_text" = "텍스트";
+"record_url" = "URL";
+"record_locale" = "언어";
+"record_size" = "크기";
+"felica_balance" = "잔액";
+"felica_system" = "시스템 코드";
+"history_date" = "날짜";
+"history_type" = "유형";
+"history_balance" = "잔액";
+"history_terminal" = "단말기";
+"bytes_format" = "%d 바이트";
+"no_data" = "데이터 없음";
+"tap_to_open" = "링크를 열려면 탭하세요";
+
+/* Terminal Types */
+"terminal_fare_machine" = "정산기";
+"terminal_mobile" = "휴대전화";
+"terminal_ticket_machine" = "발매기";
+"terminal_ticket_machine_commuter" = "발매기(정기권)";
+"terminal_charge_machine" = "충전기";
+"terminal_auto_ticket_machine" = "자동발매기";
+"terminal_gate" = "개찰기";
+"terminal_auto_fare_machine" = "자동정산기";
+"terminal_simple_gate" = "간이개찰기";
+"terminal_counter" = "창구";
+"terminal_retail" = "물판";
+"terminal_default" = "단말기";
+
+/* Process Types */
+"process_fare_payment" = "운임 지불";
+"process_charge" = "충전";
+"process_commuter_pass" = "정기권 구매";
+"process_fare_adjustment" = "정산";
+"process_counter_exit" = "창구 출장";
+"process_new_issue" = "신규 발행";
+"process_deduction" = "공제";
+"process_counter_entry" = "창구 입장";
+"process_bus_charge" = "버스 충전";
+"process_bus_payment" = "버스 결제";
+"process_reissue" = "재발행";
+"process_payment_refund" = "결제/환불";
+"process_charge_commuter" = "충전/정기권";
+"process_ticket_counter" = "발매창구";
+"process_deposit" = "입금";
+"process_counter" = "창구";
+"process_retail" = "물판";
+"process_retail_bonus" = "물판 특전";
+"process_retail_cancel" = "물판 취소";
+"process_cash_combined" = "현금 병용";
+"process_transfer_adjustment" = "환승 정산";
+"process_default" = "처리";
+

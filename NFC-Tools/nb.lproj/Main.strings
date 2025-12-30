@@ -37,9 +37,6 @@
 /* Class = "UIButton"; normalTitle = "Delete"; ObjectID = "bzW-BX-eeF"; */
 "bzW-BX-eeF.normalTitle" = "Slett";
 
-/* Class = "UILabel"; text = "$0.99"; ObjectID = "g8f-yc-KEN"; */
-"g8f-yc-KEN.text" = "kr 10"; /* Approximate price in Norwegian Krone */
-
 /* Class = "UIButton"; normalTitle = "Buy NFC Tags on Amazon"; ObjectID = "gPu-GC-2Tq"; */
 "gPu-GC-2Tq.normalTitle" = "Kjøp NFC-merker på Amazon";
 
@@ -51,3 +48,94 @@
 
 /* Class = "UIButton"; normalTitle = "How to Use the App (Example)"; ObjectID = "xZa-Gx-EIp"; */
 "xZa-Gx-EIp.normalTitle" = "Hvordan bruke appen (Eksempel)";
+
+/* NFC Messages */
+"nfc_not_supported" = "NFC støttes ikke på denne enheten";
+"nfc_bring_closer" = "Hold enheten nærmere NFC-brikken";
+"nfc_tag_not_supported" = "Denne NFC-brikken støttes ikke";
+"nfc_remove_alert" = "Fjern NFC-brikken";
+"nfc_read_only" = "Denne brikken er skrivebeskyttet";
+"nfc_payload_fail" = "Kunne ikke opprette payload";
+"nfc_over_capacity" = "Dataene overskrider brikkens kapasitet";
+"nfc_deleted" = "Data slettet";
+"loading" = "Laster...";
+
+/* Read Result */
+"result_title" = "Leseresultat";
+"result_section_tag_info" = "Brikkeinformasjon";
+"result_section_records" = "Poster";
+"result_section_felica" = "FeliCa-informasjon";
+"result_section_history" = "Brukshistorikk";
+"result_section_raw" = "Rådata";
+
+/* Tag Info */
+"tag_type" = "Brikketype";
+"tag_id" = "Brikke-ID";
+"capacity" = "Kapasitet";
+"used_size" = "Brukt størrelse";
+"free_space" = "Ledig plass";
+"writable" = "Skrivbar";
+"writable_yes" = "Ja";
+"writable_no" = "Skrivebeskyttet";
+"ndef_status" = "NDEF-status";
+
+/* Record Info */
+"record_number" = "Post #%d";
+"record_type" = "Type";
+"record_tnf" = "TNF";
+"record_text" = "Tekst";
+"record_url" = "URL";
+"record_locale" = "Språk";
+"record_size" = "Størrelse";
+
+/* FeliCa */
+"felica_balance" = "Saldo";
+"felica_system" = "Systemkode";
+"history_date" = "Dato";
+"history_type" = "Type";
+"history_balance" = "Saldo";
+"history_terminal" = "Terminal";
+
+/* Common */
+"bytes_format" = "%d byte";
+"no_data" = "Ingen data";
+"tap_to_open" = "Trykk for å åpne lenken";
+
+/* Terminal Types */
+"terminal_fare_machine" = "Billettautomat";
+"terminal_mobile" = "Mobiltelefon";
+"terminal_ticket_machine" = "Billettautomat";
+"terminal_ticket_machine_commuter" = "Automat (periodekort)";
+"terminal_charge_machine" = "Ladeautomat";
+"terminal_auto_ticket_machine" = "Automatisk billettautomat";
+"terminal_gate" = "Port";
+"terminal_auto_fare_machine" = "Automatisk betalingsautomat";
+"terminal_simple_gate" = "Enkel port";
+"terminal_counter" = "Skranke";
+"terminal_retail" = "Detaljhandel";
+"terminal_default" = "Terminal";
+
+/* Process Types */
+"process_fare_payment" = "Billettkjøp";
+"process_charge" = "Lading";
+"process_commuter_pass" = "Periodekort kjøp";
+"process_fare_adjustment" = "Prisjustering";
+"process_counter_exit" = "Skrankeutgang";
+"process_new_issue" = "Ny utstedelse";
+"process_deduction" = "Fradrag";
+"process_counter_entry" = "Skrankeinngang";
+"process_bus_charge" = "Busslading";
+"process_bus_payment" = "Bussbetaling";
+"process_reissue" = "Gjenutstedelse";
+"process_payment_refund" = "Betaling/Refusjon";
+"process_charge_commuter" = "Lading/Periodekort";
+"process_ticket_counter" = "Billettskranke";
+"process_deposit" = "Innskudd";
+"process_counter" = "Skranke";
+"process_retail" = "Detaljhandel";
+"process_retail_bonus" = "Detaljhandelbonus";
+"process_retail_cancel" = "Detaljhandelkansellering";
+"process_cash_combined" = "Kombinert kontant";
+"process_transfer_adjustment" = "Overføringsjustering";
+"process_default" = "Behandling";
+

@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "Ajustare transfer";
 "process_default" = "Procesare";
 
+/* Purchase Status */
+"purchased" = "Cumpărat";
+
+/* History Screen */
+"history_title" = "Istoric citiri";
+"no_history" = "Fără istoric";
+"clear_history_confirm" = "Ștergeți tot istoricul?";
+"cancel" = "Anulare";
+"delete" = "Ștergere";
+
+"felica_card_type" = "Tip de card";

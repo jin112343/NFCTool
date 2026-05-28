@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "התאמת העברה";
 "process_default" = "עיבוד";
 
+/* Purchase Status */
+"purchased" = "נרכש";
+
+/* History Screen */
+"history_title" = "היסטוריית קריאה";
+"no_history" = "אין היסטוריה";
+"clear_history_confirm" = "למחוק את כל ההיסטוריה?";
+"cancel" = "ביטול";
+"delete" = "מחיקה";
+
+"felica_card_type" = "סוג כרטיס";

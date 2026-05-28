@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Overstapafrekening";
 "process_default" = "Verwerking";
 
+/* Purchase Status */
+"purchased" = "Gekocht";
+
+/* History Screen */
+"history_title" = "Leesgeschiedenis";
+"no_history" = "Geen geschiedenis";
+"clear_history_confirm" = "Alle geschiedenis verwijderen?";
+"cancel" = "Annuleren";
+"delete" = "Verwijderen";
+
+"felica_card_type" = "Kaarttype";

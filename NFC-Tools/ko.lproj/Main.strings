@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "환승 정산";
 "process_default" = "처리";
 
+/* Purchase Status */
+"purchased" = "구매 완료";
+
+/* History Screen */
+"history_title" = "읽기 기록";
+"no_history" = "기록 없음";
+"clear_history_confirm" = "모든 기록을 삭제하시겠습니까?";
+"cancel" = "취소";
+"delete" = "삭제";
+
+"felica_card_type" = "카드 종류";

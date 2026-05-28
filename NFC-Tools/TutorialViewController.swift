@@ -2,20 +2,56 @@ import UIKit
 import EAIntroView
 import OSLog
 
+/// アプリが実際に解決したローカライズ（`Bundle.main.preferredLocalizations`）を、
+/// 与えられた対応コード集合の中で最も具体的なものへ解決する共有ヘルパー。
+/// 例: 繁体字(zh-Hant)ユーザーで対応に "zh-Hant" があればそれを、無ければ "zh"、
+/// それも無ければ defaultCode を返す。
+/// `Locale.current.language.languageCode`（基底コードのみ）では到達できない
+/// 地域/文字種付きの翻訳（zh-Hant / pt-BR / en-GB など）に正しく届かせるために使う。
+enum LanguageResolver {
+    static func resolve(supported: [String], default defaultCode: String = "en") -> String {
+        let supportedSet = Set(supported)
+        for localization in Bundle.main.preferredLocalizations {
+            for candidate in fallbackChain(for: localization) {
+                if supportedSet.contains(candidate) {
+                    return candidate
+                }
+            }
+        }
+        return defaultCode
+    }
+
+    /// "zh-Hant" -> ["zh-Hant", "zh"]、"pt-BR" -> ["pt-BR", "pt"]、"ja" -> ["ja"]
+    private static func fallbackChain(for code: String) -> [String] {
+        var parts = code.split(separator: "-").map(String.init)
+        var chain: [String] = []
+        while !parts.isEmpty {
+            chain.append(parts.joined(separator: "-"))
+            parts.removeLast()
+        }
+        return chain
+    }
+}
+
 class TutorialViewController: UIViewController, EAIntroDelegate {
+
+    /// チュートリアル文言が用意されている言語コード（switch の case と一致させる）
+    private static let supportedLanguages = [
+        "ja", "ar", "it", "id", "uk", "nl", "ca", "el", "hr", "sv",
+        "es", "es-MX", "sk", "th", "cs", "da", "de", "tr", "no", "hu",
+        "hi", "fi", "fr", "fr-CA", "vi", "he", "pl", "pt-BR", "pt-PT",
+        "ms", "ro", "ru", "en", "en-GB", "en-AU", "en-CA", "ko",
+        "zh-Hans", "zh-Hant"
+    ]
 
     private let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "com.nfctools", category: "Tutorial")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        CrashlyticsManager.shared.setCurrentScreen("チュートリアル画面")
         checkFirstLaunch()
-        let currentLanguage: String
-        if #available(iOS 16, *) {
-            currentLanguage = Locale.current.language.languageCode?.identifier ?? "en"
-        } else {
-            currentLanguage = Locale.current.languageCode ?? "en"
-        }
+        // アプリが解決したロケールに合わせて、地域/文字種付きの翻訳にも正しく届かせる
+        let currentLanguage = LanguageResolver.resolve(supported: Self.supportedLanguages)
         let width = view.bounds.size.width
         
         // チュートリアルページを作成
@@ -27,9 +63,9 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
     
     /// アプリの初回起動を確認してフラグを設定
     private func checkFirstLaunch() {
-        let userDefaults = UserDefaults.standard
-        if !userDefaults.bool(forKey: "launchedBefore") {
-            userDefaults.set(true, forKey: "launchedBefore")
+        guard SafeUserDefaults.isDataAvailable else { return }
+        if !(SafeUserDefaults.bool(forKey: "launchedBefore") ?? false) {
+            SafeUserDefaults.set(true, forKey: "launchedBefore")
             logger.info("初回起動: 初期設定を実行します。")
         }
     }
@@ -510,18 +546,28 @@ class TutorialViewController: UIViewController, EAIntroDelegate {
         
         introView.delegate = self
         introView.show(in: self.view, animateDuration: 1.0)
-        
-        UserDefaults.standard.set(1, forKey: "Tutorial")
+        // 完了フラグは表示時ではなく完了/スキップ時（introDidFinish）に立てる。
+        // 表示時に立てると、途中でアプリを終了しても「完了済み」になり次回チュートリアルが出ない。
     }
-    
+
     /// チュートリアル完了時の処理
     func introDidFinish(_ introView: EAIntroView!, wasSkipped: Bool) {
         logger.info("チュートリアル完了。スキップ: \(wasSkipped)")
-        
+
+        // 完了/スキップが確定したのでフラグを立てる（次回以降はチュートリアルを出さない）
+        SafeUserDefaults.set(1, forKey: "Tutorial")
+
+        // 念のため delegate を解除（EAIntroView 側が強参照でも循環参照を残さない）
+        introView?.delegate = nil
+
         if let mainVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? ViewController {
             let nav = UINavigationController(rootViewController: mainVC)
             nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true, completion: nil)
+        } else {
+            // ダウンキャスト失敗時もチュートリアルから抜けられるようにフォールバック
+            logger.error("ViewController の生成に失敗。チュートリアルを閉じます。")
+            introView?.hide(withFadeOutDuration: 0.3)
         }
     }
 }

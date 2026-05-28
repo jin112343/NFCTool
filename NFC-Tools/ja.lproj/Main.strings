@@ -142,3 +142,14 @@
 "process_transfer_adjustment" = "他社精算";
 "process_default" = "処理";
 
+/* Purchase Status */
+"purchased" = "購入済み";
+
+/* History Screen */
+"history_title" = "読み取り履歴";
+"no_history" = "履歴はありません";
+"clear_history_confirm" = "履歴を全て削除しますか？";
+"cancel" = "キャンセル";
+"delete" = "削除";
+
+"felica_card_type" = "カード種別";

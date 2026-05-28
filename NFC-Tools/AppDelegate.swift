@@ -10,15 +10,19 @@ import UIKit
 import SwiftyStoreKit
 import GoogleMobileAds
 import FirebaseCore
+import FirebaseCrashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    
-    
+
+
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Firebase初期化
         FirebaseApp.configure()
+
+        // Crashlytics設定
+        setupCrashlytics()
 
         //広告
         GADMobileAds.sharedInstance().start(completionHandler: nil)
@@ -45,6 +49,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+    // MARK: - Crashlytics Setup
+
+    private func setupCrashlytics() {
+        let crashlytics = Crashlytics.crashlytics()
+
+        // デバイス情報（自動収集に加えて追加情報）
+        crashlytics.setCustomValue(UIDevice.current.name, forKey: "device_name")
+        crashlytics.setCustomValue(UIDevice.current.model, forKey: "device_model")
+        crashlytics.setCustomValue(UIDevice.current.systemName, forKey: "os_name")
+        crashlytics.setCustomValue(UIDevice.current.systemVersion, forKey: "os_version")
+
+        // アプリバージョン情報
+        if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            crashlytics.setCustomValue(appVersion, forKey: "app_version")
+        }
+        if let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+            crashlytics.setCustomValue(buildNumber, forKey: "build_number")
+        }
+
+        // Locale情報
+        crashlytics.setCustomValue(Locale.current.identifier, forKey: "locale")
     }
     
     // MARK: UISceneSession Lifecycle

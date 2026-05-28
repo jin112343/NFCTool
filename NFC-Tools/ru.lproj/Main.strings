@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Корректировка пересадки";
 "process_default" = "Обработка";
 
+/* Purchase Status */
+"purchased" = "Куплено";
+
+/* History Screen */
+"history_title" = "История считываний";
+"no_history" = "Нет истории";
+"clear_history_confirm" = "Удалить всю историю?";
+"cancel" = "Отмена";
+"delete" = "Удалить";
+
+"felica_card_type" = "Тип карты";

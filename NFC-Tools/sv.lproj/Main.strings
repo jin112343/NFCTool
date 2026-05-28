@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Bytejustering";
 "process_default" = "Bearbetning";
 
+/* Purchase Status */
+"purchased" = "Köpt";
+
+/* History Screen */
+"history_title" = "Läshistorik";
+"no_history" = "Ingen historik";
+"clear_history_confirm" = "Radera all historik?";
+"cancel" = "Avbryt";
+"delete" = "Radera";
+
+"felica_card_type" = "Korttyp";

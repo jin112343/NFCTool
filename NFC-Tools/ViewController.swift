@@ -32,6 +32,17 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
     
     
     let localizedMessages: [String: [String: String]] = [
+        "en": [ // 英語
+            "nfc_not_supported": "NFC is not supported on this device",
+            "nfc_bring_closer": "Hold the NFC tag near the top of your iPhone",
+            "nfc_tag_not_supported": "This NFC tag is not supported",
+            "nfc_remove_alert": "The following information will be deleted\nDo not move the NFC tag \n\n %@",
+            "nfc_read_only": "This NFC tag is read-only",
+            "nfc_payload_fail": "Failed to create payload",
+            "nfc_over_capacity": "Cannot write due to exceeding capacity!\nCapacity is %@ bytes",
+            "nfc_deleted": "Deleted successfully",
+            "nfc_read_success": "Read complete"
+              ],
         "ja": [ // 日本語
             "nfc_not_supported": "このNFCは使えません",
             "nfc_bring_closer": "NFCタグをiPhone上部に近づけてください",
@@ -51,7 +62,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "علامة NFC هذه للقراءة فقط",
             "nfc_payload_fail": "فشل إنشاء الحمولة",
             "nfc_over_capacity": "لا يمكن الكتابة بسبب تجاوز السعة!\nالسعة هي %@ بايت",
-            "nfc_deleted": "تم الحذف بنجاح"
+            "nfc_deleted": "تم الحذف بنجاح",
+            "nfc_read_success": "تمت القراءة بنجاح"
               ],
         "it": [ // イタリア語
             "nfc_not_supported": "Questo NFC non può essere utilizzato",
@@ -61,7 +73,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Questo tag NFC è solo in lettura",
             "nfc_payload_fail": "Creazione del payload non riuscita",
             "nfc_over_capacity": "Impossibile scrivere a causa del superamento della capacità!\nLa capacità è di %@ byte",
-            "nfc_deleted": "Eliminato con successo"
+            "nfc_deleted": "Eliminato con successo",
+            "nfc_read_success": "Lettura completata"
               ],
         "id": [ // インドネシア語
             "nfc_not_supported": "NFC ini tidak dapat digunakan",
@@ -71,7 +84,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Tag NFC ini hanya dapat dibaca",
             "nfc_payload_fail": "Gagal membuat payload",
             "nfc_over_capacity": "Tidak dapat menulis karena kapasitas melebihi batas!\nKapasitas adalah %@ byte",
-            "nfc_deleted": "Berhasil dihapus"
+            "nfc_deleted": "Berhasil dihapus",
+            "nfc_read_success": "Pembacaan selesai"
               ],
         "uk": [ // ウクライナ語
             "nfc_not_supported": "Цей NFC не можна використовувати",
@@ -81,7 +95,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Цей NFC-тег лише для читання",
             "nfc_payload_fail": "Не вдалося створити корисне навантаження",
             "nfc_over_capacity": "Неможливо записати через перевищення місткості!\nМісткість %@ байт",
-            "nfc_deleted": "Успішно видалено"
+            "nfc_deleted": "Успішно видалено",
+            "nfc_read_success": "Зчитування завершено"
               ],
         "nl": [ // オランダ語
             "nfc_not_supported": "Deze NFC kan niet worden gebruikt",
@@ -91,7 +106,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Deze NFC-tag is alleen-lezen",
             "nfc_payload_fail": "Kan de payload niet maken",
             "nfc_over_capacity": "Kan niet schrijven vanwege overcapaciteit!\nCapaciteit is %@ bytes",
-            "nfc_deleted": "Succesvol verwijderd"
+            "nfc_deleted": "Succesvol verwijderd",
+            "nfc_read_success": "Lezen voltooid"
               ],
         "fr": [ // フランス語
             "nfc_not_supported": "Ce NFC ne peut pas être utilisé",
@@ -101,7 +117,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Cette étiquette NFC est en lecture seule",
             "nfc_payload_fail": "Échec de la création de la charge utile",
             "nfc_over_capacity": "Impossible d'écrire en raison de la surcharge de capacité !\nLa capacité est de %@ octets",
-            "nfc_deleted": "Supprimé avec succès"
+            "nfc_deleted": "Supprimé avec succès",
+            "nfc_read_success": "Lecture terminée"
               ],
         "tr": [ // トルコ語
             "nfc_not_supported": "Bu NFC kullanılamaz",
@@ -111,7 +128,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Bu NFC etiketi yalnızca okunabilir",
             "nfc_payload_fail": "Yük oluşturulamadı",
             "nfc_over_capacity": "Kapasite aşıldığından yazılamıyor!\nKapasite %@ bayt",
-            "nfc_deleted": "Başarıyla silindi"
+            "nfc_deleted": "Başarıyla silindi",
+            "nfc_read_success": "Okuma tamamlandı"
               ],
         "sv": [ // スウェーデン語
             "nfc_not_supported": "Denna NFC går inte att använda",
@@ -121,7 +139,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Denna NFC-märke är skrivskyddad",
             "nfc_payload_fail": "Kunde inte skapa nyttolast",
             "nfc_over_capacity": "Kan inte skriva på grund av överkapacitet!\nKapaciteten är %@ bytes",
-            "nfc_deleted": "Borttaget framgångsrikt"
+            "nfc_deleted": "Borttaget framgångsrikt",
+            "nfc_read_success": "Läsningen klar"
               ],
         "es": [ // スペイン語（スペイン）
             "nfc_not_supported": "Este NFC no se puede usar",
@@ -131,7 +150,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Esta etiqueta NFC es de solo lectura",
             "nfc_payload_fail": "Error al crear la carga útil",
             "nfc_over_capacity": "No se puede escribir debido a la sobrecarga de capacidad!\nLa capacidad es %@ bytes",
-            "nfc_deleted": "Eliminado con éxito"
+            "nfc_deleted": "Eliminado con éxito",
+            "nfc_read_success": "Lectura completada"
               ],
         "es-MX": [ // スペイン語（メキシコ）
             "nfc_not_supported": "Este NFC no se puede utilizar",
@@ -141,7 +161,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Esta etiqueta NFC es de solo lectura",
             "nfc_payload_fail": "Error al crear la carga útil",
             "nfc_over_capacity": "No se puede escribir debido a la sobrecarga de capacidad!\nLa capacidad es %@ bytes",
-            "nfc_deleted": "Eliminado con éxito"
+            "nfc_deleted": "Eliminado con éxito",
+            "nfc_read_success": "Lectura completada"
                  ],
         "sk": [ // スロバキア語
             "nfc_not_supported": "Tento NFC sa nedá použiť",
@@ -151,7 +172,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Táto NFC značka je iba na čítanie",
             "nfc_payload_fail": "Nepodarilo sa vytvoriť užitočné zaťaženie",
             "nfc_over_capacity": "Nie je možné zapisovať z dôvodu prekročenia kapacity!\nKapacita je %@ bajtov",
-            "nfc_deleted": "Úspešne vymazané"
+            "nfc_deleted": "Úspešne vymazané",
+            "nfc_read_success": "Čítanie dokončené"
               ],
         "th": [ // タイ語
             "nfc_not_supported": "ไม่สามารถใช้ NFC นี้ได้",
@@ -161,7 +183,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "แท็ก NFC นี้อ่านได้อย่างเดียว",
             "nfc_payload_fail": "ไม่สามารถสร้างข้อมูลโหลดได้",
             "nfc_over_capacity": "ไม่สามารถเขียนได้เนื่องจากเกินความจุ!\nความจุคือ %@ ไบต์",
-            "nfc_deleted": "ลบสำเร็จ"
+            "nfc_deleted": "ลบสำเร็จ",
+            "nfc_read_success": "อ่านเสร็จสมบูรณ์"
               ],
         "cs": [ // チェコ語
             "nfc_not_supported": "Tento NFC nelze použít",
@@ -171,7 +194,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Tento NFC štítek je pouze pro čtení",
             "nfc_payload_fail": "Nepodařilo se vytvořit užitečné zatížení",
             "nfc_over_capacity": "Nelze zapisovat kvůli překročení kapacity!\nKapacita je %@ bajtů",
-            "nfc_deleted": "Úspěšně odstraněno"
+            "nfc_deleted": "Úspěšně odstraněno",
+            "nfc_read_success": "Čtení dokončeno"
               ],
         "da": [ // デンマーク語
             "nfc_not_supported": "Denne NFC kan ikke bruges",
@@ -181,7 +205,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Dette NFC-mærke er kun til læsning",
             "nfc_payload_fail": "Kunne ikke oprette nyttelast",
             "nfc_over_capacity": "Kan ikke skrive på grund af overkapacitet!\nKapaciteten er %@ bytes",
-            "nfc_deleted": "Succesfuldt slettet"
+            "nfc_deleted": "Succesfuldt slettet",
+            "nfc_read_success": "Læsning fuldført"
               ],
         "de": [ // ドイツ語
             "nfc_not_supported": "Dieses NFC kann nicht verwendet werden",
@@ -191,7 +216,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Dieses NFC-Tag ist schreibgeschützt",
             "nfc_payload_fail": "Erstellung der Nutzlast fehlgeschlagen",
             "nfc_over_capacity": "Schreiben aufgrund von Überkapazität nicht möglich!\nKapazität beträgt %@ Bytes",
-            "nfc_deleted": "Erfolgreich gelöscht"
+            "nfc_deleted": "Erfolgreich gelöscht",
+            "nfc_read_success": "Lesen abgeschlossen"
               ],
         "no": [ // ノルウェー語
             "nfc_not_supported": "Denne NFC kan ikke brukes",
@@ -201,7 +227,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Dette NFC-merket er kun lesbart",
             "nfc_payload_fail": "Kunne ikke opprette nyttelast",
             "nfc_over_capacity": "Kan ikke skrive på grunn av overkapasitet!\nKapasitet er %@ byte",
-            "nfc_deleted": "Slettet vellykket"
+            "nfc_deleted": "Slettet vellykket",
+            "nfc_read_success": "Lesing fullført"
               ],
         "hu": [ // ハンガリー語
             "nfc_not_supported": "Ez az NFC nem használható",
@@ -211,7 +238,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Ez az NFC-címke csak olvasható",
             "nfc_payload_fail": "A hasznos teher létrehozása nem sikerült",
             "nfc_over_capacity": "Nem lehet írni a kapacitás túllépése miatt!\nA kapacitás %@ bájt",
-            "nfc_deleted": "Sikeresen törölve"
+            "nfc_deleted": "Sikeresen törölve",
+            "nfc_read_success": "Olvasás befejezve"
               ],
         "hi": [ // ヒンディー語
             "nfc_not_supported": "यह NFC उपयोग नहीं किया जा सकता",
@@ -221,7 +249,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "यह NFC टैग केवल पढ़ने योग्य है",
             "nfc_payload_fail": "पेलोड बनाने में विफल",
             "nfc_over_capacity": "क्षमता अधिक हो जाने के कारण लिख नहीं सकता!\nक्षमता %@ बाइट्स है",
-            "nfc_deleted": "सफलतापूर्वक हटाया गया"
+            "nfc_deleted": "सफलतापूर्वक हटाया गया",
+            "nfc_read_success": "पढ़ना पूरा हुआ"
               ],
         "fi": [ // フィンランド語
             "nfc_not_supported": "Tätä NFC:tä ei voi käyttää",
@@ -231,7 +260,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Tämä NFC-tunniste on vain lukuoikeudellinen",
             "nfc_payload_fail": "Hyötykuorman luominen epäonnistui",
             "nfc_over_capacity": "Kirjoittaminen ei onnistu kapasiteetin ylityksen vuoksi!\nKapasiteetti on %@ tavua",
-            "nfc_deleted": "Poistettu onnistuneesti"
+            "nfc_deleted": "Poistettu onnistuneesti",
+            "nfc_read_success": "Lukeminen valmis"
               ],
         "pl": [ // ポーランド語
             "nfc_not_supported": "Ten NFC nie może być używany",
@@ -241,7 +271,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Ten znacznik NFC jest tylko do odczytu",
             "nfc_payload_fail": "Nie udało się utworzyć ładunku",
             "nfc_over_capacity": "Nie można zapisać z powodu przekroczenia pojemności!\nPojemność to %@ bajtów",
-            "nfc_deleted": "Pomyślnie usunięto"
+            "nfc_deleted": "Pomyślnie usunięto",
+            "nfc_read_success": "Odczyt zakończony"
               ],
         "pt-BR": [ // ポルトガル語（ブラジル）
             "nfc_not_supported": "Este NFC não pode ser usado",
@@ -251,7 +282,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Esta etiqueta NFC é apenas leitura",
             "nfc_payload_fail": "Falha ao criar carga útil",
             "nfc_over_capacity": "Não é possível gravar devido à sobrecarga de capacidade!\nA capacidade é de %@ bytes",
-            "nfc_deleted": "Excluído com sucesso"
+            "nfc_deleted": "Excluído com sucesso",
+            "nfc_read_success": "Leitura concluída"
                  ],
         "pt-PT": [ // ポルトガル語（ポルトガル）
             "nfc_not_supported": "Este NFC não pode ser utilizado",
@@ -261,7 +293,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Esta etiqueta NFC é apenas de leitura",
             "nfc_payload_fail": "Falha ao criar carga útil",
             "nfc_over_capacity": "Não é possível escrever devido ao excesso de capacidade!\nA capacidade é de %@ bytes",
-            "nfc_deleted": "Eliminado com sucesso"
+            "nfc_deleted": "Eliminado com sucesso",
+            "nfc_read_success": "Leitura concluída"
                  ],
         "ms": [ // マレー語
             "nfc_not_supported": "NFC ini tidak boleh digunakan",
@@ -271,7 +304,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Tag NFC ini hanya untuk dibaca",
             "nfc_payload_fail": "Gagal membuat payload",
             "nfc_over_capacity": "Tidak dapat menulis kerana kapasiti melebihi!\nKapasiti ialah %@ bait",
-            "nfc_deleted": "Berjaya dipadamkan"
+            "nfc_deleted": "Berjaya dipadamkan",
+            "nfc_read_success": "Pembacaan selesai"
               ],
         "ro": [ // ルーマニア語
             "nfc_not_supported": "Acest NFC nu poate fi utilizat",
@@ -281,7 +315,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Această etichetă NFC este doar pentru citire",
             "nfc_payload_fail": "Eșec la crearea payload-ului",
             "nfc_over_capacity": "Nu se poate scrie din cauza depășirii capacității!\nCapacitatea este de %@ bytes",
-            "nfc_deleted": "Șters cu succes"
+            "nfc_deleted": "Șters cu succes",
+            "nfc_read_success": "Citire finalizată"
               ],
         "ru": [ // ロシア語
             "nfc_not_supported": "Этот NFC не может быть использован",
@@ -291,7 +326,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Эта метка NFC доступна только для чтения",
             "nfc_payload_fail": "Не удалось создать полезную нагрузку",
             "nfc_over_capacity": "Невозможно записать из-за превышения емкости!\nЕмкость %@ байт",
-            "nfc_deleted": "Успешно удалено"
+            "nfc_deleted": "Успешно удалено",
+            "nfc_read_success": "Чтение завершено"
               ],
         "vi": [ // ベトナム語
             "nfc_not_supported": "NFC này không thể được sử dụng",
@@ -301,7 +337,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "Thẻ NFC này chỉ đọc được",
             "nfc_payload_fail": "Không thể tạo payload",
             "nfc_over_capacity": "Không thể ghi do vượt quá dung lượng!\nDung lượng là %@ bytes",
-            "nfc_deleted": "Đã xóa thành công"
+            "nfc_deleted": "Đã xóa thành công",
+            "nfc_read_success": "Đọc hoàn tất"
               ],
         "ko": [ // 韓国語
             "nfc_not_supported": "이 NFC는 사용할 수 없습니다",
@@ -311,7 +348,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "이 NFC 태그는 읽기 전용입니다",
             "nfc_payload_fail": "페이로드 생성에 실패했습니다",
             "nfc_over_capacity": "용량 초과로 인해 쓸 수 없습니다!\n용량은 %@ 바이트입니다",
-            "nfc_deleted": "성공적으로 삭제되었습니다"
+            "nfc_deleted": "성공적으로 삭제되었습니다",
+            "nfc_read_success": "읽기 완료"
               ],
         "zh": [ // 中国語（簡体字）
             "nfc_not_supported": "此NFC无法使用",
@@ -321,7 +359,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "此NFC标签为只读",
             "nfc_payload_fail": "创建有效负载失败",
             "nfc_over_capacity": "由于容量超限，无法写入！\n容量为%@字节",
-            "nfc_deleted": "删除成功"
+            "nfc_deleted": "删除成功",
+            "nfc_read_success": "读取完成"
                    ],
         "zh-Hant": [ // 中国語（繁体字）
             "nfc_not_supported": "此NFC無法使用",
@@ -331,7 +370,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
             "nfc_read_only": "此NFC標籤為唯讀",
             "nfc_payload_fail": "建立有效負載失敗",
             "nfc_over_capacity": "由於容量超限，無法寫入！\n容量為%@字節",
-            "nfc_deleted": "刪除成功"
+            "nfc_deleted": "刪除成功",
+            "nfc_read_success": "讀取完成"
                    ]
     ]
     
@@ -339,8 +379,25 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
     // MARK: - Lifecycle Methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        CrashlyticsManager.shared.setCurrentScreen("NFC読取画面")
+        setupHistoryButton()
         checkFirstLaunch()
         requestAppReview()
+    }
+
+    private func setupHistoryButton() {
+        guard navigationItem.leftBarButtonItem == nil else { return }
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "clock.arrow.circlepath"),
+            style: .plain,
+            target: self,
+            action: #selector(showHistory)
+        )
+    }
+
+    @objc private func showHistory() {
+        let historyVC = NFCHistoryViewController()
+        navigationController?.pushViewController(historyVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -350,43 +407,39 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
     
     // MARK: - Setup Methods
     private func checkFirstLaunch() {
-        let ud = UserDefaults.standard
-        let firstLunchKey = "firstLunch"
-        if ud.bool(forKey: firstLunchKey) {
-            ud.set(false, forKey: firstLunchKey)
+        guard let firstLunch = SafeUserDefaults.bool(forKey: "firstLunch") else { return }
+        if firstLunch {
+            SafeUserDefaults.set(false, forKey: "firstLunch")
             self.performSegue(withIdentifier: "nfc", sender: nil)
         }
     }
 
     private func requestAppReview() {
-        let ud = UserDefaults.standard
-        let launchCountKey = "appLaunchCount"
-        let hasRequestedReviewKey = "hasRequestedReview"
+        guard SafeUserDefaults.isDataAvailable else { return }
 
-        var launchCount = ud.integer(forKey: launchCountKey)
+        var launchCount = SafeUserDefaults.integer(forKey: "appLaunchCount") ?? 0
         launchCount += 1
-        ud.set(launchCount, forKey: launchCountKey)
+        SafeUserDefaults.set(launchCount, forKey: "appLaunchCount")
 
         // 5回以上起動 かつ まだレビューリクエストしていない場合
-        if launchCount >= 5 && !ud.bool(forKey: hasRequestedReviewKey) {
+        let hasRequested = SafeUserDefaults.bool(forKey: "hasRequestedReview") ?? false
+        if launchCount >= 5 && !hasRequested {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                     SKStoreReviewController.requestReview(in: windowScene)
-                    ud.set(true, forKey: hasRequestedReviewKey)
+                    SafeUserDefaults.set(true, forKey: "hasRequestedReview")
                 }
             }
         }
     }
     
     private func setupAdvertisement() {
-        if let count = UserDefaults.standard.object(forKey: "buy") as? Int,
-           count == 1 {
-            
-        } else {
-            bannerView.adUnitID = "ca-app-pub-1187210314934709/5463627829"
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
+        if KeychainHelper.hasPurchased() {
+            return
         }
+        bannerView.adUnitID = "ca-app-pub-1187210314934709/5463627829"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
     
     // 言語別メッセージを取得するメソッド
@@ -452,18 +505,20 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
 
     private func showReadResultViewController() {
         guard let result = currentReadResult else { return }
+        NFCHistoryManager.saveResult(result)
         let resultVC = NFCReadResultViewController()
         resultVC.readResult = result
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
     func tagRemovalDetect(_ tag: NFCNDEFTag) {
-        session?.connect(to: tag) { (error: Error?) in
+        session?.connect(to: tag) { [weak self] (error: Error?) in
+            guard let self = self else { return }
             if error != nil || !tag.isAvailable {
                 self.session?.restartPolling()
                 return
             }
-            DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(500)) {
-                self.tagRemovalDetect(tag)
+            DispatchQueue.global().asyncAfter(deadline: .now() + .milliseconds(500)) { [weak self] in
+                self?.tagRemovalDetect(tag)
             }
         }
     }
@@ -492,17 +547,22 @@ class ViewController: UIViewController, GADBannerViewDelegate, CatchProtcol {
     
     // MARK: - IBActions
     @IBAction func Erase(_ sender: Any) {
+        CrashlyticsManager.shared.logAction("削除ボタンタップ")
+        CrashlyticsManager.shared.logNFCOperationStart("NFC削除")
         startSession(state: .delete)
     }
-    
+
     @IBAction func resetMode(_ sender: Any) {
+        CrashlyticsManager.shared.logAction("読取ボタンタップ")
+        CrashlyticsManager.shared.logNFCOperationStart("NFC読取")
         startSession(state: .read)
     }
     
     // MARK: - CatchProtcol
     func catchData(count: Int) {
         if count == 1 {
-            bannerView.removeFromSuperview()
+            // view 未ロード時に bannerView が nil でも安全に no-op
+            bannerView?.isHidden = true
         }
     }
 }
@@ -514,7 +574,14 @@ extension ViewController: NFCNDEFReaderSessionDelegate {
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+        if let nfcError = error as? NFCReaderError,
+           nfcError.code == .readerSessionInvalidationErrorUserCanceled ||
+           nfcError.code == .readerSessionInvalidationErrorFirstNDEFTagRead {
+            logger.info("NFCセッション正常終了")
+            return
+        }
         logger.error("NFCセッションエラー: \(error.localizedDescription)")
+        CrashlyticsManager.shared.recordError(error, context: "NFCセッション - NFC読取画面")
     }
     
     func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
@@ -524,31 +591,40 @@ extension ViewController: NFCNDEFReaderSessionDelegate {
     func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
         if tags.count > 1 {
             session.alertMessage = NSLocalizedString("nfc_single_tag", comment: "")
-            tagRemovalDetect(tags.first!)
+            if let firstTag = tags.first {
+                tagRemovalDetect(firstTag)
+            } else {
+                session.restartPolling()
+            }
             return
         }
-        
-        let tag = tags.first!
+
+        guard let tag = tags.first else {
+            session.restartPolling()
+            return
+        }
+
         session.connect(to: tag) { (error) in
             if error != nil {
                 session.restartPolling()
                 return
             }
-        }
-        
-        tag.queryNDEFStatus { (status, capacity, error) in
-            if status == .notSupported {
-                self.stopSession(error: NSLocalizedString("nfc_tag_not_supported", comment: ""))
-                return
-            }
-            
-            switch self.state {
-            case .read:
-                self.handleReadOperation(tag)
-            case .delete:
-                self.handleDeleteOperation(tag, status: status, capacity: capacity)
-            default:
-                break
+
+            // connect の完了を待ってから NDEF ステータスを照会する（接続前照会の競合を防ぐ）
+            tag.queryNDEFStatus { (status, capacity, error) in
+                if status == .notSupported {
+                    self.stopSession(error: NSLocalizedString("nfc_tag_not_supported", comment: ""))
+                    return
+                }
+
+                switch self.state {
+                case .read:
+                    self.handleReadOperation(tag)
+                case .delete:
+                    self.handleDeleteOperation(tag, status: status, capacity: capacity)
+                default:
+                    break
+                }
             }
         }
     }
@@ -607,7 +683,7 @@ extension ViewController: NFCNDEFReaderSessionDelegate {
     }
     
     private func performDelete(_ tag: NFCNDEFTag, capacity: Int) {
-        guard let payload = NFCNDEFPayload.wellKnownTypeTextPayload(string: " ", locale: Locale(identifier: "text")),
+        guard let payload = NFCNDEFPayload.wellKnownTypeTextPayload(string: " ", locale: Locale(identifier: "en")),
               let urlPayload = NFCNDEFPayload.wellKnownTypeURIPayload(string: " ") else {
             self.stopSession(error: NSLocalizedString("nfc_payload_fail", comment: ""))
             return
@@ -691,9 +767,9 @@ extension ViewController: NFCTagReaderSessionDelegate {
 
         logger.info("FeliCa detected - IDm: \(result.tagIdentifier ?? "nil"), SystemCode: \(result.felicaSystemCode ?? "nil")")
 
-        // 交通系ICカードの残高読み取りを試みる
-        readFeliCaBalance(tag, result: &result) { updatedResult in
-            self.logger.info("FeliCa read complete - Balance: \(updatedResult.felicaBalance ?? -1), Histories: \(updatedResult.felicaHistories.count)")
+        // カード種別を判定して残高読み取りを試みる（交通系/楽天Edy/nanaco/WAON 等）
+        readFeliCaBalance(tag, result: result) { updatedResult in
+            self.logger.info("FeliCa read complete - Type: \(updatedResult.felicaCardType ?? "unknown"), Balance: \(updatedResult.felicaBalance ?? -1), Histories: \(updatedResult.felicaHistories.count)")
             self.currentReadResult = updatedResult
             self.stopSessionAndShowResult(alert: self.getLocalizedMessage(key: "nfc_read_success"))
         }
@@ -810,12 +886,30 @@ extension ViewController: NFCTagReaderSessionDelegate {
             )
 
             // タイプに応じてペイロードを解析
-            if let type = String(data: record.type, encoding: .utf8) {
+            let type = String(data: record.type, encoding: .utf8) ?? ""
+
+            switch record.typeNameFormat {
+            case .nfcWellKnown:
                 if type == "T" {
                     // テキストレコード
                     let textResult = record.wellKnownTypeTextPayload()
-                    info.textContent = textResult.0
-                    info.locale = textResult.1?.identifier
+                    if let text = textResult.0 {
+                        info.textContent = text
+                        info.locale = textResult.1?.identifier
+                    } else {
+                        // wellKnownTypeTextPayloadが失敗した場合のフォールバック
+                        let payload = record.payload
+                        if payload.count > 1 {
+                            let statusByte = payload[0]
+                            let langCodeLength = Int(statusByte & 0x3F)
+                            if payload.count > langCodeLength + 1 {
+                                let textData = payload.subdata(in: (langCodeLength + 1)..<payload.count)
+                                let isUTF16 = (statusByte & 0x80) != 0
+                                let encoding: String.Encoding = isUTF16 ? .utf16 : .utf8
+                                info.textContent = String(data: textData, encoding: encoding)
+                            }
+                        }
+                    }
                     info.payloadType = "Text"
                 } else if type == "U" {
                     // URLレコード
@@ -824,6 +918,28 @@ extension ViewController: NFCTagReaderSessionDelegate {
                 } else {
                     info.payloadType = type
                 }
+            case .media:
+                // メディアタイプレコード（text/plain等）
+                if let text = String(data: record.payload, encoding: .utf8) {
+                    info.textContent = text
+                }
+                info.payloadType = "Media (\(type))"
+            case .nfcExternal:
+                // 外部タイプレコード - テキストとして読み取り試行
+                if let text = String(data: record.payload, encoding: .utf8)?
+                    .trimmingCharacters(in: .controlCharacters),
+                   !text.isEmpty {
+                    info.textContent = text
+                }
+                info.payloadType = "External (\(type))"
+            case .absoluteURI:
+                if let urlString = String(data: record.payload, encoding: .utf8),
+                   let url = URL(string: urlString) {
+                    info.urlContent = url
+                }
+                info.payloadType = "URI"
+            default:
+                info.payloadType = type.isEmpty ? "Unknown" : type
             }
 
             recordInfos.append(info)
@@ -847,50 +963,84 @@ extension ViewController: NFCTagReaderSessionDelegate {
 
     // MARK: - FeliCa Balance Reading
 
-    private func readFeliCaBalance(_ tag: NFCFeliCaTag, result: inout NFCReadResult, completion: @escaping (NFCReadResult) -> Void) {
-        let initialResult = result
+    /// 対応する電子マネー/交通系カードの残高読み取り定義
+    private struct FeliCaCardSpec {
+        let name: String         // 表示名（カード種別）
+        let systemCode: Data     // polling 用システムコード（ビッグエンディアン2バイト）
+        let balanceService: Data // 残高サービスコード（リトルエンディアン2バイト）
+        let balanceBlock: Data   // 残高ブロック（通常 [0x80, 0x00]）
+        let balanceOffset: Int   // ブロック内の残高開始バイト
+        let balanceLength: Int   // 残高バイト数（リトルエンディアン）
+        let hasHistory: Bool     // 利用履歴を読むか（交通系のみ）
+    }
 
-        // 残高専用サービスコード: 0x008B (リトルエンディアン: 0x8B00)
-        let balanceServiceCode = Data([0x8B, 0x00])
+    /// 既知のFeliCaカード定義。上から順に試し、最初に残高が取れたものを採用する。
+    /// 注: 各サービスコード/バイト位置は有志解析に基づく。実カードでの検証を推奨。
+    private var feliCaCardSpecs: [FeliCaCardSpec] {
+        [
+            // 交通系IC（Suica/PASMO/ICOCA など）: システム0x0003 / サービス0x008B / 残高はバイト11-12
+            FeliCaCardSpec(name: "交通系IC", systemCode: Data([0x00, 0x03]), balanceService: Data([0x8B, 0x00]), balanceBlock: Data([0x80, 0x00]), balanceOffset: 11, balanceLength: 2, hasHistory: true),
+            // 楽天Edy: 共通エリア(0xFE00) / サービス0x1317 / 先頭4バイト
+            FeliCaCardSpec(name: "楽天Edy", systemCode: Data([0xFE, 0x00]), balanceService: Data([0x17, 0x13]), balanceBlock: Data([0x80, 0x00]), balanceOffset: 0, balanceLength: 4, hasHistory: false),
+            // nanaco: 共通エリア(0xFE00) / サービス0x5597 / 先頭4バイト
+            FeliCaCardSpec(name: "nanaco", systemCode: Data([0xFE, 0x00]), balanceService: Data([0x97, 0x55]), balanceBlock: Data([0x80, 0x00]), balanceOffset: 0, balanceLength: 4, hasHistory: false),
+            // WAON: 共通エリア(0xFE00) / サービス0x6817 / 先頭3バイト
+            FeliCaCardSpec(name: "WAON", systemCode: Data([0xFE, 0x00]), balanceService: Data([0x17, 0x68]), balanceBlock: Data([0x80, 0x00]), balanceOffset: 0, balanceLength: 3, hasHistory: false),
+        ]
+    }
 
-        // まず残高を読み取る
-        tag.requestService(nodeCodeList: [balanceServiceCode]) { nodes, error in
-            var mutableResult = initialResult
+    private func readFeliCaBalance(_ tag: NFCFeliCaTag, result: NFCReadResult, completion: @escaping (NFCReadResult) -> Void) {
+        tryFeliCaCard(tag, specIndex: 0, result: result, completion: completion)
+    }
 
-            if let error = error {
-                self.logger.error("FeliCa balance requestService failed: \(error.localizedDescription)")
-                // 残高サービスが失敗しても履歴読み取りに進む
-                self.readFeliCaHistory(tag, result: mutableResult, completion: completion)
+    /// カード定義を順番に試し、残高が読めたら採用。読めなければ次の定義へ。
+    /// すべて読めなくても、タグ情報（IDm/システムコード）は表示する。
+    private func tryFeliCaCard(_ tag: NFCFeliCaTag, specIndex: Int, result: NFCReadResult, completion: @escaping (NFCReadResult) -> Void) {
+        let specs = feliCaCardSpecs
+        guard specIndex < specs.count else {
+            completion(result)
+            return
+        }
+
+        let spec = specs[specIndex]
+
+        // 対象のシステムコードへ切り替え（カードが該当システムを持たなければエラー）
+        tag.polling(systemCode: spec.systemCode, requestCode: .noRequest, timeSlot: .max1) { [weak self] (_, _, error) in
+            guard let self = self else { return }
+
+            if error != nil {
+                self.tryFeliCaCard(tag, specIndex: specIndex + 1, result: result, completion: completion)
                 return
             }
 
-            // サービスが存在するか確認（0xFFFFはサービスが存在しないことを示す）
-            guard let nodeKeyVersion = nodes.first,
-                  nodeKeyVersion != Data([0xFF, 0xFF]) else {
-                self.logger.info("FeliCa balance service not available, trying history")
-                self.readFeliCaHistory(tag, result: mutableResult, completion: completion)
-                return
-            }
+            tag.readWithoutEncryption(serviceCodeList: [spec.balanceService], blockList: [spec.balanceBlock]) { [weak self] status1, status2, blockData, readError in
+                guard let self = self else { return }
 
-            // 残高ブロックを読み取る（ブロック0）
-            let balanceBlockList = [Data([0x80, 0x00])]
+                if readError == nil, status1 == 0x00, status2 == 0x00, let data = blockData.first {
+                    let bytes = [UInt8](data)
+                    if bytes.count >= spec.balanceOffset + spec.balanceLength {
+                        // リトルエンディアンで残高を組み立てる
+                        var balance = 0
+                        for i in 0..<spec.balanceLength {
+                            balance |= Int(bytes[spec.balanceOffset + i]) << (8 * i)
+                        }
 
-            tag.readWithoutEncryption(serviceCodeList: [balanceServiceCode], blockList: balanceBlockList) { status1, status2, blockData, error in
-                if let error = error {
-                    self.logger.error("FeliCa balance read failed: \(error.localizedDescription)")
-                } else if status1 == 0x00 && status2 == 0x00, let balanceData = blockData.first {
-                    self.logger.info("FeliCa balance raw data: \(balanceData.map { String(format: "%02X", $0) }.joined(separator: " "))")
-
-                    // 残高データの解析（バイト11-12がリトルエンディアンで残高）
-                    if balanceData.count >= 13 {
-                        let balance = Int(balanceData[11]) + (Int(balanceData[12]) << 8)
+                        var mutableResult = result
                         mutableResult.felicaBalance = balance
-                        self.logger.info("FeliCa balance read successfully: \(balance)")
+                        mutableResult.felicaCardType = spec.name
+                        self.logger.info("FeliCa \(spec.name) balance: \(balance)")
+
+                        if spec.hasHistory {
+                            self.readFeliCaHistory(tag, result: mutableResult, completion: completion)
+                        } else {
+                            completion(mutableResult)
+                        }
+                        return
                     }
                 }
 
-                // 次に利用履歴を読み取る
-                self.readFeliCaHistory(tag, result: mutableResult, completion: completion)
+                // 残高が読めなかった → 次のカード定義を試す
+                self.tryFeliCaCard(tag, specIndex: specIndex + 1, result: result, completion: completion)
             }
         }
     }
@@ -964,34 +1114,38 @@ extension ViewController: NFCTagReaderSessionDelegate {
     // MARK: - FeliCa History Parsing
 
     private func parseHistoryBlock(_ data: Data, index: Int) -> FeliCaHistoryEntry {
+        // Data の添字は絶対インデックスのため、スライス（非ゼロ startIndex）でも
+        // 安全に 0 始まりで扱えるよう [UInt8] 配列へ変換する
+        let b = [UInt8](data)
+
         // バイト0: 端末種
-        let terminalType = data[0]
+        let terminalType = b[0]
 
         // バイト1: 処理種
-        let processType = data[1]
+        let processType = b[1]
 
         // バイト4-5: 日付（ビット詰め形式）
         // バイト4の上位7ビット: 年（2000年からのオフセット）
         // バイト4の最下位1ビット + バイト5の上位3ビット: 月
         // バイト5の下位5ビット: 日
-        let year = Int(data[4] >> 1) + 2000
-        let month = ((data[4] & 1) == 1 ? 8 : 0) + Int(data[5] >> 5)
-        let day = Int(data[5] & 0x1F)
+        let year = Int(b[4] >> 1) + 2000
+        let month = ((b[4] & 1) == 1 ? 8 : 0) + Int(b[5] >> 5)
+        let day = Int(b[5] & 0x1F)
 
         // バイト6-7: 入場駅コード
-        let entryStationCode = (Int(data[6]) << 8) + Int(data[7])
+        let entryStationCode = (Int(b[6]) << 8) + Int(b[7])
 
         // バイト8-9: 出場駅コード
-        let exitStationCode = (Int(data[8]) << 8) + Int(data[9])
+        let exitStationCode = (Int(b[8]) << 8) + Int(b[9])
 
         // バイト10-11: 残高（リトルエンディアン）
-        let balance = Int(data[10]) + (Int(data[11]) << 8)
+        let balance = Int(b[10]) + (Int(b[11]) << 8)
 
         // バイト12-13: 通番
-        let sequenceNumber = (Int(data[12]) << 8) + Int(data[13])
+        let sequenceNumber = (Int(b[12]) << 8) + Int(b[13])
 
         // バイト15: 地域コード（入場: 上位2ビット、出場: 次の2ビット）
-        let regionCode = data[15]
+        let regionCode = b[15]
 
         return FeliCaHistoryEntry(
             index: index,

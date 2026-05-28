@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "换乘精算";
 "process_default" = "处理";
 
+/* Purchase Status */
+"purchased" = "已购买";
+
+/* History Screen */
+"history_title" = "读取记录";
+"no_history" = "暂无记录";
+"clear_history_confirm" = "删除所有记录？";
+"cancel" = "取消";
+"delete" = "删除";
+
+"felica_card_type" = "卡片类型";

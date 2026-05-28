@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "Prilagoditev prestopa";
 "process_default" = "Obdelava";
 
+/* Purchase Status */
+"purchased" = "Kupljeno";
+
+/* History Screen */
+"history_title" = "Zgodovina branj";
+"no_history" = "Ni zgodovine";
+"clear_history_confirm" = "Izbrisati vso zgodovino?";
+"cancel" = "Prekliči";
+"delete" = "Izbriši";
+
+"felica_card_type" = "Vrsta kartice";

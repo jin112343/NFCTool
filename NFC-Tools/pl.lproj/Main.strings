@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Korekta przesiadki";
 "process_default" = "Przetwarzanie";
 
+/* Purchase Status */
+"purchased" = "Zakupiono";
+
+/* History Screen */
+"history_title" = "Historia odczytów";
+"no_history" = "Brak historii";
+"clear_history_confirm" = "Usunąć całą historię?";
+"cancel" = "Anuluj";
+"delete" = "Usuń";
+
+"felica_card_type" = "Typ karty";

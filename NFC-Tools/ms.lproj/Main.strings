@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "Pelarasan pindahan";
 "process_default" = "Pemprosesan";
 
+/* Purchase Status */
+"purchased" = "Dibeli";
+
+/* History Screen */
+"history_title" = "Sejarah bacaan";
+"no_history" = "Tiada sejarah";
+"clear_history_confirm" = "Padam semua sejarah?";
+"cancel" = "Batal";
+"delete" = "Padam";
+
+"felica_card_type" = "Jenis Kad";

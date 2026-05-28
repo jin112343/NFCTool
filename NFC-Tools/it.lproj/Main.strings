@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Aggiustamento trasferimento";
 "process_default" = "Elaborazione";
 
+/* Purchase Status */
+"purchased" = "Acquistato";
+
+/* History Screen */
+"history_title" = "Cronologia letture";
+"no_history" = "Nessuna cronologia";
+"clear_history_confirm" = "Eliminare tutta la cronologia?";
+"cancel" = "Annulla";
+"delete" = "Elimina";
+
+"felica_card_type" = "Tipo di carta";

@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Umsteigerabrechnung";
 "process_default" = "Verarbeitung";
 
+/* Purchase Status */
+"purchased" = "Gekauft";
+
+/* History Screen */
+"history_title" = "Leseverlauf";
+"no_history" = "Kein Verlauf";
+"clear_history_confirm" = "Gesamten Verlauf löschen?";
+"cancel" = "Abbrechen";
+"delete" = "Löschen";
+
+"felica_card_type" = "Kartentyp";

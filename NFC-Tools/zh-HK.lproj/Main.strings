@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "轉乘精算";
 "process_default" = "處理";
 
+/* Purchase Status */
+"purchased" = "已購買";
+
+/* History Screen */
+"history_title" = "讀取紀錄";
+"no_history" = "暫無紀錄";
+"clear_history_confirm" = "刪除所有紀錄？";
+"cancel" = "取消";
+"delete" = "刪除";
+
+"felica_card_type" = "卡片類型";

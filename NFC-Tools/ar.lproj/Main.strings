@@ -136,3 +136,14 @@
 "process_transfer_adjustment" = "تعديل التحويل";
 "process_default" = "معالجة";
 
+/* Purchase Status */
+"purchased" = "تم الشراء";
+
+/* History Screen */
+"history_title" = "سجل القراءة";
+"no_history" = "لا يوجد سجل";
+"clear_history_confirm" = "هل تريد حذف كل السجل؟";
+"cancel" = "إلغاء";
+"delete" = "حذف";
+
+"felica_card_type" = "نوع البطاقة";

@@ -142,3 +142,14 @@
 "process_transfer_adjustment" = "Ajust de transferència";
 "process_default" = "Processament";
 
+/* Purchase Status */
+"purchased" = "Comprat";
+
+/* History Screen */
+"history_title" = "Historial de lectura";
+"no_history" = "Sense historial";
+"clear_history_confirm" = "Eliminar tot l'historial?";
+"cancel" = "Cancel·lar";
+"delete" = "Eliminar";
+
+"felica_card_type" = "Tipus de targeta";

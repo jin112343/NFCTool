@@ -30,12 +30,7 @@ final class ContactFormViewController: UIViewController {
         let successMessage: String
 
         static func forCurrentLanguage() -> LocalizedStrings {
-            let languageCode: String
-            if #available(iOS 16, *) {
-                languageCode = Locale.current.language.languageCode?.identifier ?? "en"
-            } else {
-                languageCode = Locale.current.languageCode ?? "en"
-            }
+            let languageCode = LanguageResolver.resolve(supported: ["ja", "ko", "zh", "de", "fr", "es"])
 
             switch languageCode {
             case "ja":
@@ -241,6 +236,7 @@ final class ContactFormViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        CrashlyticsManager.shared.setCurrentScreen("フィードバック画面")
         setupUI()
         setupKeyboardHandling()
     }
@@ -359,6 +355,7 @@ final class ContactFormViewController: UIViewController {
     }
 
     @objc private func sendTapped() {
+        CrashlyticsManager.shared.logAction("フィードバック送信ボタンタップ")
         guard let message = messageTextView.text,
               !message.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             showAlert(title: strings.errorTitle, message: strings.errorEmptyMessage)
@@ -370,17 +367,25 @@ final class ContactFormViewController: UIViewController {
 
     // MARK: - Firestore
 
+    /// フィードバック本文の最大文字数（巨大ドキュメントによる送信失敗・乱用の抑止）
+    private static let maxMessageLength = 2000
+
     private func sendFeedback(message: String) {
         setLoading(true)
 
         let categories = ["bug", "feature", "other"]
-        let selectedCategory = categories[categorySegment.selectedSegmentIndex]
+        // selectedSegmentIndex が範囲外（-1 等）でもクラッシュしないようガード
+        let index = categorySegment.selectedSegmentIndex
+        let selectedCategory = categories.indices.contains(index) ? categories[index] : "other"
+
+        // 本文を最大長で切り詰める（Firestore の 1MB 上限による無言失敗を防ぐ）
+        let cappedMessage = String(message.prefix(Self.maxMessageLength))
 
         let feedbackData: [String: Any] = [
             "category": selectedCategory,
-            "message": message,
+            "message": cappedMessage,
             "appVersion": Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "unknown",
-            "deviceModel": UIDevice.current.model,
+            "deviceModel": Self.deviceModelIdentifier(),
             "systemVersion": UIDevice.current.systemVersion,
             "locale": Locale.current.identifier,
             "timestamp": FieldValue.serverTimestamp()
@@ -405,6 +410,19 @@ final class ContactFormViewController: UIViewController {
     }
 
     // MARK: - Helpers
+
+    /// 実機種の識別子を返す（例: "iPhone16,1"）。
+    /// `UIDevice.current.model` は機種に関わらず常に "iPhone" を返すため、
+    /// トリアージに使えるよう `utsname` の machine 値を取得する。
+    private static func deviceModelIdentifier() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let identifier = withUnsafeBytes(of: &systemInfo.machine) { rawBuffer -> String in
+            let data = Data(rawBuffer)
+            return String(decoding: data.prefix { $0 != 0 }, as: UTF8.self)
+        }
+        return identifier.isEmpty ? UIDevice.current.model : identifier
+    }
 
     private func setLoading(_ loading: Bool) {
         sendButton.isEnabled = !loading

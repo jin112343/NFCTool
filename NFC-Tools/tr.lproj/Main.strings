@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Transfer Düzeltmesi";
 "process_default" = "İşlem";
 
+/* Purchase Status */
+"purchased" = "Satın alındı";
+
+/* History Screen */
+"history_title" = "Okuma geçmişi";
+"no_history" = "Geçmiş yok";
+"clear_history_confirm" = "Tüm geçmişi silmek istiyor musunuz?";
+"cancel" = "İptal";
+"delete" = "Sil";
+
+"felica_card_type" = "Kart Türü";

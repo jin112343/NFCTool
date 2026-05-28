@@ -30,6 +30,7 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        CrashlyticsManager.shared.setCurrentScreen("広告削除画面")
         priceLabel.text = NSLocalizedString("loading", tableName: "Main", comment: "読み込み中...")
         fetchProductPrice()
     }
@@ -52,7 +53,7 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
     }
 
     @IBAction func removeAdAction(_ sender: Any) {
-
+        CrashlyticsManager.shared.logAction("広告削除購入ボタンタップ")
         purchase(PRODUCT_ID: productID)
     }
     
@@ -65,9 +66,10 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
             switch result {
             case .success:
                 // 購入が成功したとき
-                if UserDefaults.standard.object(forKey: "buy") == nil {
+                if !KeychainHelper.hasPurchased() {
                     self.count = 1
-                    UserDefaults.standard.set(1, forKey: "buy")
+                    SafeUserDefaults.set(1, forKey: "buy")
+                    KeychainHelper.savePurchaseState(1)
                 }
 
                 self.verifyPurchase(PRODUCT_ID: PRODUCT_ID)
@@ -75,8 +77,14 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
                 self.navigationController?.popViewController(animated: true)
 
             case .error(let error):
-                // エラーログ出力
-                debugPrint("Purchase error: \(error.localizedDescription)")
+                switch error.code {
+                case .paymentCancelled:
+                    // ユーザーがキャンセルした場合は何もしない
+                    debugPrint("Purchase cancelled by user")
+                default:
+                    // その他のエラー
+                    debugPrint("Purchase error: \(error.localizedDescription)")
+                }
 
             @unknown default:
                 break
@@ -97,10 +105,12 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
                 case .purchased:
                     // リストア成功
                     self.count = 1
-                    UserDefaults.standard.set(1, forKey: "buy")
+                    SafeUserDefaults.set(1, forKey: "buy")
+                    KeychainHelper.savePurchaseState(1)
                 case .notPurchased:
                     // リストアされていない場合
-                    UserDefaults.standard.removeObject(forKey: "buy")
+                    SafeUserDefaults.removeObject(forKey: "buy")
+                    KeychainHelper.removePurchaseState()
                 @unknown default:
                     break
                 }
@@ -117,17 +127,20 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
         
         //リストア機能
         
-        SwiftyStoreKit.restorePurchases { (results) in
+        SwiftyStoreKit.restorePurchases { [weak self] results in
+            guard let self = self else { return }
             if results.restoreFailedPurchases.count > 0{
                 //リストア失敗
-                
+
             }else if results.restoredPurchases.count > 0{
                 //リストア成功
-                UserDefaults.standard.set(1, forKey: "buy")
-                self.count =  1
+                SafeUserDefaults.set(1, forKey: "buy")
+                KeychainHelper.savePurchaseState(1)
+                self.count = 1
+                self.delegate?.catchData(count: self.count)
                 self.navigationController?.popViewController(animated: true)
             }else{
-                
+
                 //リストアするものがない
             }
         }
@@ -142,9 +155,15 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // 購入済みかチェックして広告を表示/非表示
-        if let count = UserDefaults.standard.object(forKey: "buy") as? Int, count == 1 {
-            bannerView.removeFromSuperview()
+        // 購入済みかチェックして広告を表示/非表示、購入ボタンをグレーアウト
+        if KeychainHelper.hasPurchased() {
+            bannerView.isHidden = true
+            // 購入済みの場合は購入ボタンをグレーアウト
+            removeButton.isEnabled = false
+            removeButton.alpha = 0.5
+            restoreButton.isEnabled = false
+            restoreButton.alpha = 0.5
+            priceLabel.text = NSLocalizedString("purchased", tableName: "Main", comment: "購入済み")
         } else {
             // GADBannerViewのプロパティを設定
             bannerView.adUnitID = "ca-app-pub-1187210314934709/5463627829"
@@ -156,12 +175,11 @@ class AdRemoveViewController: UIViewController,GADBannerViewDelegate {
     }
     
     func catchData(count: Int) {
-          
+
         if count == 1 {
-            
-            bannerView.removeFromSuperview()
+            bannerView?.isHidden = true
         }
-        
+
     }
     
     

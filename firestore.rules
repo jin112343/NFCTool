@@ -1,0 +1,42 @@
+rules_version = '2';
+
+// NFC-Tools の Firestore セキュリティルール（推奨）
+//
+// 現状アプリは `feedbacks` コレクションへ匿名で addDocument している。
+// このドキュメントが実際に書き込めている＝本番ルールが開いている可能性が高い。
+// 開いたままだと、同梱の GoogleService-Info.plist を抽出すれば誰でも任意書き込みでき、
+// スパム投入・Firestore 課金の踏み台・任意PIIの保存が可能になる。
+//
+// 下記は「フィードバックの作成のみ許可、それ以外は全面禁止」の最小権限ルール。
+// デプロイ: firebase deploy --only firestore:rules
+// さらに Firebase コンソールで App Check（DeviceCheck / App Attest）を有効化し、
+// Firestore で App Check を「enforce」にすることを強く推奨（正規アプリ以外の書き込みを遮断）。
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // フィードバック: アプリからの新規作成のみ許可。読み取り・更新・削除は全面禁止。
+    match /feedbacks/{docId} {
+      allow read, update, delete: if false;
+      allow create: if isValidFeedback();
+    }
+
+    // それ以外のパスは全面禁止（明示的に許可したものだけ通す）
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+
+// 作成ドキュメントの形・内容を検証（クライアント実装と一致させる）
+function isValidFeedback() {
+  let d = request.resource.data;
+  return d.keys().hasOnly(['category', 'message', 'appVersion', 'deviceModel', 'systemVersion', 'locale', 'timestamp'])
+      && d.category is string && d.category in ['bug', 'feature', 'other']
+      && d.message is string && d.message.size() > 0 && d.message.size() <= 2000
+      && d.appVersion is string && d.appVersion.size() <= 32
+      && d.deviceModel is string && d.deviceModel.size() <= 64
+      && d.systemVersion is string && d.systemVersion.size() <= 32
+      && d.locale is string && d.locale.size() <= 32
+      && d.timestamp == request.time;
+}

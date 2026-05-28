@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Корегування пересадки";
 "process_default" = "Обробка";
 
+/* Purchase Status */
+"purchased" = "Придбано";
+
+/* History Screen */
+"history_title" = "Історія зчитувань";
+"no_history" = "Немає історії";
+"clear_history_confirm" = "Видалити всю історію?";
+"cancel" = "Скасувати";
+"delete" = "Видалити";
+
+"felica_card_type" = "Тип картки";

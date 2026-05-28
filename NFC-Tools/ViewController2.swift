@@ -12,6 +12,7 @@ import GoogleMobileAds
 import SwiftUI
 import OSLog
 import StoreKit
+import SafariServices
 
 class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GADBannerViewDelegate, CatchProtcol {
 
@@ -50,8 +51,8 @@ class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GA
         super.viewWillAppear(animated)
 
         // 購入済みかチェックして広告を表示/非表示
-        if let count = UserDefaults.standard.object(forKey: "buy") as? Int, count == 1 {
-            bannerView.removeFromSuperview()
+        if KeychainHelper.hasPurchased() {
+            bannerView.isHidden = true
         } else {
             // GADBannerViewのプロパティを設定
             bannerView.adUnitID = "ca-app-pub-1187210314934709/5463627829"
@@ -63,12 +64,11 @@ class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GA
     }
     
     func catchData(count: Int) {
-        
+
         if count == 1 {
-            
-            bannerView.removeFromSuperview()
+            bannerView?.isHidden = true
         }
-        
+
     }
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -111,10 +111,9 @@ class ViewController2: UIViewController, MFMailComposeViewControllerDelegate, GA
     
     
     @IBAction func terms3(_ sender: Any) {
-        let url = URL(string: "http://jin021ncf.html.xdomain.jp/Terms-of-service.html")!
-        if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url)
-        }
+        let url = URL(string: "https://jinpost.wordpress.com/2021/01/14/nfc-tool%e5%88%a9%e7%94%a8%e8%a6%8f%e7%b4%84/")!
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
     }
     
     @IBAction func terms4(_ sender: Any) {

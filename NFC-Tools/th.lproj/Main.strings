@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "ปรับการโอน";
 "process_default" = "ประมวลผล";
 
+/* Purchase Status */
+"purchased" = "ซื้อแล้ว";
+
+/* History Screen */
+"history_title" = "ประวัติการอ่าน";
+"no_history" = "ไม่มีประวัติ";
+"clear_history_confirm" = "ลบประวัติทั้งหมด?";
+"cancel" = "ยกเลิก";
+"delete" = "ลบ";
+
+"felica_card_type" = "ประเภทบัตร";

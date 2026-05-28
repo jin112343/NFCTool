@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "Úprava prestupu";
 "process_default" = "Spracovanie";
 
+/* Purchase Status */
+"purchased" = "Zakúpené";
+
+/* History Screen */
+"history_title" = "História čítania";
+"no_history" = "Žiadna história";
+"clear_history_confirm" = "Vymazať celú históriu?";
+"cancel" = "Zrušiť";
+"delete" = "Vymazať";
+
+"felica_card_type" = "Typ karty";

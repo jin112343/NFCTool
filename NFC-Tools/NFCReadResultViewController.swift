@@ -4,7 +4,7 @@ import GoogleMobileAds
 import OSLog
 
 // MARK: - NFC読み取り結果データモデル
-struct NFCReadResult {
+struct NFCReadResult: Codable {
     var tagType: String              // タグの種類（NDEF, FeliCa, ISO7816, MiFare等）
     var tagIdentifier: String?       // タグのUID/識別子
     var capacity: Int                // 容量（bytes）
@@ -13,7 +13,8 @@ struct NFCReadResult {
     var isWritable: Bool             // 書き込み可能か
     var ndefStatus: String           // NDEFステータス（notSupported, readOnly, readWrite）
     var records: [NFCRecordInfo]     // 各レコードの情報
-    var felicaBalance: Int?          // FeliCa残高（交通系IC）
+    var felicaBalance: Int?          // FeliCa残高（交通系IC・電子マネー）
+    var felicaCardType: String?      // FeliCaカード種別（交通系IC, 楽天Edy, nanaco, WAON 等）
     var felicaSystemCode: String?    // FeliCaシステムコード
     var felicaHistories: [FeliCaHistoryEntry]  // FeliCa利用履歴
     var rawPayloadData: [Data]       // 生データ
@@ -28,6 +29,7 @@ struct NFCReadResult {
         self.ndefStatus = "unknown"
         self.records = []
         self.felicaBalance = nil
+        self.felicaCardType = nil
         self.felicaSystemCode = nil
         self.felicaHistories = []
         self.rawPayloadData = []
@@ -35,7 +37,7 @@ struct NFCReadResult {
 }
 
 // MARK: - FeliCa利用履歴エントリ
-struct FeliCaHistoryEntry {
+struct FeliCaHistoryEntry: Codable {
     var index: Int                   // 履歴インデックス（0が最新）
     var terminalType: UInt8          // 端末種
     var processType: UInt8           // 処理種
@@ -47,6 +49,11 @@ struct FeliCaHistoryEntry {
     var day: Int                     // 日
     var sequenceNumber: Int          // 通番
     var regionCode: UInt8            // 地域コード
+
+    enum CodingKeys: String, CodingKey {
+        case index, terminalType, processType, entryStationCode, exitStationCode
+        case balance, year, month, day, sequenceNumber, regionCode
+    }
 
     var dateString: String {
         return String(format: "%04d/%02d/%02d", year, month, day)
@@ -102,7 +109,7 @@ struct FeliCaHistoryEntry {
 }
 
 // MARK: - NFCレコード情報
-struct NFCRecordInfo {
+struct NFCRecordInfo: Codable {
     var recordIndex: Int             // レコード番号
     var tnf: String                  // Type Name Format
     var type: String                 // タイプ（T, U等）
@@ -148,6 +155,7 @@ class NFCReadResultViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        CrashlyticsManager.shared.setCurrentScreen("NFC読取結果画面")
         setupUI()
         setupTableView()
         setupAdvertisement()
@@ -187,7 +195,7 @@ class NFCReadResultViewController: UIViewController {
     }
 
     private func setupAdvertisement() {
-        if let count = UserDefaults.standard.object(forKey: "buy") as? Int, count == 1 {
+        if KeychainHelper.hasPurchased() {
             return
         }
 
@@ -297,7 +305,7 @@ extension NFCReadResultViewController: UITableViewDataSource {
         case .tagInfo:
             return 6 // タイプ、ID、容量、使用サイズ、空き、書き込み可否
         case .felica:
-            return 2 // 残高、システムコード
+            return 3 // カード種別、残高、システムコード
         case .history:
             return result.felicaHistories.count
         case .records:
@@ -317,7 +325,9 @@ extension NFCReadResultViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell", for: indexPath) as! SubtitleCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SubtitleCell", for: indexPath) as? SubtitleCell else {
+            return UITableViewCell()
+        }
         cell.selectionStyle = .none
 
         switch sections[indexPath.section] {
@@ -399,9 +409,18 @@ extension NFCReadResultViewController: UITableViewDataSource {
                 cell.detailTextLabel?.textColor = .systemBlue
                 cell.accessoryType = .disclosureIndicator
                 cell.selectionStyle = .default
+            } else if let rawText = String(data: record.rawPayload, encoding: .utf8)?
+                        .trimmingCharacters(in: .controlCharacters),
+                      !rawText.isEmpty {
+                // テキスト/URLがない場合、生データをテキストとして表示試行
+                cell.textLabel?.text = "  " + getLocalizedMessage(key: "record_text")
+                cell.detailTextLabel?.text = rawText
+                cell.detailTextLabel?.numberOfLines = 0
             } else {
-                cell.textLabel?.text = "  " + getLocalizedMessage(key: "record_size")
-                cell.detailTextLabel?.text = String(format: getLocalizedMessage(key: "bytes_format"), record.payloadSize)
+                // テキスト/URL/生データのいずれも無い場合は内容行をプレースホルダ表示
+                // （サイズは case 4 で表示するため、ここで重複表示しない）
+                cell.textLabel?.text = "  " + getLocalizedMessage(key: "record_text")
+                cell.detailTextLabel?.text = "-"
             }
         case 4:
             cell.textLabel?.text = "  " + getLocalizedMessage(key: "record_size")
@@ -414,6 +433,9 @@ extension NFCReadResultViewController: UITableViewDataSource {
     private func configureFeliCaCell(_ cell: SubtitleCell, row: Int, result: NFCReadResult) {
         switch row {
         case 0:
+            cell.textLabel?.text = getLocalizedMessage(key: "felica_card_type")
+            cell.detailTextLabel?.text = result.felicaCardType ?? "-"
+        case 1:
             cell.textLabel?.text = getLocalizedMessage(key: "felica_balance")
             if let balance = result.felicaBalance {
                 cell.detailTextLabel?.text = formatCurrency(balance)
@@ -422,7 +444,7 @@ extension NFCReadResultViewController: UITableViewDataSource {
             } else {
                 cell.detailTextLabel?.text = "-"
             }
-        case 1:
+        case 2:
             cell.textLabel?.text = getLocalizedMessage(key: "felica_system")
             cell.detailTextLabel?.text = result.felicaSystemCode ?? "-"
         default:

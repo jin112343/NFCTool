@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "Ajuste transferência";
 "process_default" = "Processo";
 
+/* Purchase Status */
+"purchased" = "Comprado";
+
+/* History Screen */
+"history_title" = "Histórico de leitura";
+"no_history" = "Sem histórico";
+"clear_history_confirm" = "Eliminar todo o histórico?";
+"cancel" = "Cancelar";
+"delete" = "Eliminar";
+
+"felica_card_type" = "Tipo de cartão";

@@ -46,10 +46,8 @@ enum LocalizationManager {
         let lang: String
         if let language = language {
             lang = language
-        } else if #available(iOS 16, *) {
-            lang = Locale.current.language.languageCode?.identifier ?? "en"
         } else {
-            lang = Locale.current.languageCode ?? "en"
+            lang = LanguageResolver.resolve(supported: Array(messageTranslations.keys))
         }
         return messageTranslations[lang]?[key.rawValue] ?? messageTranslations["en"]?[key.rawValue] ?? key.rawValue
     }
@@ -1068,44 +1066,31 @@ final class ViewController3: UIViewController {
     private var message: NFCNDEFMessage?
     private var state: NFCState = .standBy
     private var text: String = ""
+    /// ユーザーが「テキストとして書き込む」を選んだ場合 true。URL文字列でもテキストレコードで書く。
+    private var forceTextWrite: Bool = false
     private var adLoader: GADAdLoader!
     
     
     
     // MARK: - Lifecycle Methods
-    private func setupUI() {
-        textFieldSetup()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        CrashlyticsManager.shared.setCurrentScreen("NFC書込画面")
         checkFirstLaunch()
     }
     
-    private func textFieldSetup() {
-        textField.delegate = self
-        textField.placeholder = "テキストまたはURLを入力"
-        textField.autocorrectionType = .no
-        textField.borderStyle = .roundedRect
-    }
-
-
-    // MARK: - 広告の設定
-    private func configureAds() {
-        bannerView.adUnitID = Constants.adUnitID
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureTextField()    // テキスト入力欄（delegate・ローカライズされたプレースホルダ等）
+        configureWriteButton()  // 書込ボタン（初期は無効、入力で有効化）
         setupBannerAd()         // バナー広告の初期設定とロード
     }
     
     
     private func validateUserNameInput() -> String? {
         guard let userName = userNameTextField.text, !userName.isEmpty else {
-            presentAlert(message: "ユーザー名を入力してください。")
+            presentAlert(message: LocalizationManager.message(.emptyText))
             return nil
         }
         return userName
@@ -1123,7 +1108,7 @@ final class ViewController3: UIViewController {
     // MARK: - Writing to NFC with SNS URL
     private func writeSNSURL(baseURL: String, textField: UITextField, requiresHandle: Bool = false) {
         // Validate the input from the provided text field
-        guard let userName = validateTextFieldInput(textField, errorMessage: "ユーザー名を入力してください。") else { return }
+        guard let userName = validateTextFieldInput(textField, errorMessage: LocalizationManager.message(.emptyText)) else { return }
         
         let completeURL: String
         if requiresHandle {
@@ -1144,19 +1129,27 @@ final class ViewController3: UIViewController {
 
     // SNS Button Actions
     @IBAction func writeInstagram(_ sender: UIButton) {
-        writeSNSURL(baseURL: "https://www.instagram.com/", textField: userNameTextField) // ②のテキストボックス
+        CrashlyticsManager.shared.logAction("Instagram書込ボタンタップ")
+        CrashlyticsManager.shared.logNFCOperationStart("Instagram URL書込")
+        writeSNSURL(baseURL: "https://www.instagram.com/", textField: userNameTextField)
     }
 
     @IBAction func writeX(_ sender: UIButton) {
-        writeSNSURL(baseURL: "https://twitter.com/", textField: userNameTextField) // ②のテキストボックス
+        CrashlyticsManager.shared.logAction("X書込ボタンタップ")
+        CrashlyticsManager.shared.logNFCOperationStart("X URL書込")
+        writeSNSURL(baseURL: "https://x.com/", textField: userNameTextField)
     }
 
     @IBAction func writeYouTube(_ sender: UIButton) {
-        writeSNSURL(baseURL: "https://www.youtube.com/", textField: userNameTextField, requiresHandle: true) // ②のテキストボックス
+        CrashlyticsManager.shared.logAction("YouTube書込ボタンタップ")
+        CrashlyticsManager.shared.logNFCOperationStart("YouTube URL書込")
+        writeSNSURL(baseURL: "https://www.youtube.com/", textField: userNameTextField, requiresHandle: true)
     }
 
     @IBAction func writeFacebook(_ sender: UIButton) {
-        writeSNSURL(baseURL: "https://www.facebook.com/", textField: userNameTextField) // ②のテキストボックス
+        CrashlyticsManager.shared.logAction("Facebook書込ボタンタップ")
+        CrashlyticsManager.shared.logNFCOperationStart("Facebook URL書込")
+        writeSNSURL(baseURL: "https://www.facebook.com/", textField: userNameTextField)
     }
     
     private func configureTextField() {
@@ -1172,16 +1165,35 @@ final class ViewController3: UIViewController {
         textField.layer.cornerRadius = 8
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.systemGray4.cgColor
+
+        // Storyboard は固定フレームのみで制約が無く、端末によって書込ボタンと重なるため
+        // コードで Auto Layout を付与して配置を確定させる
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            textField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
+            textField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            textField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            textField.heightAnchor.constraint(equalToConstant: 44)
+        ])
     }
-    
+
     private func configureWriteButton() {
         var config = UIButton.Configuration.filled()
         config.title = LocalizationManager.message(.write)
         config.baseBackgroundColor = .systemBlue
+        config.baseForegroundColor = .white
         config.cornerStyle = .medium
         config.buttonSize = .large
         writeBtn.configuration = config
         writeBtn.isEnabled = false
+
+        // テキスト入力欄の真下に重ならないよう配置する
+        writeBtn.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            writeBtn.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 16),
+            writeBtn.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            writeBtn.trailingAnchor.constraint(equalTo: textField.trailingAnchor)
+        ])
     }
     
 
@@ -1206,9 +1218,9 @@ final class ViewController3: UIViewController {
     
     
     private func checkFirstLaunch() {
-        let defaults = UserDefaults.standard
-        if defaults.bool(forKey: Constants.UserDefaults.firstLaunchKey) {
-            defaults.set(false, forKey: Constants.UserDefaults.firstLaunchKey)
+        guard let val = SafeUserDefaults.bool(forKey: Constants.UserDefaults.firstLaunchKey) else { return }
+        if val {
+            SafeUserDefaults.set(false, forKey: Constants.UserDefaults.firstLaunchKey)
             performSegue(withIdentifier: "nfc", sender: nil)
         }
     }
@@ -1242,7 +1254,7 @@ final class ViewController3: UIViewController {
     }
     
     private func createPayload(from text: String) -> NFCNDEFPayload? {
-        if let url = URL(string: text), verifyURL(url) {
+        if !forceTextWrite, let url = URL(string: text), verifyURL(url) {
             logger.info("URLとして書き込みます: \(url)")
             return NFCNDEFPayload.wellKnownTypeURIPayload(url: url)
         } else {
@@ -1297,7 +1309,7 @@ final class ViewController3: UIViewController {
     }
     
     private func handleWriteSuccess() {
-        if let url = URL(string: text), verifyURL(url) {
+        if !forceTextWrite, let url = URL(string: text), verifyURL(url) {
             logger.info("URL書き込み成功: \(url)")
             stopSession(message: LocalizationManager.urlWriteSuccessMessage(url.absoluteString))
         } else {
@@ -1316,6 +1328,7 @@ final class ViewController3: UIViewController {
             logger.info("セッション終了: \(message)")
         }
         state = .standBy
+        forceTextWrite = false
     }
     
     private func showURLConfirmation(_ url: URL) {
@@ -1326,11 +1339,13 @@ final class ViewController3: UIViewController {
         )
         
         alert.addAction(UIAlertAction(title: LocalizationManager.message(.writeAsURL), style: .default) { [weak self] _ in
+            self?.forceTextWrite = false
             self?.startNFCSession()
         })
-        
+
         alert.addAction(UIAlertAction(title: LocalizationManager.message(.writeAsText), style: .default) { [weak self] _ in
             self?.text = url.absoluteString
+            self?.forceTextWrite = true
             self?.startNFCSession()
         })
         
@@ -1356,11 +1371,13 @@ final class ViewController3: UIViewController {
             }
             
             @IBAction func write(_ sender: Any) {
+                CrashlyticsManager.shared.logAction("書込ボタンタップ")
                 guard let text = textField.text, !text.isEmpty else {
                         presentAlert(message: LocalizationManager.message(.emptyText))
                         return
                     }
 
+                    CrashlyticsManager.shared.logNFCOperationStart("テキスト/URL書込")
                     if let url = URL(string: text), verifyURL(url) {
                         showURLConfirmation(url)
                     } else {
@@ -1376,7 +1393,14 @@ final class ViewController3: UIViewController {
             }
             
             func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+                if let nfcError = error as? NFCReaderError,
+                   nfcError.code == .readerSessionInvalidationErrorUserCanceled ||
+                   nfcError.code == .readerSessionInvalidationErrorFirstNDEFTagRead {
+                    logger.info("NFCセッション正常終了")
+                    return
+                }
                 logger.error("NFCセッションエラー: \(error.localizedDescription)")
+                CrashlyticsManager.shared.recordError(error, context: "NFCセッション - NFC書込画面")
             }
             
             func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {

@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "Átszállás módosítás";
 "process_default" = "Feldolgozás";
 
+/* Purchase Status */
+"purchased" = "Megvásárolva";
+
+/* History Screen */
+"history_title" = "Olvasási előzmények";
+"no_history" = "Nincs előzmény";
+"clear_history_confirm" = "Törli az összes előzményt?";
+"cancel" = "Mégse";
+"delete" = "Törlés";
+
+"felica_card_type" = "Kártyatípus";

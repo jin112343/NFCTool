@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "Overføringsjustering";
 "process_default" = "Behandling";
 
+/* Purchase Status */
+"purchased" = "Kjøpt";
+
+/* History Screen */
+"history_title" = "Lesehistorikk";
+"no_history" = "Ingen historikk";
+"clear_history_confirm" = "Slette all historikk?";
+"cancel" = "Avbryt";
+"delete" = "Slett";
+
+"felica_card_type" = "Korttype";

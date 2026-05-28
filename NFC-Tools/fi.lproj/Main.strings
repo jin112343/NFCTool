@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Siirron tasaus";
 "process_default" = "Prosessi";
 
+/* Purchase Status */
+"purchased" = "Ostettu";
+
+/* History Screen */
+"history_title" = "Lukuhistoria";
+"no_history" = "Ei historiaa";
+"clear_history_confirm" = "Poista kaikki historia?";
+"cancel" = "Peruuta";
+"delete" = "Poista";
+
+"felica_card_type" = "Kortin tyyppi";

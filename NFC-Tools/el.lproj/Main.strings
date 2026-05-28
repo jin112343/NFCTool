@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "Ρύθμιση μεταφοράς";
 "process_default" = "Επεξεργασία";
 
+/* Purchase Status */
+"purchased" = "Αγοράστηκε";
+
+/* History Screen */
+"history_title" = "Ιστορικό ανάγνωσης";
+"no_history" = "Κανένα ιστορικό";
+"clear_history_confirm" = "Διαγραφή όλου του ιστορικού;";
+"cancel" = "Ακύρωση";
+"delete" = "Διαγραφή";
+
+"felica_card_type" = "Τύπος κάρτας";

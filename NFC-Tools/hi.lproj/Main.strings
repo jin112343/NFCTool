@@ -139,3 +139,14 @@
 "process_transfer_adjustment" = "स्थानांतरण समायोजन";
 "process_default" = "प्रक्रिया";
 
+/* Purchase Status */
+"purchased" = "खरीदा गया";
+
+/* History Screen */
+"history_title" = "पठन इतिहास";
+"no_history" = "कोई इतिहास नहीं";
+"clear_history_confirm" = "सारा इतिहास हटाएं?";
+"cancel" = "रद्द करें";
+"delete" = "हटाएं";
+
+"felica_card_type" = "कार्ड प्रकार";

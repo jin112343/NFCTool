@@ -19,6 +19,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
 
+        if UIApplication.shared.isProtectedDataAvailable {
+            configureRootViewController(window: window)
+        } else {
+            // デバイスロック中（プリウォーミング）はスプラッシュ画面を表示して待機
+            window.rootViewController = UIViewController()
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(protectedDataAvailable),
+                name: UIApplication.protectedDataDidBecomeAvailableNotification,
+                object: nil
+            )
+        }
+
+        window.makeKeyAndVisible()
+    }
+
+    @objc private func protectedDataAvailable() {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.protectedDataDidBecomeAvailableNotification,
+            object: nil
+        )
+        guard let window = self.window else { return }
+        configureRootViewController(window: window)
+    }
+
+    private func configureRootViewController(window: UIWindow) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let tutorial = UserDefaults.standard.object(forKey: "Tutorial") as? Int, tutorial == 1 {
             let mainVC = storyboard.instantiateViewController(withIdentifier: "ViewController")
@@ -28,8 +55,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let mainVC = storyboard.instantiateViewController(withIdentifier: "TutorialViewController")
             window.rootViewController = mainVC
         }
-
-        window.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

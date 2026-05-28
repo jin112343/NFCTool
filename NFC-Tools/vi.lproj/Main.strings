@@ -132,3 +132,14 @@
 "process_transfer_adjustment" = "Điều chỉnh chuyển tuyến";
 "process_default" = "Xử lý";
 
+/* Purchase Status */
+"purchased" = "Đã mua";
+
+/* History Screen */
+"history_title" = "Lịch sử đọc";
+"no_history" = "Không có lịch sử";
+"clear_history_confirm" = "Xóa tất cả lịch sử?";
+"cancel" = "Hủy";
+"delete" = "Xóa";
+
+"felica_card_type" = "Loại thẻ";

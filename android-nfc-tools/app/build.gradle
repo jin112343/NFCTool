@@ -37,6 +37,11 @@ android {
 }
 
 dependencies {
+    constraints {
+        implementation('com.google.guava:guava:33.7.2-android') {
+            because 'Fix insecure temporary-directory handling in older Guava'
+        }
+    }
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'

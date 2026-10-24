@@ -6,8 +6,8 @@ target 'NFC-Tools' do
   pod 'SwiftyStoreKit', :inhibit_warnings => true
   pod 'Google-Mobile-Ads-SDK'
   pod 'EAIntroView', :inhibit_warnings => true
-  pod 'FirebaseFirestore', :inhibit_warnings => true
-  pod 'FirebaseCrashlytics', :inhibit_warnings => true
+  pod 'FirebaseFirestore', '= 12.19.3', :inhibit_warnings => true
+  pod 'FirebaseCrashlytics', '= 12.19.0', :inhibit_warnings => true
 
   post_install do |installer|
     installer.pods_project.targets.each do |target|
